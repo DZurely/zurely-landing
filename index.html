@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zurely | The Future of Tenancy Compliance in Malaysia</title>
+    <meta name="description" content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes.">
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0052CC;
+            --secondary: #00B8D9;
+            --dark-navy: #091E42; /* Deeper footer color */
+            --dark-bg: #071329;    /* Absolute dark for footer */
+            --light-blue: #F0F7FF;
+            --white: #ffffff;
+            --text-main: #42526E;
+            --text-light: #EBECF0;
+            --footer-text: #A5ADBA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 25px 0;
+            background: white;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1.5px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at center, #ffffff 0%, #f4f8ff 100%);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            color: var(--dark-navy);
+            line-height: 1.05;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #505F79;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            background-color: white;
+            box-shadow: 0 4px 14px rgba(0, 82, 204, 0.15);
+        }
+
+        /* --- REVENUE ENGINES (OUTSTANDING) --- */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-blue);
+        }
+
+        .section-tag {
+            text-align: center;
+            display: block;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            font-weight: 800;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            padding: 50px;
+            border-radius: 20px;
+            background: var(--white);
+            border: none;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--primary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 82, 204, 0.12);
+        }
+
+        .card h3 {
+            color: var(--dark-navy);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: #E6EFFC;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #505F79;
+        }
+
+        /* --- Value Props --- */
+        .value-props {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            text-align: center;
+        }
+
+        .prop-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-navy);
+            font-weight: 700;
+        }
+
+        /* --- Wide & Dark Footer (Updated with specific text) --- */
+        footer {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+            color: var(--footer-text);
+            width: 100%;
+            border-top: 4px solid var(--primary);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-text-block {
+            max-width: 900px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-text-block p {
+            margin-bottom: 12px;
+        }
+
+        .footer-contact a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright-line {
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #1a2b4a;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* --- Responsive Queries --- */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">ZURELY</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>The Future of Tenancy <br>Compliance in Malaysia</h1>
+            <p>Effortless LHDN Stamping and Secure Tenant Verification for Real Estate Professionals.</p>
+            <div class="coming-soon-badge">Coming soon...</div>
+        </div>
+    </section>
+
+    <!-- Revenue Engines (Updated with high contrast) -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">The Revenue Engines</h2>
+            <div class="grid">
+                <!-- Service 1 -->
+                <div class="card">
+                    <span class="price-tag">ONLY RM 30</span>
+                    <h3>The Stamping Bridge</h3>
+                    <p>Automate your Tenancy Agreement (TA) submissions to LHDN in minutes.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="card">
+                    <span class="price-tag">Security & Trust</span>
+                    <h3>The Zurely Pass</h3>
+                    <p>Secure eKYC and credit scoring for tenants, building a foundation of trust for every deal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="value-props">
+        <div class="container">
+            <h2 class="section-title">Why Choose Zurely?</h2>
+            <div class="prop-grid">
+                <div class="prop-item">
+                    <h4>Speed</h4>
+                    <p>Skip the physical queues and manual paperwork.</p>
+                </div>
+                <div class="prop-item">
+                    <h4>Security</h4>
+                    <p>Your data is protected in the "Zurely Vault" using bank-grade encryption.</p>
+                </div>
+                <div class="prop-item">
+                    <h4>Legacy</h4>
+                    <p>Built by industry veterans to modernize the Malaysian property ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">ZURELY</a>
+
+                <div class="footer-text-block">
+                    <p>Zurely is a digital PropTech platform owned and operated by <strong>Double D Sdn. Bhd.</strong></p>
+
+                    <p><strong>Service focus:</strong> Automated LHDN Stamping submissions and AI-powered eKYC tenant verification for the Malaysian market.</p>
+
+                    <p><strong>Compliance:</strong> This platform is designed in accordance with the Malaysian Personal Data Protection Act (PDPA) 2010 and the LHDN Self-Assessment Model for stamp duty.</p>
+
+                    <div class="footer-contact">
+                        <strong>Contact:</strong> <a href="mailto:support@zurely.my">support@zurely.my</a>
+                    </div>
+                </div>
+
+                <div class="copyright-line">
+                    © 2025-2026 Zurely. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
