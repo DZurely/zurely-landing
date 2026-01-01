@@ -1,2 +1,5 @@
-# zurely-landing
-A simple landing page which tells people we are coming soon!
+# Zurely
+
+A Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes.
+
+Please visit https://zurely.my
