@@ -1,28 +1,30 @@
 import React from "react";
-import HeroSection from "./sections/Hero";
-import FeaturesSection from "./sections/Features";
-import WaitlistSection from "./sections/Waitlist";
-import Footer from "./sections/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ModalProvider } from "./context/ModalContext";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/privacypolicy";
+import CookiePolicy from "./pages/cookiepolicy";
+import RefundPolicy from "./pages/refundpolicy";
+import TermsOfService from "./pages/termofservice";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <>
-      {/* Animated gradient background (fixed) */}
-      <div className="gradient-bg">
-        <div className="gradient-orb-3" />
-      </div>
-
-      {/* Subtle noise texture overlay */}
-      <div className="noise-overlay" />
-
-      {/* Page content */}
-      <div className="relative" style={{ zIndex: 2 }}>
-        <HeroSection />
-        <FeaturesSection />
-        <WaitlistSection />
-        <Footer />
-      </div>
-    </>
+    <ModalProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ModalProvider>
   );
 }
 

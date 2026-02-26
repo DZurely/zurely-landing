@@ -1,21 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
-  logo?: React.ReactNode;
-  links?: { label: string; href: string }[];
+  links?: { label: string; href?: string; isButton?: boolean; onClick?: () => void }[];
 }
 
 export default function Navbar({
-  logo = (
-    <img src="/Zurely icon - transparent.png" alt="Zurely" className="h-20" />
-  ),
   links = [],
 }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -23,126 +21,198 @@ export default function Navbar({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
   return (
-    <nav style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop: 24, paddingLeft: 16, paddingRight: 16, position: "relative", zIndex: 50 }}>
-      {/* Container */}
+    <nav
+      style={{
+        width: "100%",
+        height: scrolled ? "80px" : "100px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        background: scrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.05)" : "none",
+        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+      }}
+    >
       <div
         style={{
           width: "100%",
-          maxWidth: 1100,
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 24px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0px 20px",
-          borderRadius: 16,
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          background: scrolled ? "rgba(8, 9, 13, 0.88)" : "rgba(255,255,255,0.05)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.4)" : "none",
-          transition: "background 0.3s, box-shadow 0.3s",
         }}
       >
-        {/* Logo */}
-        <div>{logo}</div>
-
-        {/* Desktop links */}
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="btn-shimmer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "10px 24px",
-                borderRadius: 12,
-                fontWeight: 600,
-                fontSize: 14,
-                color: "#000",
-                background: "linear-gradient(135deg, #00db70 0%, #00ffa3 100%)",
-                textDecoration: "none",
-                boxShadow: "0 0 20px rgba(0,219,112,0.3)",
-                transition: "transform 0.2s, opacity 0.2s",
-              }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.04)")}
-              onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)")}
-            >
-              {link.label}
-            </a>
-          ))}
-
-          {/* Mobile burger */}
-          {/* <button
-            className="mobile-menu-btn"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-            style={{
-              display: "none",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 36, height: 36,
-              borderRadius: 10,
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#f0f4ff",
-              cursor: "pointer",
-            }}
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button> */}
-        </div>
-      </div>
-
-      {/* Mobile dropdown */}
-      {open && (
-        <div
+        {/* Logo / Branding */}
+        <Link
+          to="/"
           style={{
-            position: "absolute",
-            top: 80,
-            left: 16, right: 16,
-            borderRadius: 16,
-            padding: 20,
             display: "flex",
-            flexDirection: "column",
-            gap: 12,
-            background: "rgba(8, 9, 13, 0.97)",
-            backdropFilter: "blur(20px)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+            alignItems: "center",
+            gap: "14px",
+            textDecoration: "none"
           }}
         >
-          {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="btn-shimmer"
+          <img
+            src="/Zurely icon - transparent.png"
+            alt="Zurely"
+            style={{ height: scrolled ? "52px" : "64px", transition: "height 0.4s", filter: "drop-shadow(0 4px 12px rgba(0,197,99,0.15))" }}
+          />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span style={{
+              fontSize: "1.75rem",
+              fontWeight: "600",
+              color: "#1548AA",
+              lineHeight: 1,
+              letterSpacing: "0",
+            }}>
+              Zurely
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop links */}
+        <div style={{ display: "none", alignItems: "center", gap: "10px" }} className="desktop-nav">
+          {links.map((link) =>
+            link.isButton ? (
+              <button
+                key={link.label}
+                onClick={link.onClick}
+                className="btn-shimmer pulse-glow"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  padding: "12px 28px",
+                  borderRadius: "14px",
+                  fontWeight: "800",
+                  fontSize: "14px",
+                  color: "#ffffff",
+                  background: "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                  boxShadow: "0 4px 15px rgba(0, 197, 99, 0.2)",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+              >
+                {link.label}
+              </button>
+            ) : (
+              <Link
+                key={link.label}
+                to={link.href?.startsWith("/#") ? { pathname: "/", hash: link.href.substring(2) } : (link.href || "/")}
+                style={{
+                  padding: "10px 18px",
+                  fontWeight: "600",
+                  fontSize: "15px",
+                  color: "#4b5563",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#00c563")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#4b5563")}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="mobile-toggle"
+          onClick={() => setOpen(!open)}
+          style={{
+            display: "none",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "44px",
+            height: "44px",
+            background: "transparent",
+            border: "none",
+            color: "#0d1117",
+            cursor: "pointer",
+          }}
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        style={{
+          position: "fixed",
+          top: scrolled ? "80px" : "100px",
+          left: 0,
+          width: "100%",
+          height: open ? "auto" : "0",
+          overflow: "hidden",
+          background: "#ffffff",
+          borderBottom: open ? "1px solid rgba(0,0,0,0.05)" : "none",
+          transition: "height 0.3s ease-in-out",
+          zIndex: 999,
+          padding: open ? "24px" : "0",
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        {links.map((link) => (
+          link.isButton ? (
+            <button
+              key={link.label}
+              onClick={link.onClick}
               style={{
-                textAlign: "center",
-                padding: "12px 24px",
-                borderRadius: 12,
-                fontWeight: 600,
-                fontSize: 14,
-                color: "#000",
-                background: "linear-gradient(135deg, #00db70 0%, #00ffa3 100%)",
-                textDecoration: "none",
+                width: "100%",
+                padding: "16px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
+                border: "none",
+                color: "#ffffff",
+                fontWeight: "700",
+                fontSize: "16px",
               }}
             >
               {link.label}
-            </a>
-          ))}
-        </div>
-      )}
+            </button>
+          ) : (
+            <Link
+              key={link.label}
+              to={link.href?.startsWith("/#") ? { pathname: "/", hash: link.href.substring(2) } : (link.href || "/")}
+              style={{
+                textAlign: "center",
+                padding: "12px",
+                color: "#0d1117",
+                textDecoration: "none",
+                fontSize: "18px",
+                fontWeight: "600",
+              }}
+            >
+              {link.label}
+            </Link>
+          )
+        ))}
+      </div>
 
-      {/* Hide desktop links on mobile via style tag */}
       <style>{`
-        @media (max-width: 640px) {
-          .mobile-menu-btn { display: flex !important; }
+        @media (min-width: 769px) {
+          .desktop-nav { display: flex !important; }
         }
-        @media (min-width: 641px) {
-          .mobile-menu-btn { display: none !important; }
+        @media (max-width: 768px) {
+          .mobile-toggle { display: flex !important; }
         }
       `}</style>
     </nav>

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import {
-  FileCheck, ShieldCheck, Zap, Users, BarChart3, Lock,
+  FileCheck, ShieldCheck, Zap, ListCheck, BarChart3, Recycle,
 } from "lucide-react";
 
 const features = [
@@ -9,7 +9,9 @@ const features = [
     icon: <FileCheck size={26} />,
     title: "Automated Documentation",
     description: "Generate, manage, and archive critical property documents in seconds — no paperwork, no delays.",
-    color: "#00db70",
+    color: "#00c563",
+    bg: "rgba(0,197,99,0.07)",
+    border: "rgba(0,197,99,0.18)",
     delay: 0,
   },
   {
@@ -17,20 +19,26 @@ const features = [
     title: "Secure Onboarding",
     description: "Verify tenants and buyers through a trusted, end-to-end digital process built for compliance.",
     color: "#0987e9",
+    bg: "rgba(9,135,233,0.07)",
+    border: "rgba(9,135,233,0.18)",
     delay: 0.1,
   },
   {
     icon: <Zap size={26} />,
     title: "Instant Compliance",
     description: "Stay ahead of Malaysian property regulations with automated checks and real-time guidance.",
-    color: "#00ffa3",
+    color: "#009e4f",
+    bg: "rgba(0,158,79,0.07)",
+    border: "rgba(0,158,79,0.18)",
     delay: 0.2,
   },
   {
-    icon: <Users size={26} />,
-    title: "Agent Collaboration",
-    description: "Seamlessly manage your team, clients, and deals from a unified, role-based workspace.",
-    color: "#00db70",
+    icon: <ListCheck size={26} />,
+    title: "Proactive Tracking",
+    description: "Get automated notifications for renewals and rent reviews — never miss a deadline again.",
+    color: "#00c563",
+    bg: "rgba(0,197,99,0.07)",
+    border: "rgba(0,197,99,0.18)",
     delay: 0.3,
   },
   {
@@ -38,20 +46,32 @@ const features = [
     title: "Portfolio Intelligence",
     description: "Track performance, pipeline health, and key metrics across your entire property portfolio.",
     color: "#0987e9",
+    bg: "rgba(9,135,233,0.07)",
+    border: "rgba(9,135,233,0.18)",
     delay: 0.4,
   },
   {
-    icon: <Lock size={26} />,
-    title: "Privacy by Design",
-    description: "PDPA-compliant data handling ensures your clients' information is always protected and secure.",
-    color: "#00ffa3",
+    icon: <Recycle size={26} />,
+    title: "Carbon-Neutral Processing",
+    description: "Eliminate paper waste and travel emissions. 100% digital workflow that respects your time and environment.",
+    color: "#009e4f",
+    bg: "rgba(0,158,79,0.07)",
+    border: "rgba(0,158,79,0.18)",
     delay: 0.5,
   },
 ];
 
 export default function FeaturesSection() {
   return (
-    <section id="features" style={{ position: "relative", zIndex: 2, padding: "112px 24px" }}>
+    <section
+      id="features"
+      style={{
+        position: "relative",
+        zIndex: 2,
+        padding: "70px 24px",
+        background: "#f9fafb",
+      }}
+    >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
         {/* Header */}
@@ -60,24 +80,25 @@ export default function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{ textAlign: "center", marginBottom: 64 }}
+          style={{ textAlign: "center", marginBottom: 44 }}
         >
-          <div className="badge" style={{ margin: "0 auto 16px" }}>
+          <div className="badge" style={{ margin: "0 auto 12px" }}>
             A Glimpse of What's Ahead
           </div>
           <h2
             style={{
-              fontSize: "clamp(1.8rem, 4vw, 3rem)",
-              fontWeight: 700,
+              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+              fontWeight: 800,
               lineHeight: 1.2,
-              marginBottom: 20,
-              color: "#f0f4ff",
+              marginBottom: 14,
+              color: "#0d1117",
+              letterSpacing: "-0.025em",
             }}
           >
             Built for the Way{" "}
             <span className="gradient-text">Professionals Work</span>
           </h2>
-          <p style={{ fontSize: 18, color: "#7a8599", maxWidth: 560, margin: "0 auto" }}>
+          <p style={{ fontSize: 17, color: "#4b5563", maxWidth: 540, margin: "0 auto", lineHeight: 1.7 }}>
             Zurely brings together every tool a modern real estate professional
             needs — intelligently designed, securely delivered.
           </p>
@@ -94,18 +115,20 @@ export default function FeaturesSection() {
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              className="glass"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: feature.delay }}
+              whileHover={{ scale: 1.02, y: -4 }}
               style={{
                 borderRadius: 20,
                 padding: 28,
+                background: "#ffffff",
+                border: "1px solid rgba(0,0,0,0.07)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
                 cursor: "default",
-                transition: "transform 0.3s",
+                transition: "box-shadow 0.3s",
               }}
-              whileHover={{ scale: 1.02 }}
             >
               {/* Icon */}
               <div
@@ -117,34 +140,38 @@ export default function FeaturesSection() {
                   alignItems: "center",
                   justifyContent: "center",
                   marginBottom: 20,
-                  background: `${feature.color}18`,
+                  background: feature.bg,
                   color: feature.color,
-                  border: `1px solid ${feature.color}30`,
+                  border: `1px solid ${feature.border}`,
                 }}
               >
                 {feature.icon}
               </div>
 
               {/* Title */}
-              <h3 style={{ fontSize: 17, fontWeight: 600, color: "#f0f4ff", marginBottom: 8 }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#0d1117", marginBottom: 8 }}>
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p style={{ fontSize: 14, color: "#7a8599", lineHeight: 1.65 }}>
+              <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.7 }}>
                 {feature.description}
               </p>
 
               {/* Coming soon tag */}
               <div
                 style={{
-                  marginTop: 16,
+                  marginTop: 18,
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 6,
                   fontSize: 12,
-                  fontWeight: 500,
-                  color: feature.color + "99",
+                  fontWeight: 600,
+                  color: feature.color,
+                  background: feature.bg,
+                  padding: "4px 10px",
+                  borderRadius: 100,
+                  border: `1px solid ${feature.border}`,
                 }}
               >
                 <div
@@ -152,7 +179,7 @@ export default function FeaturesSection() {
                     width: 6,
                     height: 6,
                     borderRadius: "50%",
-                    background: feature.color + "99",
+                    background: feature.color,
                   }}
                 />
                 Coming soon
