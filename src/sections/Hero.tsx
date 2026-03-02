@@ -5,12 +5,13 @@ import { useModal } from "../context/ModalContext";
 
 export default function HeroSection() {
   const { openModal } = useModal();
+
   return (
     <section
       id="home"
       style={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "fit-content",
         display: "flex",
         flexDirection: "column",
         zIndex: 2,
@@ -23,7 +24,7 @@ export default function HeroSection() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "120px 24px 30px",
+          padding: "80px 24px 20px",
         }}
       >
         <div style={{ maxWidth: 860, width: "100%", textAlign: "center" }}>
@@ -41,7 +42,7 @@ export default function HeroSection() {
               style={{
                 height: "clamp(72px, 12vw, 120px)",
                 display: "inline-block",
-                filter: "drop-shadow(0 4px 24px rgba(0,197,99,0.18))",
+                filter: "drop-shadow(0 4px 24px rgba(44,203,111,0.18))",
               }}
             />
           </motion.div>
@@ -55,7 +56,7 @@ export default function HeroSection() {
           >
             <div className="badge">
               <span className="dot-pulse" />
-              Coming Soon — Limited Seat Available
+              Coming Soon...
             </div>
           </motion.div>
 
@@ -65,18 +66,18 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{
-              fontSize: "clamp(1.9rem, 4.8vw, 4rem)",
+              fontSize: "clamp(1.5rem, 4.8vw, 3.7rem)",
               fontWeight: 800,
               lineHeight: 1.15,
               letterSpacing: "-0.025em",
               marginBottom: 16,
-              color: "#0d1117",
+              color: "var(--text-primary)",
             }}
           >
             The All-in-One Digital Workspace
             <br />
             <span className="gradient-text">
-              for the Modern Real Estate Professional.
+              for the Modern Real Estate Professional
             </span>
           </motion.h1>
 
@@ -86,11 +87,11 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
             style={{
-              fontSize: "clamp(1rem, 1.8vw, 1.15rem)",
+              fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
               maxWidth: 640,
               margin: "0 auto 32px",
               lineHeight: 1.75,
-              color: "#4b5563",
+              color: "var(--text-secondary)",
             }}
           >
             Modernising compliance and documentation for the Malaysian property
@@ -124,7 +125,7 @@ export default function HeroSection() {
                 fontWeight: 700,
                 fontSize: 16,
                 color: "#ffffff",
-                background: "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
+                background: "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
                 border: "none",
                 cursor: "pointer",
                 transition: "transform 0.2s, opacity 0.2s",
@@ -134,7 +135,7 @@ export default function HeroSection() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1)")}
             >
-              Join the Waitlist — It's Free !
+              Join the Waitlist
             </button>
 
             {/* Secondary CTA */}
@@ -148,59 +149,23 @@ export default function HeroSection() {
                 borderRadius: 16,
                 fontWeight: 600,
                 fontSize: 16,
-                color: "#4b5563",
-                background: "rgba(0,0,0,0.04)",
-                border: "1.5px solid rgba(0,0,0,0.1)",
+                color: "var(--text-secondary)",
+                background: "var(--bg-surface-2)",
+                border: "1.5px solid var(--border)",
                 textDecoration: "none",
                 transition: "transform 0.2s, border-color 0.2s",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.03)";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,197,99,0.4)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(44,203,111,0.4)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
                 (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,0,0,0.1)";
               }}
             >
-              See What's Coming
+              What's Coming
             </a>
-          </motion.div>
-
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: 48,
-              marginTop: 48,
-            }}
-          >
-            {[
-              { value: "PDPA", label: "Legal & Regulatory Ready" },
-              { value: "100%", label: "Built for Malaysia" },
-            ].map((stat, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 800,
-                    color: "#00c563",
-                    marginBottom: 4,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  {stat.value}
-                </div>
-                <div style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </motion.div>
         </div>
       </div>
@@ -210,14 +175,14 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        style={{ display: "flex", justifyContent: "center", paddingBottom: 36 }}
+        style={{ display: "flex", justifyContent: "center", paddingBottom: 20 }}
       >
         <motion.a
           href="#features"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            color: "#9ca3af",
+            color: "var(--text-muted)",
             textDecoration: "none",
             display: "flex",
             flexDirection: "column",

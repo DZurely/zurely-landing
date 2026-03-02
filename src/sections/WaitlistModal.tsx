@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { CheckCircle, Loader, ArrowRight, X, Sparkles } from "lucide-react";
 
 const SHEET_ENDPOINT =
-    "https://script.google.com/macros/s/AKfycbwOHm8RCSteq47QRKb2wKQJ-TnS2_-eh2mxCrNFetkpcq6QjJZlCOk3aCxPFjUXti8p/exec";
+    "https://script.google.com/macros/s/AKfycbzr03QfN2GiVtTyEBvvVBn428R28GudHgab05T4o6bZBynGeBvjiXG_ZT_Kj5o3mWmb/exec";
 
 type FormState = "idle" | "loading" | "success" | "error";
 interface FormData { name: string; email: string; phone: string; agency: string; }
@@ -72,7 +72,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
     const fields = [
         { name: "name", label: "Full Name", placeholder: "John Doe", type: "text", required: true },
-        { name: "email", label: "Work Email", placeholder: "example@agency.com", type: "email", required: true },
+        { name: "email", label: "Work Email", placeholder: "example@agency.com", type: "email", required: false },
         { name: "phone", label: "Phone Number", placeholder: "+60 12-345 6789", type: "tel", required: true },
         { name: "agency", label: "Agency / Firm", placeholder: "Agency Sdn Bhd", type: "text", required: false },
     ];
@@ -106,9 +106,9 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                 width: 36,
                                 height: 36,
                                 borderRadius: 10,
-                                border: "1.5px solid rgba(0,0,0,0.1)",
-                                background: "rgba(0,0,0,0.04)",
-                                color: "#4b5563",
+                                border: "1.5px solid var(--border)",
+                                background: "var(--bg-surface-2)",
+                                color: "var(--text-secondary)",
                                 cursor: "pointer",
                                 display: "flex",
                                 alignItems: "center",
@@ -137,35 +137,35 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                     >
                                         <div
                                             style={{
-                                                width: 88,
-                                                height: 88,
+                                                width: window.innerWidth < 480 ? 72 : 88,
+                                                height: window.innerWidth < 480 ? 72 : 88,
                                                 borderRadius: "50%",
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",
-                                                background: "rgba(0, 197, 99, 0.1)",
-                                                border: "2px solid rgba(0,197,99,0.35)",
+                                                background: "rgba(44, 203, 111, 0.1)",
+                                                border: "2px solid rgba(44, 203, 111, 0.35)",
                                             }}
                                         >
-                                            <CheckCircle size={44} style={{ color: "#00c563" }} />
+                                            <CheckCircle size={44} style={{ color: "#2CCB6F" }} />
                                         </div>
                                     </div>
                                     <h3
                                         style={{
-                                            fontSize: 26,
+                                            fontSize: window.innerWidth < 480 ? 22 : 26,
                                             fontWeight: 800,
-                                            color: "#0d1117",
+                                            color: "var(--text-primary)",
                                             marginBottom: 12,
                                             letterSpacing: "-0.02em",
                                         }}
                                     >
                                         You're on the list! 🎉
                                     </h3>
-                                    <p style={{ color: "#4b5563", fontSize: 16, lineHeight: 1.65, marginBottom: 8 }}>
+                                    <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.65, marginBottom: 8 }}>
                                         Thank you for registering your interest in Zurely.
                                         We'll reach out as soon as your beta access is ready.
                                     </p>
-                                    <p style={{ fontSize: 14, color: "#00c563", fontWeight: 600 }}>
+                                    <p style={{ fontSize: 14, color: "#2CCB6F", fontWeight: 600 }}>
                                         Keep an eye on your inbox — we'll be in touch soon.
                                     </p>
                                     <button
@@ -174,17 +174,17 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             marginTop: 28,
                                             padding: "12px 32px",
                                             borderRadius: 12,
-                                            background: "rgba(0,197,99,0.1)",
-                                            border: "1.5px solid rgba(0,197,99,0.25)",
-                                            color: "#009e4f",
+                                            background: "rgba(44, 203, 111, 0.1)",
+                                            border: "1.5px solid rgba(44, 203, 111, 0.25)",
+                                            color: "#23A259",
                                             fontWeight: 600,
                                             fontSize: 15,
                                             cursor: "pointer",
                                             fontFamily: "inherit",
                                             transition: "background 0.2s",
                                         }}
-                                        onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(0,197,99,0.15)")}
-                                        onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(0,197,99,0.1)")}
+                                        onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.15)")}
+                                        onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.1)")}
                                     >
                                         Back to Zurely
                                     </button>
@@ -192,27 +192,22 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                             ) : (
                                 <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                                     {/* Header */}
-                                    <div style={{ marginBottom: 28, paddingRight: 32 }}>
-                                        <div className="badge" style={{ marginBottom: 14 }}>
-                                            <Sparkles size={13} />
-                                            Limited Spots Available
-                                        </div>
+                                    <div style={{ marginBottom: 20, paddingRight: window.innerWidth < 480 ? 0 : 32 }}>
                                         <h2
                                             style={{
                                                 fontSize: "clamp(1.5rem, 3vw, 2rem)",
                                                 fontWeight: 800,
-                                                color: "#0d1117",
+                                                color: "var(--text-primary)",
                                                 lineHeight: 1.2,
                                                 marginBottom: 10,
                                                 letterSpacing: "-0.025em",
                                             }}
                                         >
-                                            Join{" "}
-                                            <span className="gradient-text">Zurely</span> Waitlist
+                                            Join Zurely Waitlist
                                         </h2>
-                                        <p style={{ fontSize: 15, color: "#4b5563", lineHeight: 1.6 }}>
+                                        <p style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.6 }}>
                                             Be among Malaysia's first real estate professionals to experience
-                                            the future of property compliance. No spam, we will reach out to you when it's ready.
+                                            the future of property compliance.We will reach out to you when it's ready.
                                         </p>
                                     </div>
 
@@ -234,14 +229,14 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                                             display: "block",
                                                             fontSize: 13,
                                                             fontWeight: 600,
-                                                            color: "#374151",
+                                                            color: "var(--text-secondary)",
                                                             marginBottom: 7,
                                                             letterSpacing: "0.01em",
                                                         }}
                                                     >
                                                         {field.label}
                                                         {field.required && (
-                                                            <span style={{ color: "#00c563", marginLeft: 3 }}>*</span>
+                                                            <span style={{ color: "var(--brand-green)", marginLeft: 3 }}>*</span>
                                                         )}
                                                     </label>
                                                     <input
@@ -283,18 +278,18 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                         <p
                                             style={{
                                                 fontSize: 12,
-                                                color: "#9ca3af",
+                                                color: "var(--text-muted)",
                                                 lineHeight: 1.6,
                                                 marginBottom: 20,
                                                 textAlign: "center",
                                             }}
                                         >
                                             By submitting, you agree to our{" "}
-                                            <a href="/privacy-policy" style={{ color: "#00c563", textDecoration: "underline" }}>
+                                            <a href="/privacy-policy" style={{ color: "#2CCB6F", textDecoration: "underline" }}>
                                                 Privacy Policy
                                             </a>{" "}
                                             and consent to the processing of your personal data under the{" "}
-                                            <strong style={{ color: "#4b5563" }}>Personal Data Protection Act 2010 (PDPA)</strong>.
+                                            <strong style={{ color: "var(--text-secondary)" }}>Personal Data Protection Act (PDPA) 2010 </strong>and <strong style={{ color: "var(--text-secondary)" }}>its 2024 Amendments</strong>.
                                         </p>
 
                                         {/* Submit */}
@@ -317,9 +312,9 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                                 cursor: formState === "loading" ? "not-allowed" : "pointer",
                                                 background:
                                                     formState === "loading"
-                                                        ? "rgba(0,197,99,0.5)"
-                                                        : "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
-                                                boxShadow: "0 0 30px rgba(0,197,99,0.2), 0 4px 16px rgba(0,0,0,0.1)",
+                                                        ? "rgba(44, 203, 111, 0.5)"
+                                                        : "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
+                                                boxShadow: "0 0 30px rgba(44, 203, 111, 0.2), 0 4px 16px rgba(0,0,0,0.1)",
                                                 opacity: formState === "loading" ? 0.75 : 1,
                                                 transition: "transform 0.2s, opacity 0.2s",
                                                 fontFamily: "inherit",
@@ -351,7 +346,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                         style={{
                                             textAlign: "center",
                                             fontSize: 13,
-                                            color: "#9ca3af",
+                                            color: "var(--text-muted)",
                                             marginTop: 18,
                                         }}
                                     >

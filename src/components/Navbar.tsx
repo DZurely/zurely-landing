@@ -30,7 +30,7 @@ export default function Navbar({
     <nav
       style={{
         width: "100%",
-        height: scrolled ? "80px" : "100px",
+        height: scrolled ? "64px" : "80px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -38,9 +38,9 @@ export default function Navbar({
         top: 0,
         left: 0,
         zIndex: 1000,
-        background: scrolled ? "rgba(255, 255, 255, 0.95)" : "transparent",
+        background: scrolled ? "var(--glass-bg)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.05)" : "none",
+        borderBottom: scrolled ? "1px solid var(--border)" : "none",
         transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
@@ -66,19 +66,18 @@ export default function Navbar({
           }}
         >
           <img
-            src="/Zurely icon - transparent.png"
+            src="/zurely-w-text-transparent.png"
             alt="Zurely"
-            style={{ height: scrolled ? "52px" : "64px", transition: "height 0.4s", filter: "drop-shadow(0 4px 12px rgba(0,197,99,0.15))" }}
+            style={{ height: scrolled ? "60px" : "64px", transition: "height 0.4s", filter: "drop-shadow(0 4px 12px rgba(44,203,111,0.15))" }}
           />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{
               fontSize: "1.75rem",
               fontWeight: "600",
-              color: "#1548AA",
+              color: "#1A47A9",
               lineHeight: 1,
               letterSpacing: "0",
             }}>
-              Zurely
             </span>
           </div>
         </Link>
@@ -99,11 +98,11 @@ export default function Navbar({
                   fontWeight: "800",
                   fontSize: "14px",
                   color: "#ffffff",
-                  background: "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
+                  background: "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
                   border: "none",
                   cursor: "pointer",
                   transition: "all 0.3s",
-                  boxShadow: "0 4px 15px rgba(0, 197, 99, 0.2)",
+                  boxShadow: "0 4px 15px rgba(44, 203, 111, 0.2)",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
                 onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
@@ -118,12 +117,12 @@ export default function Navbar({
                   padding: "10px 18px",
                   fontWeight: "600",
                   fontSize: "15px",
-                  color: "#4b5563",
+                  color: "var(--text-secondary)",
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#00c563")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#4b5563")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#2CCB6F")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
                 {link.label}
               </Link>
@@ -143,7 +142,7 @@ export default function Navbar({
             height: "44px",
             background: "transparent",
             border: "none",
-            color: "#0d1117",
+            color: "var(--text-primary)",
             cursor: "pointer",
           }}
         >
@@ -155,13 +154,13 @@ export default function Navbar({
       <div
         style={{
           position: "fixed",
-          top: scrolled ? "80px" : "100px",
+          top: scrolled ? "64px" : "80px",
           left: 0,
           width: "100%",
           height: open ? "auto" : "0",
           overflow: "hidden",
-          background: "#ffffff",
-          borderBottom: open ? "1px solid rgba(0,0,0,0.05)" : "none",
+          background: "var(--bg-page)",
+          borderBottom: open ? "1px solid var(--border)" : "none",
           transition: "height 0.3s ease-in-out",
           zIndex: 999,
           padding: open ? "24px" : "0",
@@ -179,7 +178,7 @@ export default function Navbar({
                 width: "100%",
                 padding: "16px",
                 borderRadius: "12px",
-                background: "linear-gradient(135deg, #00c563 0%, #0987e9 100%)",
+                background: "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
                 border: "none",
                 color: "#ffffff",
                 fontWeight: "700",
@@ -195,7 +194,7 @@ export default function Navbar({
               style={{
                 textAlign: "center",
                 padding: "12px",
-                color: "#0d1117",
+                color: "var(--text-primary)",
                 textDecoration: "none",
                 fontSize: "18px",
                 fontWeight: "600",

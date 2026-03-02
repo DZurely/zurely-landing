@@ -4,12 +4,17 @@ import { ModalProvider } from "./context/ModalContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/privacypolicy";
-import CookiePolicy from "./pages/cookiepolicy";
-import RefundPolicy from "./pages/refundpolicy";
 import TermsOfService from "./pages/termofservice";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  // SET THEME HERE: Change 'light' to 'dark' to switch the entire prototype's theme
+  const [theme] = React.useState("light");
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <ModalProvider>
       <Router>
@@ -18,8 +23,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/cookie-policy" element={<CookiePolicy />} />
-            <Route path="/refund-policy" element={<RefundPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </Layout>
