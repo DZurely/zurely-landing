@@ -23,11 +23,11 @@ export default function Footer({ onJoin }: FooterProps) {
 
   const linkStyle: React.CSSProperties = {
     display: "block",
-    fontSize: 14,
+    fontSize: 16,
     color: "var(--text-secondary)",
     textDecoration: "none",
     transition: "color 0.2s",
-    marginBottom: 10,
+    marginBottom: 12,
   };
 
   return (
@@ -52,13 +52,14 @@ export default function Footer({ onJoin }: FooterProps) {
           transition={{ duration: 0.7 }}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "1.5fr 1fr 1fr",
             gap: 32,
             marginBottom: 40,
           }}
+          className="footer-grid"
         >
           {/* Brand column */}
-          <div style={{ maxWidth: 400 }}>
+          <div className="brand-col">
             <Link
               to="/"
               style={{
@@ -71,28 +72,27 @@ export default function Footer({ onJoin }: FooterProps) {
               <img
                 src="/zurely-w-text-transparent.png"
                 alt="Zurely"
-                style={{ height: "60px" }}
+                className="footer-logo"
               />
             </Link>
 
             {/* Legal description — SSM compliant */}
             <p
               style={{
-                fontSize: 14,
+                fontSize: 16,
                 color: "var(--text-secondary)",
                 lineHeight: 1.75,
                 marginBottom: 24,
               }}
             >
-              Zurely is a digital PropTech platform owned and operated by{" "}
-              <strong style={{ color: "var(--text-primary)" }}>
-                Double D Sdn Bhd 202501060615 (1662021-V)
-              </strong>
-              .
+              Zurely: Advancing the Malaysian property ecosystem through digital transformation and automated compliance.
+
               <br />
               <span style={{ marginTop: 6, display: "inline-block" }}>
-                Focused on digital transformation and compliance automation for
-                the Malaysian property market.
+                A product of{" "}
+                <strong style={{ color: "var(--text-primary)" }}>
+                  Double D Sdn Bhd 202501060615 (1662021-V)
+                </strong>
               </span>
             </p>
           </div>
@@ -101,12 +101,12 @@ export default function Footer({ onJoin }: FooterProps) {
           <div>
             <h4
               style={{
-                fontSize: 11,
+                fontSize: 13,
                 fontWeight: 700,
                 color: "var(--text-muted)",
-                letterSpacing: "0.1em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                marginBottom: 20,
+                marginBottom: 24,
               }}
             >
               Navigation
@@ -136,12 +136,12 @@ export default function Footer({ onJoin }: FooterProps) {
           <div>
             <h4
               style={{
-                fontSize: 11,
+                fontSize: 13,
                 fontWeight: 700,
                 color: "var(--text-muted)",
-                letterSpacing: "0.1em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                marginBottom: 20,
+                marginBottom: 24,
               }}
             >
               Legal & Privacy
@@ -200,6 +200,26 @@ export default function Footer({ onJoin }: FooterProps) {
             </p>
           </div>
         </motion.div>
+        <style>{`
+          .brand-col {
+            padding-right: 40px;
+          }
+          .footer-logo {
+            height: 80px;
+          }
+          @media (max-width: 768px) {
+            .footer-grid {
+              grid-template-columns: 1fr !important;
+              gap: 48px !important;
+            }
+            .brand-col {
+              padding-right: 0 !important;
+            }
+            .footer-logo {
+              height: 64px !important;
+            }
+          }
+        `}</style>
       </div>
     </footer>
   );

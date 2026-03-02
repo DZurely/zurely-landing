@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle, Loader, ArrowRight, X, Sparkles } from "lucide-react";
+import { CheckCircle, Loader, ArrowRight, X, Check } from "lucide-react";
 
 const SHEET_ENDPOINT =
     "https://script.google.com/macros/s/AKfycbzr03QfN2GiVtTyEBvvVBn428R28GudHgab05T4o6bZBynGeBvjiXG_ZT_Kj5o3mWmb/exec";
@@ -72,7 +72,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
     const fields = [
         { name: "name", label: "Full Name", placeholder: "John Doe", type: "text", required: true },
-        { name: "email", label: "Work Email", placeholder: "example@agency.com", type: "email", required: false },
+        { name: "email", label: "Email", placeholder: "example@agency.com", type: "email", required: false },
         { name: "phone", label: "Phone Number", placeholder: "+60 12-345 6789", type: "tel", required: true },
         { name: "agency", label: "Agency / Firm", placeholder: "Agency Sdn Bhd", type: "text", required: false },
     ];
@@ -157,16 +157,20 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             color: "var(--text-primary)",
                                             marginBottom: 12,
                                             letterSpacing: "-0.02em",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            gap: 8,
                                         }}
                                     >
-                                        You're on the list! 🎉
+                                        You’re Confirmed for Early Access
+                                        <Check size={window.innerWidth < 480 ? 18 : 22} style={{ color: "#2CCB6F" }} />
                                     </h3>
                                     <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.65, marginBottom: 8 }}>
-                                        Thank you for registering your interest in Zurely.
-                                        We'll reach out as soon as your beta access is ready.
+                                        Thank you for your interest in Zurely. You have been successfully added to our priority waitlist. We will notify you as soon as our next beta cohort opens
                                     </p>
                                     <p style={{ fontSize: 14, color: "#2CCB6F", fontWeight: 600 }}>
-                                        Keep an eye on your inbox — we'll be in touch soon.
+                                        In the meantime, feel free to explore our mission at zurely.my
                                     </p>
                                     <button
                                         onClick={onClose}
@@ -186,7 +190,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                         onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.15)")}
                                         onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.1)")}
                                     >
-                                        Back to Zurely
+                                        Return to Site
                                     </button>
                                 </motion.div>
                             ) : (
@@ -203,11 +207,11 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                                 letterSpacing: "-0.025em",
                                             }}
                                         >
-                                            Join Zurely Waitlist
+                                            Join the Zurely Beta
                                         </h2>
                                         <p style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                                            Be among Malaysia's first real estate professionals to experience
-                                            the future of property compliance.We will reach out to you when it's ready.
+                                            Be among the first to experience the new standard in digital tenancy. Secure
+                                            early access to a workflow that automates your compliance and protects your deals.
                                         </p>
                                     </div>
 
@@ -350,7 +354,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             marginTop: 18,
                                         }}
                                     >
-                                        Join Malaysia's growing community of real estate professionals — be first.
+                                        Join the next generation of Malaysia's real estate professionals.
                                     </p>
                                 </motion.div>
                             )}

@@ -24,7 +24,7 @@ export default function HeroSection() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "80px 24px 20px",
+          padding: "10px 24px 20px",
         }}
       >
         <div style={{ maxWidth: 860, width: "100%", textAlign: "center" }}>
@@ -34,13 +34,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ marginBottom: 8 }}
+            style={{ marginBottom: 5 }}
           >
             <img
               src="/zurely-w-text-transparent.png"
               alt="Zurely"
               style={{
-                height: "clamp(72px, 12vw, 120px)",
+                height: "clamp(132px, 12vw, 168px)",
                 display: "inline-block",
                 filter: "drop-shadow(0 4px 24px rgba(44,203,111,0.18))",
               }}
@@ -66,7 +66,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             style={{
-              fontSize: "clamp(1.5rem, 4.8vw, 3.7rem)",
+              fontSize: "clamp(2.4rem, 4.8vw, 3.7rem)",
               fontWeight: 800,
               lineHeight: 1.15,
               letterSpacing: "-0.025em",
@@ -95,7 +95,7 @@ export default function HeroSection() {
             }}
           >
             Modernising compliance and documentation for the Malaysian property
-            ecosystem. Designed by industry veterans, for the next generation of
+            ecosystem. Designed by industry veterans for the next generation of
             agents.
           </motion.p>
 
@@ -135,7 +135,7 @@ export default function HeroSection() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1.04)")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1)")}
             >
-              Join the Waitlist
+              Early Access
             </button>
 
             {/* Secondary CTA */}

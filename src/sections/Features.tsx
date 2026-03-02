@@ -6,54 +6,54 @@ import {
 
 const features = [
   {
-    icon: <FileCheck size={26} />,
+    icon: <FileCheck size={24} />,
     title: "Automated Documentation",
-    description: "Generate, manage, and archive critical property documents in seconds — no paperwork, no delays.",
+    description: "Generate and manage legally-binding property documents in seconds. Every document is tamper-proof, archived, and fully verifiable.",
     color: "#2CCB6F",
     bg: "rgba(44,203,111,0.07)",
     border: "rgba(44,203,111,0.18)",
     delay: 0,
   },
   {
-    icon: <ShieldCheck size={26} />,
+    icon: <ShieldCheck size={24} />,
     title: "Secure Onboarding",
-    description: "Verify tenants and buyers through a trusted, end-to-end digital process built for compliance.",
+    description: "Verify tenants and landlords with confidence. Our integrated e-KYC and face-liveness checks ensure identity assurance for every tenancy agreement.",
     color: "#1A47A9",
     bg: "rgba(26,71,169,0.07)",
     border: "rgba(26,71,169,0.18)",
     delay: 0.1,
   },
   {
-    icon: <Zap size={26} />,
+    icon: <Zap size={24} />,
     title: "Instant Compliance",
-    description: "Stay ahead of Malaysian property regulations with automated checks and real-time guidance.",
+    description: "Stay ahead of regulatory shifts effortlessly. Our platform provides near real- time adherence to national property standards, so you can focus on your clients while we handle the fine print.",
     color: "#23A259",
     bg: "rgba(35,162,89,0.07)",
     border: "rgba(35,162,89,0.18)",
     delay: 0.2,
   },
   {
-    icon: <Lock size={26} />,
+    icon: <Lock size={24} />,
     title: "Privacy by Design",
-    description: "PDPA-compliant data handling ensures your clients' information is always protected and secure.",
+    description: "Bank-grade security for your data. Every interaction is secured by encrypted audit logs and is fully compliant with PDPA and national digital standards.",
     color: "#2CCB6F",
     bg: "rgba(44,203,111,0.07)",
     border: "rgba(44,203,111,0.18)",
     delay: 0.3,
   },
   {
-    icon: <BarChart3 size={26} />,
-    title: "Portfolio Intelligence",
-    description: "Track performance, pipeline health, and key metrics across your entire property portfolio.",
+    icon: <BarChart3 size={24} />,
+    title: "Immutable Audit Trail",
+    description: "Every transaction and document is backed by a tamper-proof audit trail. Zurely provides a verifiable chain of custody from the moment a tenant is verified to the final stamped agreement.",
     color: "#1A47A9",
     bg: "rgba(26,71,169,0.07)",
     border: "rgba(26,71,169,0.18)",
     delay: 0.4,
   },
   {
-    icon: <Recycle size={26} />,
-    title: "Driving ESG Impact",
-    description: "Eliminate paper waste and travel emissions. 100% digital workflow that respects your time and environment.",
+    icon: <Recycle size={24} />,
+    title: "Seamless Integration",
+    description: "End-to-end deal management. From the first e-KYC check to the final digital archive, Zurely handles the heavy lifting so you can focus on closing your next tenancy.",
     color: "#23A259",
     bg: "rgba(35,162,89,0.07)",
     border: "rgba(35,162,89,0.18)",
@@ -80,7 +80,7 @@ export default function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{ textAlign: "center", marginBottom: 44 }}
+          style={{ textAlign: "center", marginBottom: 36 }}
         >
           <h2
             style={{
@@ -92,12 +92,13 @@ export default function FeaturesSection() {
               letterSpacing: "-0.025em",
             }}
           >
-            Built for the Way{" "}
-            <span className="gradient-text">Professionals Work</span>
+            Empowering the{" "}
+            <span className="gradient-text">Professional Real Estate</span>
+            {" "}Workflow
           </h2>
-          <p style={{ fontSize: 16, color: "var(--text-secondary)", maxWidth: 540, margin: "0 auto", lineHeight: 1.7 }}>
-            Zurely brings together every tool a modern real estate professional
-            needs — intelligently designed, securely delivered.
+          <p style={{ fontSize: 16, color: "var(--text-secondary)", maxWidth: 580, margin: "0 auto", lineHeight: 1.7 }}>
+            Zurely brings together every tool a modern real estate professional needs — built for speed,
+            backed by bank-grade security.
           </p>
         </motion.div>
 
@@ -130,8 +131,8 @@ export default function FeaturesSection() {
               {/* Icon */}
               <div
                 style={{
-                  width: 54,
-                  height: 54,
+                  width: 48,
+                  height: 48,
                   borderRadius: 14,
                   display: "flex",
                   alignItems: "center",

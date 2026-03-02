@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "../sections/Footer";
 import WaitlistModal from "../sections/WaitlistModal";
 import { useModal } from "../context/ModalContext";
+import FloatingWaitlistButton from "./FloatingWaitlistButton";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -26,11 +27,7 @@ export default function Layout({ children }: LayoutProps) {
                 flexDirection: "column",
                 background: "transparent"
             }}>
-                <Navbar
-                    links={[
-                        { label: "Join the Waitlist", isButton: true, onClick: openModal },
-                    ]}
-                />
+                {/* <Navbar /> */}
 
                 <main style={{ flex: 1, position: "relative" }}>
                     {children}
@@ -39,6 +36,7 @@ export default function Layout({ children }: LayoutProps) {
                 <Footer onJoin={openModal} />
             </div>
 
+            <FloatingWaitlistButton onClick={openModal} />
             <WaitlistModal isOpen={isOpen} onClose={closeModal} />
         </>
     );
