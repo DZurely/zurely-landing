@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=DM+Sans:wght@300;400;500;600;700&display=swap");
 
-/* ─── Reset ─────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +10,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ─── Brand Palette ─────────────────────────────────────── */
 :root {
   --brand-green: #2CCB6F;
   --brand-green-dark: #23A259;
@@ -19,7 +17,6 @@ html {
   --brand-blue: #1A47A9;
   --brand-accent: #3ef08a;
 
-  /* Semantic tokens - Light Mode (Default) */
   --text-primary: #0d1117;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
@@ -68,7 +65,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Page Background ───────────────────────────────────── */
 .page-bg {
   position: fixed;
   inset: 0;
@@ -172,7 +168,6 @@ body {
   }
 }
 
-/* ─── Shimmer Button ─────────────────────────────────────── */
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -200,7 +195,6 @@ body {
   animation: shimmer 2.5s infinite;
 }
 
-/* ─── Glow Effects ───────────────────────────────────────── */
 .glow-green {
   box-shadow: 0 0 30px rgba(44, 203, 111, 0.25), 0 0 60px rgba(44, 203, 111, 0.1);
 }
@@ -209,7 +203,6 @@ body {
   text-shadow: 0 0 40px rgba(44, 203, 111, 0.35);
 }
 
-/* ─── Glass Cards ────────────────────────────────────────── */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -226,7 +219,6 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* ─── Gradient Text ──────────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%);
   -webkit-background-clip: text;
@@ -234,7 +226,6 @@ body {
   background-clip: text;
 }
 
-/* ─── Animated border ────────────────────────────────────── */
 @keyframes borderGlow {
 
   0%,
@@ -251,7 +242,6 @@ body {
   animation: borderGlow 3s ease-in-out infinite;
 }
 
-/* ─── Form Input ─────────────────────────────────────────── */
 .form-input {
   background: var(--bg-surface);
   border: 1.5px solid var(--border);
@@ -275,13 +265,11 @@ body {
   background: var(--bg-page);
 }
 
-/* ─── Separator ──────────────────────────────────────────── */
 .separator {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
-/* ─── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -299,7 +287,6 @@ body {
   background: rgba(44, 203, 111, 0.5);
 }
 
-/* ─── Badge ──────────────────────────────────────────────── */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -314,7 +301,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ─── Dot pulse ──────────────────────────────────────────── */
 @keyframes dotPulse {
 
   0%,
@@ -337,7 +323,6 @@ body {
   animation: dotPulse 2s ease-in-out infinite;
 }
 
-/* ─── Pulse glow ─────────────────────────────────────────── */
 @keyframes pulseGlow {
 
   0%,
@@ -354,7 +339,6 @@ body {
   animation: pulseGlow 3s ease-in-out infinite;
 }
 
-/* ─── Success state ──────────────────────────────────────── */
 @keyframes successBounce {
   0% {
     transform: scale(0.8);
@@ -375,7 +359,6 @@ body {
   animation: successBounce 0.5s ease-out forwards;
 }
 
-/* ─── Spin ───────────────────────────────────────────────── */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -386,7 +369,6 @@ body {
   }
 }
 
-/* ─── Floating animation ─────────────────────────────────── */
 @keyframes float {
 
   0%,
@@ -403,7 +385,6 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* ─── Modal overlay ──────────────────────────────────────── */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -445,7 +426,6 @@ body {
   }
 }
 
-/* ─── Feature card hover ─────────────────────────────────── */
 .feature-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -457,7 +437,6 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* ─── Noise overlay (subtle on white) ───────────────────── */
 .noise-overlay {
   position: fixed;
   inset: 0;
@@ -468,7 +447,6 @@ body {
   opacity: 0.3;
 }
 
-/* ─── Zurely brand hero wordmark ─────────────────────────── */
 .hero-brand-mark {
   font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 900;
@@ -480,12 +458,10 @@ body {
   background-clip: text;
 }
 
-/* ─── Section surface strip ──────────────────────────────── */
 .section-surface {
   background: var(--bg-surface);
 }
 
-/* ─── Stat item ──────────────────────────────────────────── */
 .stat-value {
   font-size: 1.5rem;
   font-weight: 800;

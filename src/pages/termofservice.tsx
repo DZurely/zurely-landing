@@ -1,10 +1,10 @@
-import 'zero-md';
+import "zero-md";
 export default function PrivacyPolicy() {
-  const markdownUrl = "https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/terms-of-service.md";
+  const markdownUrl =
+    "https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/terms-of-service.md";
 
   return (
-    <div style={{ maxWidth: '800px', margin: '3rem auto', padding: '20px' }}>
-
+    <div style={{ maxWidth: "800px", margin: "3rem auto", padding: "20px" }}>
       <zero-md src={markdownUrl}>
         <template
           data-append
@@ -12,11 +12,10 @@ export default function PrivacyPolicy() {
             __html: `<style>
                 .markdown-body { color: black; background: transparent !important; }
                 .markdown-body h1 { border-bottom: 0px; }
-            </style>`
+            </style>`,
           }}
         />
       </zero-md>
-
     </div>
   );
 }

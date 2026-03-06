@@ -40,11 +40,10 @@ export default function Footer({ onJoin }: FooterProps) {
         background: "var(--bg-page)",
       }}
     >
-      {/* Top separator */}
       <div className="separator" style={{ marginBottom: 40 }} />
 
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        {/* Main grid */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +57,6 @@ export default function Footer({ onJoin }: FooterProps) {
           }}
           className="footer-grid"
         >
-          {/* Brand column */}
           <div className="brand-col">
             <Link
               to="/"
@@ -76,7 +74,6 @@ export default function Footer({ onJoin }: FooterProps) {
               />
             </Link>
 
-            {/* Legal description — SSM compliant */}
             <p
               style={{
                 fontSize: 16,
@@ -97,7 +94,6 @@ export default function Footer({ onJoin }: FooterProps) {
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4
               style={{
@@ -132,7 +128,6 @@ export default function Footer({ onJoin }: FooterProps) {
             ))}
           </div>
 
-          {/* Legal */}
           <div>
             <h4
               style={{
@@ -166,7 +161,6 @@ export default function Footer({ onJoin }: FooterProps) {
           </div>
         </motion.div>
 
-        {/* Bottom bar */}
         <div className="separator" style={{ marginBottom: 24 }} />
 
         <motion.div

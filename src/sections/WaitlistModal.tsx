@@ -18,7 +18,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     const [formState, setFormState] = useState<FormState>("idle");
     const [errorMsg, setErrorMsg] = useState("");
 
-    // Lock body scroll when open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -28,7 +27,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         return () => { document.body.style.overflow = ""; };
     }, [isOpen]);
 
-    // Reset form when modal closes
     useEffect(() => {
         if (!isOpen) {
             setTimeout(() => {
@@ -95,7 +93,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         exit={{ opacity: 0, scale: 0.94, y: 20 }}
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        {/* Close button */}
                         <button
                             onClick={onClose}
                             aria-label="Close"
@@ -195,7 +192,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                 </motion.div>
                             ) : (
                                 <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                                    {/* Header */}
+
                                     <div style={{ marginBottom: 20, paddingRight: window.innerWidth < 480 ? 0 : 32 }}>
                                         <h2
                                             style={{
@@ -216,7 +213,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                     </div>
 
                                     <form onSubmit={handleSubmit}>
-                                        {/* 2-column grid */}
+
                                         <div
                                             style={{
                                                 display: "grid",
@@ -258,7 +255,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             ))}
                                         </div>
 
-                                        {/* Error */}
                                         {formState === "error" && (
                                             <motion.p
                                                 initial={{ opacity: 0 }}
@@ -278,7 +274,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             </motion.p>
                                         )}
 
-                                        {/* PDPA notice */}
                                         <p
                                             style={{
                                                 fontSize: 12,
@@ -296,7 +291,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             <strong style={{ color: "var(--text-secondary)" }}>Personal Data Protection Act (PDPA) 2010 </strong>and <strong style={{ color: "var(--text-secondary)" }}>its 2024 Amendments</strong>.
                                         </p>
 
-                                        {/* Submit */}
                                         <button
                                             type="submit"
                                             disabled={formState === "loading"}
@@ -345,7 +339,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                         </button>
                                     </form>
 
-                                    {/* Social proof */}
                                     <p
                                         style={{
                                             textAlign: "center",

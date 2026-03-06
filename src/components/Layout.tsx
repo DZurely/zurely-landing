@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import Footer from "../sections/Footer";
 import WaitlistModal from "../sections/WaitlistModal";
 import { useModal } from "../context/ModalContext";
@@ -27,8 +26,6 @@ export default function Layout({ children }: LayoutProps) {
                 flexDirection: "column",
                 background: "transparent"
             }}>
-                {/* <Navbar /> */}
-
                 <main style={{ flex: 1, position: "relative" }}>
                     {children}
                 </main>

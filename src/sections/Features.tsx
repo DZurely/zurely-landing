@@ -74,7 +74,6 @@ export default function FeaturesSection() {
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -102,7 +101,6 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        {/* Feature Grid */}
         <div
           style={{
             display: "grid",
@@ -128,7 +126,6 @@ export default function FeaturesSection() {
                 transition: "box-shadow 0.3s",
               }}
             >
-              {/* Icon */}
               <div
                 style={{
                   width: 48,
@@ -146,12 +143,10 @@ export default function FeaturesSection() {
                 {feature.icon}
               </div>
 
-              {/* Title */}
               <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>
                 {feature.title}
               </h3>
 
-              {/* Description */}
               <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.7 }}>
                 {feature.description}
               </p>

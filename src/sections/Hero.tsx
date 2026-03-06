@@ -17,7 +17,6 @@ export default function HeroSection() {
         zIndex: 2,
       }}
     >
-      {/* Hero content */}
       <div
         style={{
           flex: 1,
@@ -28,8 +27,6 @@ export default function HeroSection() {
         }}
       >
         <div style={{ maxWidth: 860, width: "100%", textAlign: "center" }}>
-
-          {/* Zurely brand wordmark — the star of the show */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -47,12 +44,15 @@ export default function HeroSection() {
             />
           </motion.div>
 
-          {/* Beta badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: 20,
+            }}
           >
             <div className="badge">
               <span className="dot-pulse" />
@@ -60,7 +60,6 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,7 +80,6 @@ export default function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,7 +97,6 @@ export default function HeroSection() {
             agents.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,7 +109,6 @@ export default function HeroSection() {
               alignItems: "center",
             }}
           >
-            {/* PRIMARY CTA */}
             <button
               onClick={openModal}
               className="btn-shimmer pulse-glow"
@@ -132,13 +128,18 @@ export default function HeroSection() {
                 fontFamily: "inherit",
                 letterSpacing: "0.01em",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1.04)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLButtonElement).style.transform =
+                  "scale(1.04)")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLButtonElement).style.transform =
+                  "scale(1)")
+              }
             >
               Early Access
             </button>
 
-            {/* Secondary CTA */}
             <a
               href="#features"
               style={{
@@ -156,12 +157,16 @@ export default function HeroSection() {
                 transition: "transform 0.2s, border-color 0.2s",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1.03)";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(44,203,111,0.4)";
+                (e.currentTarget as HTMLAnchorElement).style.transform =
+                  "scale(1.03)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                  "rgba(44,203,111,0.4)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.transform = "scale(1)";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,0,0,0.1)";
+                (e.currentTarget as HTMLAnchorElement).style.transform =
+                  "scale(1)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                  "rgba(0,0,0,0.1)";
               }}
             >
               What's Coming
@@ -170,7 +175,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

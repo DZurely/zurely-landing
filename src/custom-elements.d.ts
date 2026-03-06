@@ -1,6 +1,5 @@
 import React from 'react';
 
-// For modern React 18+
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
@@ -11,7 +10,6 @@ declare module 'react' {
   }
 }
 
-// Keep this as a fallback for older React versions / global setups
 declare global {
   namespace JSX {
     interface IntrinsicElements {
