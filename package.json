@@ -10,13 +10,11 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
     "lucide-react": "^0.563.0",
     "motion": "^12.31.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.1",
-    "tailwindcss": "^4.1.18",
     "zero-md": "^3.1.7"
   },
   "devDependencies": {

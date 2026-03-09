@@ -3,6 +3,7 @@ import Footer from "../sections/Footer";
 import WaitlistModal from "../sections/WaitlistModal";
 import { useModal } from "../context/ModalContext";
 import FloatingWaitlistButton from "./FloatingWaitlistButton";
+import Navbar from "./Navbar";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -24,8 +25,10 @@ export default function Layout({ children }: LayoutProps) {
                 minHeight: "100vh",
                 display: "flex",
                 flexDirection: "column",
-                background: "transparent"
+                background: "transparent",
             }}>
+                <Navbar logoSrc="/zurely-w-text-transparent.png" />
+
                 <main style={{ flex: 1, position: "relative" }}>
                     {children}
                 </main>
@@ -38,3 +41,4 @@ export default function Layout({ children }: LayoutProps) {
         </>
     );
 }
+
