@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ModalProvider } from "./context/ModalContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermOfService";
+import PrivacyPolicy from "./pages/privacypolicy";
+import TermsOfService from "./pages/termofservice";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
