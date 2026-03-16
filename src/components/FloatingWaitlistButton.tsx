@@ -25,10 +25,7 @@ export default function FloatingWaitlistButton({
     }
 
     const handleScroll = () => {
-      const isMobile = window.innerWidth <= 768;
-      const threshold = isMobile ? 300 : window.innerHeight - 100;
-
-      if (window.scrollY > threshold) {
+      if (window.scrollY > 120) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -46,47 +43,11 @@ export default function FloatingWaitlistButton({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="btn-shimmer pulse-glow"
-      style={{
-        position: "fixed",
-        bottom: "32px",
-        right: "32px",
-        zIndex: 999,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: isHovered ? "12px" : "0",
-        padding: isHovered ? "16px 28px" : "16px",
-        borderRadius: "30px",
-        background: "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
-        color: "#ffffff",
-        border: "none",
-        cursor: "pointer",
-        fontWeight: "800",
-        fontSize: "15px",
-        boxShadow: "0 8px 30px rgba(44, 203, 111, 0.4)",
-        transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-        overflow: "hidden",
-        width: isHovered ? "auto" : "56px",
-        height: "56px",
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible
-          ? isHovered
-            ? "scale(1.05) translateY(-4px)"
-            : "scale(1) translateY(0)"
-          : "scale(0.8) translateY(20px)",
-        pointerEvents: isVisible ? "auto" : "none",
-      }}
+      className={`fixed bottom-[32px] right-[32px] z-[999] flex items-center justify-center rounded-[30px] bg-gradient-to-br from-[#2CCB6F] to-[#1A47A9] text-white border-none cursor-pointer font-extrabold text-[15px] shadow-[0_8px_30px_rgba(44,203,111,0.4)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden h-[56px] btn-shimmer pulse-glow ${isHovered ? 'gap-[12px] px-[28px] w-auto' : 'gap-0 p-[16px] w-[56px]'} ${isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none scale-[0.8] translate-y-[20px]'} ${isVisible && isHovered ? 'scale-[1.05] -translate-y-[4px]' : (isVisible ? 'scale-100 translate-y-0' : '')}`}
     >
-      <Rocket size={20} style={{ flexShrink: 0 }} />
+      <Rocket size={20} className="shrink-0" />
       <span
-        style={{
-          maxWidth: isHovered ? "200px" : "0",
-          opacity: isHovered ? 1 : 0,
-          transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-          whiteSpace: "nowrap",
-          display: "inline-block",
-        }}
+        className={`whitespace-nowrap inline-block transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHovered ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'}`}
       >
         Early Access
       </span>

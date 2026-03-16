@@ -8,23 +8,18 @@ const SHEET_ENDPOINT =
 type FormState = "idle" | "loading" | "success" | "error";
 interface FormData { name: string; email: string; phone: string; agency: string; }
 
-interface WaitlistModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
+export default function WaitlistModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
     const [formData, setFormData] = useState<FormData>({ name: "", email: "", phone: "", agency: "" });
     const [formState, setFormState] = useState<FormState>("idle");
     const [errorMsg, setErrorMsg] = useState("");
 
     useEffect(() => {
         if (isOpen) {
-            document.body.style.overflow = "hidden";
+            document.body.style.overflowY = "hidden";
         } else {
-            document.body.style.overflow = "";
+            document.body.style.overflowY = "";
         }
-        return () => { document.body.style.overflow = ""; };
+        return () => { document.body.style.overflowY = ""; };
     }, [isOpen]);
 
     useEffect(() => {
@@ -79,7 +74,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="modal-overlay"
+                    className="fixed inset-0 z-[1000] flex items-center justify-center p-6 bg-[rgba(15,20,35,0.55)] backdrop-blur-md"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -87,7 +82,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
                 >
                     <motion.div
-                        className="modal-card"
+                        className="bg-[color:var(--modal-bg)] w-full max-w-[600px] max-h-[95vh] min-[520px]:max-h-[90vh] overflow-y-auto shadow-[0_24px_80px_rgba(0,0,0,0.18),0_4px_20px_rgba(0,0,0,0.08)] border border-[rgba(44,203,111,0.15)] relative text-[color:var(--text-primary)] p-5 min-[380px]:p-6 min-[520px]:py-12 min-[520px]:px-11 rounded-[20px] min-[520px]:rounded-[28px]"
                         initial={{ opacity: 0, scale: 0.92, y: 30 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.94, y: 20 }}
@@ -96,24 +91,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         <button
                             onClick={onClose}
                             aria-label="Close"
-                            style={{
-                                position: "absolute",
-                                top: 20,
-                                right: 20,
-                                width: 36,
-                                height: 36,
-                                borderRadius: 10,
-                                border: "1.5px solid var(--border)",
-                                background: "var(--bg-surface-2)",
-                                color: "var(--text-secondary)",
-                                cursor: "pointer",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                transition: "background 0.2s",
-                            }}
-                            onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.08)")}
-                            onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(0,0,0,0.04)")}
+                            className="absolute top-5 right-5 w-9 h-9 rounded-[10px] border-[1.5px] border-[color:var(--border)] bg-[color:var(--bg-surface-2)] text-[color:var(--text-secondary)] cursor-pointer flex items-center justify-center transition-colors duration-200 hover:bg-[rgba(0,0,0,0.08)]"
                         >
                             <X size={16} />
                         </button>
@@ -126,66 +104,32 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.4 }}
-                                    style={{ textAlign: "center", padding: "24px 0" }}
+                                    className="text-center py-6"
                                 >
                                     <div
-                                        className="success-bounce"
-                                        style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}
+                                        className="success-bounce flex justify-center mb-6"
                                     >
                                         <div
-                                            style={{
-                                                width: window.innerWidth < 480 ? 72 : 88,
-                                                height: window.innerWidth < 480 ? 72 : 88,
-                                                borderRadius: "50%",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                background: "rgba(44, 203, 111, 0.1)",
-                                                border: "2px solid rgba(44, 203, 111, 0.35)",
-                                            }}
+                                            className="w-[72px] h-[72px] min-[480px]:w-[88px] min-[480px]:h-[88px] rounded-full flex items-center justify-center bg-[rgba(44,203,111,0.1)] border-2 border-[rgba(44,203,111,0.35)]"
                                         >
-                                            <CheckCircle size={44} style={{ color: "#2CCB6F" }} />
+                                            <CheckCircle size={44} className="text-[#2CCB6F]" />
                                         </div>
                                     </div>
                                     <h3
-                                        style={{
-                                            fontSize: window.innerWidth < 480 ? 22 : 26,
-                                            fontWeight: 800,
-                                            color: "var(--text-primary)",
-                                            marginBottom: 12,
-                                            letterSpacing: "-0.02em",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            gap: 8,
-                                        }}
+                                        className="text-[22px] min-[480px]:text-[26px] font-extrabold text-[color:var(--text-primary)] mb-3 tracking-[-0.02em] flex items-center justify-center gap-2"
                                     >
                                         You’re Confirmed for Early Access
-                                        <Check size={window.innerWidth < 480 ? 18 : 22} style={{ color: "#2CCB6F" }} />
+                                        <Check size={18} className="min-[480px]:w-[22px] min-[480px]:h-[22px] text-[#2CCB6F]" />
                                     </h3>
-                                    <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.65, marginBottom: 8 }}>
+                                    <p className="text-[color:var(--text-secondary)] text-base leading-[1.65] mb-2">
                                         Thank you for your interest in Zurely. You have been successfully added to our priority waitlist. We will notify you as soon as our next beta cohort opens
                                     </p>
-                                    <p style={{ fontSize: 14, color: "#2CCB6F", fontWeight: 600 }}>
+                                    <p className="text-sm text-[#2CCB6F] font-semibold">
                                         In the meantime, feel free to explore our mission at zurely.my
                                     </p>
                                     <button
                                         onClick={onClose}
-                                        style={{
-                                            marginTop: 28,
-                                            padding: "12px 32px",
-                                            borderRadius: 12,
-                                            background: "rgba(44, 203, 111, 0.1)",
-                                            border: "1.5px solid rgba(44, 203, 111, 0.25)",
-                                            color: "#23A259",
-                                            fontWeight: 600,
-                                            fontSize: 15,
-                                            cursor: "pointer",
-                                            fontFamily: "inherit",
-                                            transition: "background 0.2s",
-                                        }}
-                                        onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.15)")}
-                                        onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "rgba(44, 203, 111, 0.1)")}
+                                        className="mt-7 py-3 px-8 rounded-xl bg-[rgba(44,203,111,0.1)] border-[1.5px] border-[rgba(44,203,111,0.25)] text-[#23A259] font-semibold text-[15px] cursor-pointer font-inherit transition-colors duration-200 hover:bg-[rgba(44,203,111,0.15)]"
                                     >
                                         Return to Site
                                     </button>
@@ -193,20 +137,11 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                             ) : (
                                 <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
 
-                                    <div style={{ marginBottom: 20, paddingRight: window.innerWidth < 480 ? 0 : 32 }}>
-                                        <h2
-                                            style={{
-                                                fontSize: "clamp(1.5rem, 3vw, 2rem)",
-                                                fontWeight: 800,
-                                                color: "var(--text-primary)",
-                                                lineHeight: 1.2,
-                                                marginBottom: 10,
-                                                letterSpacing: "-0.025em",
-                                            }}
-                                        >
+                                    <div className="mb-5 max-sm:pr-0 pr-8">
+                                        <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-extrabold text-[color:var(--text-primary)] leading-[1.2] mb-2.5 tracking-[tight]">
                                             Join the Zurely Beta
                                         </h2>
-                                        <p style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                                        <p className="text-[15px] text-[color:var(--text-secondary)] leading-[1.6]">
                                             Be among the first to experience the new standard in digital tenancy. Secure
                                             early access to a workflow that automates your compliance and protects your deals.
                                         </p>
@@ -215,29 +150,17 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                     <form onSubmit={handleSubmit}>
 
                                         <div
-                                            style={{
-                                                display: "grid",
-                                                gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                                                gap: 16,
-                                                marginBottom: 20,
-                                            }}
+                                            className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 mb-5"
                                         >
                                             {fields.map((field) => (
                                                 <div key={field.name}>
                                                     <label
                                                         htmlFor={field.name}
-                                                        style={{
-                                                            display: "block",
-                                                            fontSize: 13,
-                                                            fontWeight: 600,
-                                                            color: "var(--text-secondary)",
-                                                            marginBottom: 7,
-                                                            letterSpacing: "0.01em",
-                                                        }}
+                                                        className="block text-[13px] font-semibold text-[color:var(--text-secondary)] mb-[7px] tracking-[0.01em]"
                                                     >
                                                         {field.label}
                                                         {field.required && (
-                                                            <span style={{ color: "var(--brand-green)", marginLeft: 3 }}>*</span>
+                                                            <span className="text-[color:var(--brand-green)] ml-[3px]">*</span>
                                                         )}
                                                     </label>
                                                     <input
@@ -249,7 +172,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                                         onChange={handleChange}
                                                         required={field.required}
                                                         disabled={formState === "loading"}
-                                                        className="form-input"
+                                                        className="w-full bg-[color:var(--bg-surface)] border-[1.5px] border-[color:var(--border)] text-[color:var(--text-primary)] rounded-xl py-3.5 px-4.5 text-[15px] font-inherit outline-none transition-all duration-200 placeholder:text-[color:var(--text-muted)] focus:bg-[color:var(--bg-page)] focus:border-[rgba(44,203,111,0.6)] focus:shadow-[0_0_0_3px_rgba(44,203,111,0.1)]"
                                                     />
                                                 </div>
                                             ))}
@@ -259,76 +182,33 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                             <motion.p
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
-                                                style={{
-                                                    fontSize: 13,
-                                                    color: "#dc2626",
-                                                    background: "rgba(220,38,38,0.07)",
-                                                    border: "1px solid rgba(220,38,38,0.2)",
-                                                    borderRadius: 10,
-                                                    padding: "12px 16px",
-                                                    textAlign: "center",
-                                                    marginBottom: 16,
-                                                }}
+                                                className="text-[13px] text-[#dc2626] bg-[rgba(220,38,38,0.07)] border border-[rgba(220,38,38,0.2)] rounded-[10px] p-[12px_16px] text-center mb-4"
                                             >
                                                 {errorMsg}
                                             </motion.p>
                                         )}
 
-                                        <p
-                                            style={{
-                                                fontSize: 12,
-                                                color: "var(--text-muted)",
-                                                lineHeight: 1.6,
-                                                marginBottom: 20,
-                                                textAlign: "center",
-                                            }}
-                                        >
+                                        <p className="text-[12px] text-[color:var(--text-muted)] leading-[1.6] mb-5 text-center">
                                             By submitting, you agree to our{" "}
-                                            <a href="/privacy-policy" style={{ color: "#2CCB6F", textDecoration: "underline" }}>
+                                            <a href="/privacy-policy" className="text-[#2CCB6F] underline">
                                                 Privacy Policy
                                             </a>{" "}
                                             and consent to the processing of your personal data under the{" "}
-                                            <strong style={{ color: "var(--text-secondary)" }}>Personal Data Protection Act (PDPA) 2010 </strong>and <strong style={{ color: "var(--text-secondary)" }}>its 2024 Amendments</strong>.
+                                            <strong className="text-[color:var(--text-secondary)]">Personal Data Protection Act (PDPA) 2010 </strong>and <strong className="text-[color:var(--text-secondary)]">its 2024 Amendments</strong>.
                                         </p>
 
                                         <button
                                             type="submit"
                                             disabled={formState === "loading"}
-                                            className="btn-shimmer"
-                                            style={{
-                                                width: "100%",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                gap: 10,
-                                                padding: "16px 32px",
-                                                borderRadius: 14,
-                                                fontWeight: 700,
-                                                fontSize: 16,
-                                                color: "#ffffff",
-                                                border: "none",
-                                                cursor: formState === "loading" ? "not-allowed" : "pointer",
-                                                background:
-                                                    formState === "loading"
-                                                        ? "rgba(44, 203, 111, 0.5)"
-                                                        : "linear-gradient(135deg, #2CCB6F 0%, #1A47A9 100%)",
-                                                boxShadow: "0 0 30px rgba(44, 203, 111, 0.2), 0 4px 16px rgba(0,0,0,0.1)",
-                                                opacity: formState === "loading" ? 0.75 : 1,
-                                                transition: "transform 0.2s, opacity 0.2s",
-                                                fontFamily: "inherit",
-                                                letterSpacing: "0.01em",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                if (formState !== "loading")
-                                                    (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.02)";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
-                                            }}
+                                            className={`btn-shimmer w-full flex items-center justify-center gap-2.5 py-4 px-8 rounded-xl font-bold text-base text-white border-none transition-all duration-200 font-inherit tracking-[0.01em] shadow-[0_0_30px_rgba(44,203,111,0.2),0_4px_16px_rgba(0,0,0,0.1)] ${
+                                                formState === "loading"
+                                                    ? 'cursor-not-allowed bg-[rgba(44,203,111,0.5)] opacity-75'
+                                                    : 'cursor-pointer bg-gradient-to-br from-[#2CCB6F] to-[#1A47A9] hover:scale-[1.02]'
+                                            }`}
                                         >
                                             {formState === "loading" ? (
                                                 <>
-                                                    <Loader size={18} style={{ animation: "spin 1s linear infinite" }} />
+                                                    <Loader size={18} className="animate-spin" />
                                                     Submitting…
                                                 </>
                                             ) : (
@@ -339,14 +219,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                                         </button>
                                     </form>
 
-                                    <p
-                                        style={{
-                                            textAlign: "center",
-                                            fontSize: 13,
-                                            color: "var(--text-muted)",
-                                            marginTop: 18,
-                                        }}
-                                    >
+                                    <p className="text-center text-[13px] text-[color:var(--text-muted)] mt-4.5">
                                         Join the next generation of Malaysia's real estate professionals.
                                     </p>
                                 </motion.div>

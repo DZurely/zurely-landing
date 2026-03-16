@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "motion/react";
 import {
   FileCheck, ShieldCheck, Zap, Lock, BarChart3, Recycle,
@@ -65,49 +64,31 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      style={{
-        position: "relative",
-        zIndex: 2,
-        padding: "40px 24px",
-        background: "var(--bg-surface)",
-      }}
+      className="relative z-[2] py-10 px-6 bg-[color:var(--bg-surface)]"
     >
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div className="max-w-[1100px] mx-auto">
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{ textAlign: "center", marginBottom: 36 }}
+          className="text-center mb-9"
         >
           <h2
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.2,
-              marginBottom: 14,
-              color: "var(--text-primary)",
-              letterSpacing: "-0.025em",
-            }}
+            className="text-[clamp(1.8rem,4vw,2.5rem)] font-extrabold leading-[1.2] mb-3.5 text-[color:var(--text-primary)] tracking-[tight]"
           >
             Empowering the{" "}
-            <span className="gradient-text">Professional Real Estate</span>
+            <span className="bg-gradient-to-br from-[#2CCB6F] to-[#1A47A9] bg-clip-text text-transparent">Professional Real Estate</span>
             {" "}Workflow
           </h2>
-          <p style={{ fontSize: 16, color: "var(--text-secondary)", maxWidth: 580, margin: "0 auto", lineHeight: 1.7 }}>
+          <p className="text-base text-[color:var(--text-secondary)] max-w-[580px] mx-auto leading-[1.7]">
             Zurely brings together every tool a modern real estate professional needs — built for speed,
             backed by bank-grade security.
           </p>
         </motion.div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: 24,
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
           {features.map((feature, i) => (
             <motion.div
               key={i}
@@ -116,25 +97,11 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: feature.delay }}
               whileHover={{ scale: 1.02, y: -4 }}
-              style={{
-                borderRadius: 20,
-                padding: 28,
-                background: "var(--card-bg)",
-                border: "1px solid var(--border)",
-                boxShadow: "var(--shadow-sm)",
-                cursor: "default",
-                transition: "box-shadow 0.3s",
-              }}
+              className="rounded-[20px] p-7 bg-[color:var(--card-bg)] border border-[color:var(--border)] shadow-[var(--shadow-sm)] cursor-default transition-shadow duration-300"
             >
               <div
+                className="w-12 h-12 rounded-[14px] flex items-center justify-center mb-5"
                 style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 14,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: 20,
                   background: feature.bg,
                   color: feature.color,
                   border: `1px solid ${feature.border}`,
@@ -143,11 +110,11 @@ export default function FeaturesSection() {
                 {feature.icon}
               </div>
 
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8 }}>
+              <h3 className="text-[17px] font-bold text-[color:var(--text-primary)] mb-2">
                 {feature.title}
               </h3>
 
-              <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.7 }}>
+              <p className="text-[14px] text-[color:var(--text-secondary)] leading-[1.7]">
                 {feature.description}
               </p>
 

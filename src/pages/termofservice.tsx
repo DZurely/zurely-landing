@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
     "https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/terms-of-service.md";
 
   return (
-    <div style={{ maxWidth: "800px", margin: "3rem auto", padding: "20px" }}>
+    <div className="max-w-[800px] my-12 mx-auto px-5">
       <zero-md src={markdownUrl}>
         <template
           data-append

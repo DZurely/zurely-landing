@@ -1,13 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { Mail } from "lucide-react";
-
-interface FooterProps {
-  onJoin?: () => void;
-}
-
-export default function Footer({ onJoin }: FooterProps) {
+export default function Footer() {
   const currentYear = "2025 – 2026";
 
   const navLinks = [
@@ -33,61 +26,38 @@ export default function Footer({ onJoin }: FooterProps) {
   return (
     <footer
       id="footer"
-      style={{
-        position: "relative",
-        zIndex: 2,
-        padding: "0 24px 48px",
-        background: "var(--bg-page)",
-      }}
+      className="relative z-[2] px-6 pb-12 bg-[color:var(--bg-page)]"
     >
-      <div className="separator" style={{ marginBottom: 40 }} />
+      <div className="separator mb-10" />
 
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div className="max-w-[1100px] mx-auto">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.5fr 1fr 1fr",
-            gap: 32,
-            marginBottom: 40,
-          }}
-          className="footer-grid"
+          className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 md:gap-8 mb-10 footer-grid"
         >
-          <div className="brand-col">
+          <div className="brand-col md:pr-10">
             <Link
               to="/"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-                textDecoration: "none",
-              }}
+              className="flex items-center gap-1.5 no-underline"
             >
               <img
                 src="/zurely-w-text-transparent.png"
                 alt="Zurely"
-                className="footer-logo"
+                className="h-16 md:h-20"
               />
             </Link>
 
-            <p
-              style={{
-                fontSize: 16,
-                color: "var(--text-secondary)",
-                lineHeight: 1.75,
-                marginBottom: 24,
-              }}
-            >
+            <p className="text-base text-[color:var(--text-secondary)] leading-[1.75] mb-6">
               Zurely: Advancing the Malaysian property ecosystem through digital transformation and automated compliance.
 
               <br />
-              <span style={{ marginTop: 6, display: "inline-block" }}>
+              <span className="mt-1.5 inline-block">
                 A product of{" "}
-                <strong style={{ color: "var(--text-primary)" }}>
+                <strong className="text-[color:var(--text-primary)]">
                   Double D Sdn Bhd 202501060615 (1662021-V)
                 </strong>
               </span>
@@ -95,16 +65,7 @@ export default function Footer({ onJoin }: FooterProps) {
           </div>
 
           <div>
-            <h4
-              style={{
-                fontSize: 13,
-                fontWeight: 700,
-                color: "var(--text-muted)",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                marginBottom: 24,
-              }}
-            >
+            <h4 className="text-[13px] font-bold text-[color:var(--text-muted)] tracking-[0.12em] uppercase mb-6">
               Navigation
             </h4>
             {navLinks.map((link) => (
@@ -129,16 +90,7 @@ export default function Footer({ onJoin }: FooterProps) {
           </div>
 
           <div>
-            <h4
-              style={{
-                fontSize: 13,
-                fontWeight: 700,
-                color: "var(--text-muted)",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                marginBottom: 24,
-              }}
-            >
+            <h4 className="text-[13px] font-bold text-[color:var(--text-muted)] tracking-[0.12em] uppercase mb-6">
               Legal & Privacy
             </h4>
             {legalLinks.map((link) => (
@@ -161,59 +113,28 @@ export default function Footer({ onJoin }: FooterProps) {
           </div>
         </motion.div>
 
-        <div className="separator" style={{ marginBottom: 24 }} />
+        <div className="separator mb-6" />
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 16,
-          }}
+          className="flex flex-col gap-4"
         >
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 12,
-            }}
-          >
-            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-[12px] text-[color:var(--text-muted)]">
               © {currentYear}{" "}
-              <span style={{ color: "var(--text-primary)", fontWeight: 600 }}>Zurely</span>.
+              <span className="text-[color:var(--text-primary)] font-semibold">Zurely</span>.
               All rights reserved.
             </p>
-            <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
+            <p className="text-[12px] text-[color:var(--text-muted)]">
               Double D Sdn Bhd &nbsp;|&nbsp; 202501060615 (1662021-V)
               &nbsp;|&nbsp; Malaysia
             </p>
           </div>
         </motion.div>
-        <style>{`
-          .brand-col {
-            padding-right: 40px;
-          }
-          .footer-logo {
-            height: 80px;
-          }
-          @media (max-width: 768px) {
-            .footer-grid {
-              grid-template-columns: 1fr !important;
-              gap: 48px !important;
-            }
-            .brand-col {
-              padding-right: 0 !important;
-            }
-            .footer-logo {
-              height: 64px !important;
-            }
-          }
-        `}</style>
+
       </div>
     </footer>
   );

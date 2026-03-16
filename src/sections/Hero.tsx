@@ -1,23 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowDown } from "lucide-react";
-import { useModal } from "../context/ModalContext";
 
 export default function HeroSection() {
-  const { openModal } = useModal();
-
   return (
-    <section
-      id="home"
-      style={{
-        position: "relative",
-        minHeight: "fit-content",
-        display: "flex",
-        flexDirection: "column",
-        zIndex: 2,
-      }}
-    >
-      <div className="hero-content-wrap">
-        <div style={{ maxWidth: 860, width: "100%", textAlign: "center" }}>
+    <section id="home" className="relative min-h-[fit-content] flex flex-col z-[2]">
+      <div className="flex-1 flex items-center justify-center max-md:pt-6 max-md:px-5 max-md:pb-0 md:pt-10 md:px-6 md:pb-[50px]">
+        <div className="max-w-[860px] w-full text-center">
           {/* <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -39,14 +27,10 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: 30,
-            }}
+            className="flex justify-center mb-[30px]"
           >
-            <div className="badge">
-              <span className="dot-pulse" />
+            <div className="inline-flex items-center gap-1.5 bg-[rgba(44,203,111,0.1)] border border-[rgba(44,203,111,0.25)] text-[#23A259] rounded-full py-1.5 px-3.5 text-[13px] font-semibold tracking-[0.02em]">
+              <span className="w-2 h-2 rounded-full bg-[#2CCB6F] animate-[dotPulse_2s_ease-in-out_infinite]" />
               Coming Soon...
             </div>
           </motion.div>
@@ -55,18 +39,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{
-              fontSize: "clamp(2.8rem, 4.8vw, 4rem)",
-              fontWeight: 800,
-              lineHeight: 1.15,
-              letterSpacing: "-0.025em",
-              marginBottom: 16,
-              color: "var(--text-primary)",
-            }}
+            className="text-[clamp(2.8rem,4.8vw,4rem)] font-extrabold leading-[1.15] tracking-[tight] mb-4 text-[color:var(--text-primary)]"
           >
             The All-in-One Digital Workspace
             <br />
-            <span className="gradient-text">
+            <span className="bg-gradient-to-br from-[#2CCB6F] to-[#1A47A9] bg-clip-text text-transparent">
               for the Modern Real Estate Professional
             </span>
           </motion.h1>
@@ -75,13 +52,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            style={{
-              fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
-              maxWidth: 640,
-              margin: "0 auto 10px",
-              lineHeight: 1.75,
-              color: "var(--text-secondary)",
-            }}
+            className="text-[clamp(1.1rem,1.8vw,1.4rem)] max-w-[640px] mx-auto mb-2.5 leading-[1.75] text-[color:var(--text-secondary)]"
           >
             Modernising compliance and documentation for the Malaysian property
             ecosystem. Designed by industry veterans for the next generation of
@@ -96,24 +67,13 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        style={{ display: "flex", justifyContent: "center", paddingBottom: 20 }}
+        className="flex justify-center pb-5"
       >
         <motion.a
           href="#features"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            color: "var(--text-muted)",
-            textDecoration: "none",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 4,
-            fontSize: 11,
-            fontWeight: 500,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
+          className="text-[color:var(--text-muted)] no-underline flex flex-col items-center gap-1 text-[11px] font-medium tracking-[0.08em] uppercase"
         >
           <ArrowDown size={20} />
         </motion.a>
