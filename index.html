@@ -17,344 +17,776 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary: #0052CC;
-            --secondary: #00B8D9;
-            --dark-navy: #091E42; /* Deeper footer color */
-            --dark-bg: #071329;    /* Absolute dark for footer */
-            --light-blue: #F0F7FF;
-            --white: #ffffff;
-            --text-main: #42526E;
-            --text-light: #EBECF0;
-            --footer-text: #A5ADBA;
+            --primary-light: #E8F0FE;
+            --dark: #0F172A;
+            --text: #334155;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            --bg: #FFFFFF;
+            --bg-muted: #F8FAFC;
+            --radius: 8px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--white);
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1080px;
             margin: 0 auto;
+            padding: 0 24px;
         }
 
-        /* --- Header --- */
-        header {
-            padding: 25px 0;
-            background: white;
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo {
-            /* font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--primary);
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            height: 44px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links li a {
             text-decoration: none;
-            letter-spacing: -1.5px; */
-            height: 128px;
-            margin-bottom: -32px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
         }
 
-        /* --- Hero Section --- */
+        .nav-links li a:hover { color: var(--dark); }
+
+        .nav-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--bg) !important;
+            background: var(--dark);
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover { opacity: 0.85; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .mobile-toggle svg { display: block; }
+
+        /* ── Hero ── */
         .hero {
-            padding: 120px 0 100px;
+            padding: 160px 0 100px;
             text-align: center;
-            background: radial-gradient(circle at center, #ffffff 0%, #f4f8ff 100%);
         }
 
-        h1 {
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            color: var(--dark-navy);
-            line-height: 1.05;
-            margin-bottom: 24px;
-            font-weight: 800;
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 560px;
             margin: 0 auto 40px;
-            color: #505F79;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
-        .coming-soon-badge {
-            display: inline-block;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            padding: 12px 30px;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            background-color: white;
-            box-shadow: 0 4px 14px rgba(0, 82, 204, 0.15);
-        }
-
-        /* --- REVENUE ENGINES (OUTSTANDING) --- */
-        .services {
-            padding: 100px 0;
-            background-color: var(--light-blue);
-        }
-
-        .section-tag {
-            text-align: center;
-            display: block;
-            color: var(--primary);
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
-            color: var(--dark-navy);
-            font-weight: 800;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            padding: 50px;
-            border-radius: 20px;
-            background: var(--white);
-            border: none;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--primary);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 82, 204, 0.12);
-        }
-
-        .card h3 {
-            color: var(--dark-navy);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background: #E6EFFC;
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            color: #505F79;
-        }
-
-        /* --- Value Props --- */
-        .value-props {
-            padding: 100px 0;
-            background-color: var(--white);
-        }
-
-        .prop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            text-align: center;
-        }
-
-        .prop-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--dark-navy);
-            font-weight: 700;
-        }
-
-        /* --- Wide & Dark Footer (Updated with specific text) --- */
-        footer {
-            padding: 80px 0;
-            background-color: var(--dark-bg);
-            color: var(--footer-text);
-            width: 100%;
-            border-top: 4px solid var(--primary);
-        }
-
-        .footer-content {
+        .hero-actions {
             display: flex;
-            flex-direction: column;
-            gap: 25px;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .footer-logo {
-            color: var(--white);
-            font-weight: 800;
-            font-size: 1.5rem;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
             text-decoration: none;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            display: block;
+            transition: all 0.2s;
         }
 
-        .footer-text-block {
-            max-width: 900px;
-            font-size: 0.95rem;
-            line-height: 1.8;
+        .btn-primary {
+            background: var(--dark);
+            color: #fff;
         }
 
-        .footer-text-block p {
+        .btn-primary:hover { opacity: 0.88; }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: #CBD5E1;
+            background: var(--bg-muted);
+        }
+
+        /* ── Divider line ── */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        /* ── Section common ── */
+        section { padding: 96px 0; }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary);
             margin-bottom: 12px;
         }
 
-        .footer-contact a {
-            color: var(--secondary);
+        .section-heading {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header .section-desc {
+            margin: 0 auto;
+        }
+
+        /* ── Features ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 36px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: #CBD5E1;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ── How It Works ── */
+        .steps-section { background: var(--bg-muted); }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            counter-reset: step;
+        }
+
+        .step {
+            counter-increment: step;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .step h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* connector line between steps */
+        .step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: -26px;
+            width: 1px;
+            height: 80%;
+            background: var(--border);
+        }
+
+        /* ── Trust / Why ── */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .trust-item h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .trust-item p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .trust-icon {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* ── Beta Form ── */
+        .beta-section {
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .beta-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .beta-text .section-label { color: #60A5FA; }
+
+        .beta-text .section-heading { color: #fff; }
+
+        .beta-text .section-desc {
+            color: #94A3B8;
+            max-width: 100%;
+        }
+
+        .beta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: #94A3B8;
+        }
+
+        .form-field input {
+            font-family: inherit;
+            font-size: 0.9375rem;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #1E293B;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-field input::placeholder { color: #475569; }
+
+        .form-field input:focus { border-color: var(--primary); }
+
+        .form-submit {
+            margin-top: 8px;
+            font-family: inherit;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: var(--primary);
+            color: #fff;
+            transition: opacity 0.2s;
+        }
+
+        .form-submit:hover { opacity: 0.88; }
+
+        .form-note {
+            font-size: 0.75rem;
+            color: #64748B;
+            margin-top: 4px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 56px 0 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand { max-width: 360px; }
+
+        .footer-brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-brand p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .footer-columns {
+            display: flex;
+            gap: 64px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .footer-contact a:hover {
-            text-decoration: underline;
+        .footer-col a:hover { color: var(--dark); }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
         }
 
-        .copyright-line {
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #1a2b4a;
-            color: var(--white);
-            font-weight: 600;
+        .footer-bottom a {
+            color: var(--text-secondary);
+            text-decoration: none;
         }
 
-        /* --- Responsive Queries --- */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        .footer-bottom a:hover { color: var(--dark); }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .beta-inner { grid-template-columns: 1fr; gap: 40px; }
         }
 
         @media (max-width: 768px) {
-            .footer-grid {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                padding: 24px;
+                gap: 20px;
+            }
+
+            .hero { padding: 120px 0 72px; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            section { padding: 64px 0; }
+            .features-grid { grid-template-columns: 1fr; }
+
+            .steps-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
             }
-            .section-title {
-                font-size: 2rem;
+
+            .step:not(:last-child)::after { display: none; }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
-            .card {
-                padding: 30px;
-            }
+
+            .beta-inner { grid-template-columns: 1fr; }
+
+            .footer-top { flex-direction: column; gap: 32px; }
+            .footer-columns { gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .trust-grid { grid-template-columns: 1fr; }
+            .footer-columns { flex-direction: column; gap: 28px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <image class="logo" src="zurely-logo.png"></image>
+    <!-- ── Navigation ── -->
+    <nav>
+        <div class="container nav-inner">
+            <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#why-zurely">Why Zurely</a></li>
+                <li><a href="#beta" class="nav-cta">Join Beta</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
+    <!-- ── Hero ── -->
     <section class="hero">
         <div class="container">
-            <h1>The Future of Tenancy <br>Compliance in Malaysia</h1>
-            <p>The All-in-One Digital Workspace for the Modern Real Estate Professional.</p>
-            <div class="coming-soon-badge">Coming soon...</div>
+            <div class="hero-badge">Coming Soon</div>
+            <h1>Tenancy compliance,<br>simplified for Malaysia</h1>
+            <p>The all-in-one digital workspace for real estate professionals. Agreements, stamp duty, verified signing — handled.</p>
+            <div class="hero-actions">
+                <a href="#beta" class="btn btn-primary">Request Beta Access</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
     </section>
 
-    <!-- Revenue Engines (Updated with high contrast) -->
-    <section class="services">
+    <hr class="divider" />
+
+    <!-- ── Features ── -->
+    <section id="features">
         <div class="container">
-            <h2 class="section-title">The Dual Service Overview</h2>
-            <div class="grid">
-                <!-- Service 1 -->
-                <div class="card">
-                    <span class="price-tag">Compliance & Security</span>
-                    <h3>Digital Compliance Hub</h3>
-                    <p>Streamline your tenancy documentation and regulatory requirements through a centralized digital interface.</p>
+            <div class="section-header">
+                <div class="section-label">Platform</div>
+                <h2 class="section-heading">Everything you need, in one place</h2>
+                <p class="section-desc">Purpose-built tools for Malaysian rental professionals.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"/><path d="M8 6h4M8 10h4M8 14h2"/></svg>
+                    </div>
+                    <h3>Digital Agreements</h3>
+                    <p>Generate, manage and digitally sign tenancy agreements — residential, commercial, or land.</p>
                 </div>
-                <!-- Service 2 -->
-                <div class="card">
-                    <span class="price-tag">Quality & Speed</span>
-                    <h3>Smart Tenant Onboarding</h3>
-                    <p>Advanced tools to help you qualify and manage your leads with confidence and speed.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/><path d="M6 12h2"/></svg>
+                    </div>
+                    <h3>Stamp Duty Automation</h3>
+                    <p>Auto-calculate and submit stamp duty directly to LHDN. No manual forms, no guesswork.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17v-1a4 4 0 00-3-3.87M12 3.13a4 4 0 010 7.75"/><circle cx="8" cy="7" r="4"/><path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1"/></svg>
+                    </div>
+                    <h3>Verified Signing</h3>
+                    <p>Every signatory is identity-verified before the agreement is finalized. Know exactly who you're dealing with.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 9h14M9 3v14"/></svg>
+                    </div>
+                    <h3>Agent Dashboard</h3>
+                    <p>Track tenants, properties and agreement status from a single professional dashboard.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Props -->
-    <section class="value-props">
+    <!-- ── How It Works ── -->
+    <section class="steps-section" id="how-it-works">
         <div class="container">
-            <h2 class="section-title">Why Choose Zurely?</h2>
-            <div class="prop-grid">
-                <div class="prop-item">
+            <div class="section-header">
+                <div class="section-label">Process</div>
+                <h2 class="section-heading">Three steps. Done.</h2>
+                <p class="section-desc">A streamlined workflow that replaces the manual back-and-forth.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <span class="step-number">01</span>
+                    <h3>Create an agreement</h3>
+                    <p>Fill in the property and party details. Zurely generates a compliant tenancy agreement for you.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">02</span>
+                    <h3>Verify &amp; sign</h3>
+                    <p>All parties verify their identity and sign the document digitally — from any device, anywhere.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">03</span>
+                    <h3>Stamp &amp; close</h3>
+                    <p>Stamp duty is calculated, submitted to LHDN, and the agreement is finalized in one workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Why Zurely ── -->
+    <section id="why-zurely">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Advantages</div>
+                <h2 class="section-heading">Why agents choose Zurely</h2>
+                <p class="section-desc">Designed around the real needs of Malaysian property agents and agencies.</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="9"/><polyline points="11 7 11 11 14 13"/></svg>
+                    </div>
                     <h4>Speed</h4>
-                    <p>Reclaim your time by digitizing manual, repetitive administrative tasks.</p>
+                    <p>Digitize repetitive admin tasks and reclaim hours every week.</p>
                 </div>
-                <div class="prop-item">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="16" height="10" rx="2"/><path d="M7 9V6a4 4 0 018 0v3"/></svg>
+                    </div>
                     <h4>Security</h4>
-                    <p>Your data is protected by enterprise-grade encryption and strict privacy standards.</p>
+                    <p>Enterprise-grade encryption with strict PDPA-compliant data handling.</p>
                 </div>
-                <div class="prop-item">
-                    <h4>Legacy</h4>
-                    <p>Built by industry veterans to modernize the Malaysian property ecosystem.</p>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 1l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+                    </div>
+                    <h4>Compliance</h4>
+                    <p>Aligned with LHDN requirements and Malaysian tenancy regulations.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h4>Malaysian-first</h4>
+                    <p>Purpose-built for the local property market and regulatory landscape.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ── Beta Access Form ── -->
+    <section class="beta-section" id="beta">
+        <div class="container">
+            <div class="beta-inner">
+                <div class="beta-text">
+                    <div class="section-label">Early Access</div>
+                    <h2 class="section-heading">Join the beta program</h2>
+                    <p class="section-desc">We're onboarding a limited number of agencies and agents for early access. Sign up to be among the first to experience Zurely.</p>
+                </div>
+                <form class="beta-form" onsubmit="return false;">
+                    <div class="form-field">
+                        <label for="beta-name">Full Name</label>
+                        <input type="text" id="beta-name" placeholder="e.g. Ahmad bin Ismail" autocomplete="name" />
+                    </div>
+                    <div class="form-field">
+                        <label for="beta-email">Email</label>
+                        <input type="email" id="beta-email" placeholder="you@agency.com" autocomplete="email" />
+                    </div>
+                    <div class="form-field">
+                        <label for="beta-phone">Phone Number</label>
+                        <input type="tel" id="beta-phone" placeholder="+60 12-345 6789" autocomplete="tel" />
+                    </div>
+                    <div class="form-field">
+                        <label for="beta-agency">Agency / Firm</label>
+                        <input type="text" id="beta-agency" placeholder="e.g. Property Hub Realty" />
+                    </div>
+                    <button type="submit" class="form-submit">Request Access</button>
+                    <p class="form-note">We'll notify you when early access is available.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo">ZURELY</a>
-
-                <div class="footer-text-block">
-                    <p>Zurely is a digital PropTech platform owned and operated by <strong>Double D Sdn. Bhd.(202501060615)</strong></p>
-
-                    <p><strong>Service focus:</strong> Digital transformation and compliance automation for the Malaysian property market.</p>
-
-                    <p><strong>Compliance:</strong> This platform is designed in accordance with the Malaysian Personal Data Protection Act (PDPA) 2010.</p>
-
-                    <div class="footer-contact">
-                        <strong>Contact:</strong> <a href="mailto:support@zurely.my">support@zurely.my</a>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-brand-name">Zurely</span>
+                    <p>A digital PropTech platform by Double D Sdn. Bhd. (202501060615). Designed in accordance with the Malaysian Personal Data Protection Act (PDPA) 2010.</p>
+                </div>
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <h5>Platform</h5>
+                        <ul>
+                            <li>Digital Agreements</li>
+                            <li>Stamp Duty</li>
+                            <li>Verified Signing</li>
+                            <li>Agent Dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Company</h5>
+                        <ul>
+                            <li>About</li>
+                            <li>Careers</li>
+                            <li><a href="mailto:support@zurely.my">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li>Privacy Policy</li>
+                            <li>Terms of Service</li>
+                            <li>PDPA Compliance</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="copyright-line">
-                    © 2025-2026 Zurely. All Rights Reserved.
-                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
+                <a href="mailto:support@zurely.my">support@zurely.my</a>
             </div>
         </div>
     </footer>
