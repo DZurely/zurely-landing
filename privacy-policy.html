@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,21 +17,135 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/zero-md@3?register"
+    ></script>
   </head>
   <body class="legal-page">
     <nav>
       <div class="container nav-inner">
-        <a href="index.html" aria-label="Back to home">
+        <a href="index.html#top" aria-label="Zurely Home">
           <img class="nav-logo" src="Zurely.png" alt="Zurely" />
         </a>
-        <a class="nav-link" href="index.html">Back To Home</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#why-zurely">Why Zurely</a></li>
+          <li>
+            <a href="index.html#beta" class="nav-cta">Join Early Access</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-toggle"
+          onclick="document.getElementById('navLinks').classList.toggle('open')"
+          aria-label="Menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </nav>
 
     <main>
-      <div class="container" style="margin-bottom: 3rem;">
-        <zero-md src="https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/privacy-policy.md"></zero-md>
+      <div class="container" style="margin-bottom: 3rem">
+        <zero-md
+          src="https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/privacy-policy.md"
+        >
+          <template>
+            <style>
+              :host {
+                display: block;
+              }
+
+              h1,
+              h2,
+              h3,
+              h4 {
+                color: #0f172a;
+                line-height: 1.25;
+                letter-spacing: -0.01em;
+                margin: 1.2em 0 0.55em;
+              }
+
+              h1 {
+                font-size: clamp(1.7rem, 4vw, 2.2rem);
+                margin-top: 0;
+              }
+
+              h2 {
+                font-size: 1.22rem;
+                border-top: 1px solid #e2e8f0;
+                padding-top: 0.95rem;
+              }
+
+              p,
+              li {
+                color: #475569;
+                line-height: 1.75;
+              }
+
+              ul,
+              ol {
+                padding-left: 1.25rem;
+                margin: 0.5rem 0 1rem;
+              }
+
+              a {
+                color: #0052cc;
+                text-decoration: none;
+              }
+
+              a:hover {
+                text-decoration: underline;
+              }
+
+              blockquote {
+                border-left: 3px solid #cbd5e1;
+                padding-left: 12px;
+                margin: 1rem 0;
+                color: #64748b;
+              }
+
+              code {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                padding: 0.1em 0.35em;
+                font-size: 0.9em;
+              }
+
+              pre {
+                background: #0f172a;
+                color: #e2e8f0;
+                border-radius: 10px;
+                padding: 14px;
+                overflow: auto;
+              }
+
+              pre code {
+                background: transparent;
+                border: 0;
+                padding: 0;
+                color: inherit;
+              }
+
+              hr {
+                border: 0;
+                border-top: 1px solid #e2e8f0;
+                margin: 1.5rem 0;
+              }
+            </style>
+          </template>
+        </zero-md>
       </div>
       <!-- ── Footer ── -->
       <footer>
@@ -44,24 +158,32 @@
                 202501060615 (1662021-V).
               </p>
               <p>
-                Secured in accordance with the Malaysian Personal Data Protection
-                Act (PDPA) 2010.
+                Secured in accordance with the Malaysian Personal Data
+                Protection Act (PDPA) 2010.
               </p>
             </div>
             <div class="footer-columns">
               <div class="footer-col">
                 <h5>Platform</h5>
                 <ul>
-                  <li><a href="#features">Digital Tenancy Hub</a></li>
-                  <li><a href="#features">Compliance Intelligence</a></li>
-                  <li><a href="#features">Secure Identity Verification</a></li>
-                  <li><a href="#features">Performance Portfolio Hub</a></li>
+                  <li><a href="index.html#features">Digital Tenancy Hub</a></li>
+                  <li>
+                    <a href="index.html#features">Compliance Intelligence</a>
+                  </li>
+                  <li>
+                    <a href="index.html#features"
+                      >Secure Identity Verification</a
+                    >
+                  </li>
+                  <li>
+                    <a href="index.html#features">Performance Portfolio Hub</a>
+                  </li>
                 </ul>
               </div>
               <div class="footer-col">
                 <h5>Company</h5>
                 <ul>
-                  <li>About</li>
+                  <li><a href="index.html#top">About</a></li>
                   <li><a href="careers.html">Careers</a></li>
                   <li><a href="mailto:support@zurely.my">Contact</a></li>
                 </ul>

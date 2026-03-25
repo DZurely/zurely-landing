@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,212 +16,53 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      :root {
-        --primary: #0052cc;
-        --dark: #0f172a;
-        --text: #334155;
-        --text-secondary: #64748b;
-        --border: #e2e8f0;
-        --bg: #ffffff;
-        --bg-muted: #f8fafc;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-inner {
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-logo {
-        height: 44px;
-        display: block;
-      }
-
-      .nav-link {
-        text-decoration: none;
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: var(--dark);
-        background: var(--bg-muted);
-        border: 1px solid var(--border);
-        padding: 8px 16px;
-        border-radius: 8px;
-      }
-
-      main {
-        padding: 144px 0 80px;
-      }
-
-      .badge {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        color: var(--primary);
-        background: #e8f0fe;
-        padding: 6px 14px;
-        border-radius: 999px;
-        margin-bottom: 18px;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        line-height: 1.15;
-        letter-spacing: -0.02em;
-        color: var(--dark);
-        margin-bottom: 14px;
-      }
-
-      .lead {
-        max-width: 740px;
-        color: var(--text-secondary);
-        font-size: 1.0625rem;
-        margin-bottom: 28px;
-      }
-
-      .layout {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .panel {
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        background: var(--bg);
-        padding: 22px;
-      }
-
-      .panel h2 {
-        font-size: 1.125rem;
-        color: var(--dark);
-        margin-bottom: 10px;
-      }
-
-      .panel p {
-        color: var(--text-secondary);
-        margin-bottom: 16px;
-      }
-
-      .panel ul {
-        padding-left: 20px;
-        color: var(--text-secondary);
-        margin-bottom: 0;
-      }
-
-      .panel li + li {
-        margin-top: 8px;
-      }
-
-      .steps {
-        display: grid;
-        gap: 10px;
-        margin-top: 12px;
-      }
-
-      .step {
-        padding: 8px 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .step-label {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: var(--primary);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-      }
-
-      .step p {
-        color: var(--text-secondary);
-        font-size: 0.9375rem;
-        margin: 0;
-      }
-
-      .note {
-        margin-top: 10px;
-        font-size: 0.8125rem;
-        color: var(--text-secondary);
-      }
-
-      .muted {
-        font-size: 0.8125rem;
-        color: var(--text-secondary);
-        margin-top: 10px;
-      }
-
-      @media (max-width: 768px) {
-        main {
-          padding: 116px 0 56px;
-        }
-
-        .panel {
-          padding: 22px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <nav>
       <div class="container nav-inner">
-        <a href="index.html" aria-label="Back to home">
+        <a href="index.html#top" aria-label="Zurely Home">
           <img class="nav-logo" src="Zurely.png" alt="Zurely" />
         </a>
-        <a class="nav-link" href="index.html">Back To Home</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#why-zurely">Why Zurely</a></li>
+          <li>
+            <a href="index.html#beta" class="nav-cta">Join Early Access</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-toggle"
+          onclick="document.getElementById('navLinks').classList.toggle('open')"
+          aria-label="Menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </nav>
 
-    <main>
+    <main class="careers-main">
       <div class="container">
-        <span class="badge">Careers</span>
-        <h1>Join Our Talent Pool</h1>
-        <p class="lead">
+        <span class="careers-badge">Careers</span>
+        <h1 class="careers-title">Join Our Talent Pool</h1>
+        <p class="careers-lead">
           We are not actively hiring at this moment. If you are interested in
           working with Zurely, send us your details and CV. We will contact you
           when suitable roles open.
         </p>
 
-        <div class="layout">
-          <section class="panel">
+        <div class="careers-layout">
+          <section class="careers-panel">
             <h2>How Our Hiring Pool Works</h2>
             <p>
               We are collecting profiles early so we can move quickly once
@@ -229,23 +70,23 @@
               up when a suitable role is available.
             </p>
 
-            <div class="steps">
-              <div class="step">
-                <span class="step-label">Step 1</span>
+            <div class="careers-steps">
+              <div class="careers-step">
+                <span class="careers-step-label">Step 1</span>
                 <p>Send us your basic details and preferred role area.</p>
               </div>
-              <div class="step">
-                <span class="step-label">Step 2</span>
+              <div class="careers-step">
+                <span class="careers-step-label">Step 2</span>
                 <p>Attach your CV or include a shareable profile link.</p>
               </div>
-              <div class="step">
-                <span class="step-label">Step 3</span>
+              <div class="careers-step">
+                <span class="careers-step-label">Step 3</span>
                 <p>We will contact shortlisted candidates when roles open.</p>
               </div>
             </div>
           </section>
 
-          <section class="panel">
+          <section class="careers-panel">
             <h2>Send Your Career Interest</h2>
             <p>Please include the following in your email:</p>
             <ul>
@@ -254,14 +95,68 @@
               <li>Current CV (PDF) or a shareable CV link</li>
             </ul>
 
-            <p class="note">
+            <p class="careers-note">
               Send your details and CV to
               <a href="mailto:support@zurely.my">support@zurely.my</a>.
             </p>
-            <p class="muted">We will contact you when hiring starts.</p>
+            <p class="careers-muted">We will contact you when hiring starts.</p>
           </section>
         </div>
       </div>
     </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-name">Zurely</span>
+            <p>
+              An intelligent PropTech platform by Double D Sdn. Bhd.
+              202501060615 (1662021-V).
+            </p>
+            <p>
+              Secured in accordance with the Malaysian Personal Data Protection
+              Act (PDPA) 2010.
+            </p>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h5>Platform</h5>
+              <ul>
+                <li><a href="index.html#features">Digital Tenancy Hub</a></li>
+                <li>
+                  <a href="index.html#features">Compliance Intelligence</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Secure Identity Verification</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Performance Portfolio Hub</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="index.html#top">About</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="mailto:support@zurely.my">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
+          <a href="mailto:support@zurely.my">support@zurely.my</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

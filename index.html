@@ -42,16 +42,20 @@
 
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="top">
     <!-- ── Navigation ── -->
     <nav>
       <div class="container nav-inner">
-        <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+        <a href="index.html#top" aria-label="Zurely Home">
+          <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+        </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#why-zurely">Why Zurely</a></li>
-          <li><a href="#beta" class="nav-cta">Join Early Access</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#why-zurely">Why Zurely</a></li>
+          <li>
+            <a href="index.html#beta" class="nav-cta">Join Early Access</a>
+          </li>
         </ul>
         <button
           class="mobile-toggle"
@@ -360,7 +364,11 @@
             method="POST"
             novalidate
           >
-            <input type="hidden" name="_subject" value="New Early Access Request" />
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Early Access Request"
+            />
             <div class="form-field">
               <label for="beta-name">Full Name</label>
               <input
@@ -442,16 +450,22 @@
             <div class="footer-col">
               <h5>Platform</h5>
               <ul>
-                <li><a href="#features">Digital Tenancy Hub</a></li>
-                <li><a href="#features">Compliance Intelligence</a></li>
-                <li><a href="#features">Secure Identity Verification</a></li>
-                <li><a href="#features">Performance Portfolio Hub</a></li>
+                <li><a href="index.html#features">Digital Tenancy Hub</a></li>
+                <li>
+                  <a href="index.html#features">Compliance Intelligence</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Secure Identity Verification</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Performance Portfolio Hub</a>
+                </li>
               </ul>
             </div>
             <div class="footer-col">
               <h5>Company</h5>
               <ul>
-                <li>About</li>
+                <li><a href="index.html#top">About</a></li>
                 <li><a href="careers.html">Careers</a></li>
                 <li><a href="mailto:support@zurely.my">Contact</a></li>
               </ul>
@@ -535,14 +549,14 @@
 
             setStatus(
               "success",
-              "Thank you. Your early access request has been submitted."
+              "Thank you. Your early access request has been submitted.",
             );
             form.reset();
           } catch (error) {
             setStatus(
               "error",
               error.message ||
-                "Submission failed. Please email support@zurely.my."
+                "Submission failed. Please email support@zurely.my.",
             );
           } finally {
             submitButton.disabled = false;
