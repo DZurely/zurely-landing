@@ -1,794 +1,555 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zurely | The Future of Tenancy Compliance in Malaysia</title>
-    <meta name="description" content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes." />
+    <meta
+      name="description"
+      content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes."
+    />
     <link rel="icon" type="image/png" href="favicon.ico" />
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="zurely,tenancy,stamping,agency,LHDN,malaysia" />
-    <meta property="og:title" content="Zurely | The Future of Tenancy Compliance in Malaysia" />
-    <meta property="og:description" content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes." />
-    <meta property="og:image" content="https://github.com/DZurely/.github/raw/main/profile/logo.png" />
+    <meta
+      name="keywords"
+      content="zurely,tenancy,stamping,agency,LHDN,malaysia"
+    />
+    <meta
+      property="og:title"
+      content="Zurely | The Future of Tenancy Compliance in Malaysia"
+    />
+    <meta
+      property="og:description"
+      content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/DZurely/.github/raw/main/profile/logo.png"
+    />
     <meta property="og:url" content="https://zurely.my" />
-    <meta name="google-site-verification" content="KnZhU9oS7JRW6dFBveDSNPJkFyYo-I_Ir42dRd32KKk" />
+    <meta
+      name="google-site-verification"
+      content="KnZhU9oS7JRW6dFBveDSNPJkFyYo-I_Ir42dRd32KKk"
+    />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #0052CC;
-            --primary-light: #E8F0FE;
-            --dark: #0F172A;
-            --text: #334155;
-            --text-secondary: #64748B;
-            --border: #E2E8F0;
-            --bg: #FFFFFF;
-            --bg-muted: #F8FAFC;
-            --radius: 8px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ── Nav ── */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 64px;
-        }
-
-        .nav-logo {
-            height: 44px;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: color 0.2s;
-        }
-
-        .nav-links li a:hover { color: var(--dark); }
-
-        .nav-cta {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--bg) !important;
-            background: var(--dark);
-            padding: 8px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .nav-cta:hover { opacity: 0.85; }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
-
-        .mobile-toggle svg { display: block; }
-
-        /* ── Hero ── */
-        .hero {
-            padding: 160px 0 100px;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--primary);
-            background: var(--primary-light);
-            padding: 6px 16px;
-            border-radius: 100px;
-            margin-bottom: 28px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.25rem, 5vw, 3.5rem);
-            font-weight: 700;
-            color: var(--dark);
-            line-height: 1.12;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            max-width: 560px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: inherit;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .btn-primary {
-            background: var(--dark);
-            color: #fff;
-        }
-
-        .btn-primary:hover { opacity: 0.88; }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: #CBD5E1;
-            background: var(--bg-muted);
-        }
-
-        /* ── Divider line ── */
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0;
-        }
-
-        /* ── Section common ── */
-        section { padding: 96px 0; }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .section-heading {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .section-desc {
-            font-size: 1.0625rem;
-            color: var(--text-secondary);
-            max-width: 520px;
-            line-height: 1.7;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-header .section-desc {
-            margin: 0 auto;
-        }
-
-        /* ── Features ── */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .feature-card {
-            padding: 36px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: border-color 0.2s;
-        }
-
-        .feature-card:hover {
-            border-color: #CBD5E1;
-        }
-
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--primary-light);
-            border-radius: 10px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .feature-card h3 {
-            font-size: 1.0625rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .feature-card p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        /* ── How It Works ── */
-        .steps-section { background: var(--bg-muted); }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-            counter-reset: step;
-        }
-
-        .step {
-            counter-increment: step;
-            position: relative;
-        }
-
-        .step-number {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .step h3 {
-            font-size: 1.0625rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            font-size: 0.9375rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        /* connector line between steps */
-        .step:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            top: 8px;
-            right: -26px;
-            width: 1px;
-            height: 80%;
-            background: var(--border);
-        }
-
-        /* ── Trust / Why ── */
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            text-align: center;
-        }
-
-        .trust-item h4 {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 6px;
-        }
-
-        .trust-item p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .trust-icon {
-            width: 36px;
-            height: 36px;
-            margin: 0 auto 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
-
-        /* ── Beta Form ── */
-        .beta-section {
-            background: var(--dark);
-            color: #fff;
-        }
-
-        .beta-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
-        }
-
-        .beta-text .section-label { color: #60A5FA; }
-
-        .beta-text .section-heading { color: #fff; }
-
-        .beta-text .section-desc {
-            color: #94A3B8;
-            max-width: 100%;
-        }
-
-        .beta-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-field label {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: #94A3B8;
-        }
-
-        .form-field input {
-            font-family: inherit;
-            font-size: 0.9375rem;
-            padding: 10px 14px;
-            border-radius: 6px;
-            border: 1px solid #334155;
-            background: #1E293B;
-            color: #fff;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-field input::placeholder { color: #475569; }
-
-        .form-field input:focus { border-color: var(--primary); }
-
-        .form-submit {
-            margin-top: 8px;
-            font-family: inherit;
-            font-size: 0.9375rem;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            background: var(--primary);
-            color: #fff;
-            transition: opacity 0.2s;
-        }
-
-        .form-submit:hover { opacity: 0.88; }
-
-        .form-note {
-            font-size: 0.75rem;
-            color: #64748B;
-            margin-top: 4px;
-        }
-
-        /* ── Footer ── */
-        footer {
-            padding: 56px 0 40px;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            gap: 48px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand { max-width: 360px; }
-
-        .footer-brand-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .footer-brand p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .footer-columns {
-            display: flex;
-            gap: 64px;
-        }
-
-        .footer-col h5 {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: var(--dark);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 16px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-col li {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-col a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover { color: var(--dark); }
-
-        .footer-bottom {
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-bottom a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover { color: var(--dark); }
-
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .trust-grid { grid-template-columns: repeat(2, 1fr); }
-            .beta-inner { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-
-            .nav-links.open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 64px;
-                left: 0;
-                right: 0;
-                background: var(--bg);
-                border-bottom: 1px solid var(--border);
-                padding: 24px;
-                gap: 20px;
-            }
-
-            .hero { padding: 120px 0 72px; }
-            .hero-actions { flex-direction: column; align-items: center; }
-            section { padding: 64px 0; }
-            .features-grid { grid-template-columns: 1fr; }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .step:not(:last-child)::after { display: none; }
-
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .beta-inner { grid-template-columns: 1fr; }
-
-            .footer-top { flex-direction: column; gap: 32px; }
-            .footer-columns { gap: 40px; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-            .trust-grid { grid-template-columns: 1fr; }
-            .footer-columns { flex-direction: column; gap: 28px; }
-        }
-    </style>
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- ── Navigation ── -->
     <nav>
-        <div class="container nav-inner">
-            <img class="nav-logo" src="Zurely.png" alt="Zurely" />
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#why-zurely">Why Zurely</a></li>
-                <li><a href="#beta" class="nav-cta">Join Early Access</a></li>
-            </ul>
-            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-        </div>
+      <div class="container nav-inner">
+        <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#why-zurely">Why Zurely</a></li>
+          <li><a href="#beta" class="nav-cta">Join Early Access</a></li>
+        </ul>
+        <button
+          class="mobile-toggle"
+          onclick="document.getElementById('navLinks').classList.toggle('open')"
+          aria-label="Menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </nav>
 
     <!-- ── Hero ── -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-badge">Coming Soon</div>
-            <h1>Tenancy compliance simplified for Malaysian</h1>
-            <p>The all-in-one digital workspace for real estate professionals. Automate agreement data, streamline documentation, and track compliance — effortlessly.</p>
-            <div class="hero-actions">
-                <a href="#beta" class="btn btn-primary">Request Early Access</a>
-                <a href="#features" class="btn btn-secondary">Learn More</a>
-            </div>
+      <div class="container">
+        <div class="hero-badge">Coming Soon</div>
+        <h1>Tenancy compliance simplified for Malaysian</h1>
+        <p>
+          The all-in-one digital workspace for real estate professionals.
+          Automate agreement data, streamline documentation, and track
+          compliance — effortlessly.
+        </p>
+        <div class="hero-actions">
+          <a href="#beta" class="btn btn-primary">Join Early Access</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
         </div>
+      </div>
     </section>
 
     <hr class="divider" />
 
     <!-- ── Features ── -->
     <section id="features">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Platform</div>
-                <h2 class="section-heading">Your Tenancy Workflow, Centralized</h2>
-                <p class="section-desc">Purpose-built tools for Malaysian rental professionals to manage compliance with confidence.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"/><path d="M8 6h4M8 10h4M8 14h2"/></svg>
-                    </div>
-                    <h3>Digital Tenancy Hub</h3>
-                    <p>Digitize and manage professional tenancy agreements in minutes. Experience a seamless, error-free workflow with our AI-driven document automation engine.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16"/><path d="M6 12h2"/></svg>
-                    </div>
-                    <h3>Compliance Intelligence</h3>
-                    <p>Eliminate the guesswork in statutory requirements. Our engine prepares your agreements for seamless compliance and filing.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17v-1a4 4 0 00-3-3.87M12 3.13a4 4 0 010 7.75"/><circle cx="8" cy="7" r="4"/><path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1"/></svg>
-                    </div>
-                    <h3>Secure Identity Verification</h3>
-                    <p>Ensure every signatory is identity-verified, reducing fraud and secure your transactions with confidence.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 9h14M9 3v14"/></svg>
-                    </div>
-                    <h3>Performance Portfolio Hub</h3>
-                    <p>Track tenants, property portfolios, and compliance milestones from a single, high-performance interface built for professional agents.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Platform</div>
+          <h2 class="section-heading">Your Tenancy Workflow, Centralized</h2>
+          <p class="section-desc">
+            Purpose-built tools for Malaysian rental professionals to manage
+            compliance with confidence.
+          </p>
         </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"
+                />
+                <path d="M8 6h4M8 10h4M8 14h2" />
+              </svg>
+            </div>
+            <h3>Digital Tenancy Hub</h3>
+            <p>
+              Digitize and manage professional tenancy agreements in minutes.
+              Experience a seamless, error-free workflow with our AI-driven
+              document automation engine.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="16" height="12" rx="2" />
+                <path d="M2 8h16" />
+                <path d="M6 12h2" />
+              </svg>
+            </div>
+            <h3>Compliance Intelligence</h3>
+            <p>
+              Eliminate the guesswork in statutory requirements. Our engine
+              prepares your agreements for seamless compliance and filing.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 17v-1a4 4 0 00-3-3.87M12 3.13a4 4 0 010 7.75" />
+                <circle cx="8" cy="7" r="4" />
+                <path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
+              </svg>
+            </div>
+            <h3>Secure Identity Verification</h3>
+            <p>
+              Ensure every signatory is identity-verified, reducing fraud and
+              secure your transactions with confidence.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="14" height="14" rx="2" />
+                <path d="M3 9h14M9 3v14" />
+              </svg>
+            </div>
+            <h3>Performance Portfolio Hub</h3>
+            <p>
+              Track tenants, property portfolios, and compliance milestones from
+              a single, high-performance interface built for professional
+              agents.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ── How It Works ── -->
     <section class="steps-section" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Process</div>
-                <h2 class="section-heading">Three steps. Done.</h2>
-                <p class="section-desc">A streamlined workflow that transforms complex documentation into a professional, error-free digital record.</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step">
-                    <span class="step-number">01</span>
-                    <h3>Smart Document Generation</h3>
-                    <p>Transform simple property and party details into a fully compliant tenancy agreement in seconds.</p>
-                </div>
-                <div class="step">
-                    <span class="step-number">02</span>
-                    <h3>Secure Identity &amp; Signing</h3>
-                    <p>All signatories undergo secure identity verification before signing. Finalize your agreement digitally with full legal validity — anytime, anywhere.</p>
-                </div>
-                <div class="step">
-                    <span class="step-number">03</span>
-                    <h3>Finalize &amp; Comply</h3>
-                    <p>Your agreement is automatically prepared for duty assessment. We finalize your digital record, ensuring all documents meet statutory compliance standards in one seamless workflow.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Process</div>
+          <h2 class="section-heading">Three steps. Done.</h2>
+          <p class="section-desc">
+            A streamlined workflow that transforms complex documentation into a
+            professional, error-free digital record.
+          </p>
         </div>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>Smart Document Generation</h3>
+            <p>
+              Transform simple property and party details into a fully compliant
+              tenancy agreement in seconds.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>Secure Identity &amp; Signing</h3>
+            <p>
+              All signatories undergo secure identity verification before
+              signing. Finalize your agreement digitally with full legal
+              validity — anytime, anywhere.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <h3>Finalize &amp; Comply</h3>
+            <p>
+              Your agreement is automatically prepared for duty assessment. We
+              finalize your digital record, ensuring all documents meet
+              statutory compliance standards in one seamless workflow.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ── Why Zurely ── -->
     <section id="why-zurely">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Advantages</div>
-                <h2 class="section-heading">Built for the Top 1%</h2>
-                <p class="section-desc">While others navigate the friction of fragmented paperwork, Zurely users leverage intelligent automation to manage their portfolios with absolute precision.</p>
-            </div>
-            <div class="trust-grid">
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="9"/><polyline points="11 7 11 11 14 13"/></svg>
-                    </div>
-                    <h4>Speed</h4>
-                    <p>Automate your manual paperwork and reclaim hours of your time every week.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="16" height="10" rx="2"/><path d="M7 9V6a4 4 0 018 0v3"/></svg>
-                    </div>
-                    <h4>Security</h4>
-                    <p>Bank-grade protection and PDPA compliance to keep your documents and client data secure.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 1l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
-                    </div>
-                    <h4>Compliance</h4>
-                    <p>Built to meet Malaysian tenancy standards and simplify your path to official compliance.</p>
-                </div>
-                <div class="trust-item">
-                    <div class="trust-icon">
-                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                    </div>
-                    <h4>Malaysian-first</h4>
-                    <p>Purpose-built for the unique requirements and legal standards of the Malaysian property market.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Advantages</div>
+          <h2 class="section-heading">Built for the Top 1%</h2>
+          <p class="section-desc">
+            While others navigate the friction of fragmented paperwork, Zurely
+            users leverage intelligent automation to manage their portfolios
+            with absolute precision.
+          </p>
         </div>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="9" />
+                <polyline points="11 7 11 11 14 13" />
+              </svg>
+            </div>
+            <h4>Speed</h4>
+            <p>
+              Automate your manual paperwork and reclaim hours of your time
+              every week.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="9" width="16" height="10" rx="2" />
+                <path d="M7 9V6a4 4 0 018 0v3" />
+              </svg>
+            </div>
+            <h4>Security</h4>
+            <p>
+              Bank-grade protection and PDPA compliance to keep your documents
+              and client data secure.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M11 1l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
+              </svg>
+            </div>
+            <h4>Compliance</h4>
+            <p>
+              Built to meet Malaysian tenancy standards and simplify your path
+              to official compliance.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                />
+                <line x1="4" y1="22" x2="4" y2="15" />
+              </svg>
+            </div>
+            <h4>Malaysian-first</h4>
+            <p>
+              Purpose-built for the unique requirements and legal standards of
+              the Malaysian property market.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ── Beta Access Form ── -->
     <section class="beta-section" id="beta">
-        <div class="container">
-            <div class="beta-inner">
-                <div class="beta-text">
-                    <div class="section-label">Early Access</div>
-                    <h2 class="section-heading">Apply for Early Access</h2>
-                    <p class="section-desc">We are onboarding a select group of high-performance agencies and agents to define the new standard of Malaysian property transactions. Apply now to secure your spot.</p>
-                </div>
-                <form class="beta-form" onsubmit="return false;">
-                    <div class="form-field">
-                        <label for="beta-name">Full Name</label>
-                        <input type="text" id="beta-name" placeholder="e.g. Ahmad bin Ismail" autocomplete="name" />
-                    </div>
-                    <div class="form-field">
-                        <label for="beta-email">Email</label>
-                        <input type="email" id="beta-email" placeholder="you@agency.com" autocomplete="email" />
-                    </div>
-                    <div class="form-field">
-                        <label for="beta-phone">Phone Number</label>
-                        <input type="tel" id="beta-phone" placeholder="+60 12-345 6789" autocomplete="tel" />
-                    </div>
-                    <div class="form-field">
-                        <label for="beta-agency">Agency / Firm</label>
-                        <input type="text" id="beta-agency" placeholder="e.g. Property Hub Realty" />
-                    </div>
-                    <button type="submit" class="form-submit">Request Access</button>
-                    <p class="form-note">Our team will review your application and reach out shortly to discuss your onboarding.</p>
-                </form>
+      <div class="container">
+        <div class="beta-inner">
+          <div class="beta-text">
+            <div class="section-label">Early Access</div>
+            <h2 class="section-heading">Apply for Early Access</h2>
+            <p class="section-desc">
+              We are onboarding a select group of high-performance agencies and
+              agents to define the new standard of Malaysian property
+              transactions. Apply now to secure your spot.
+            </p>
+          </div>
+          <form
+            class="beta-form"
+            action="https://formspree.io/f/xpqoaagn"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="New Early Access Request" />
+            <div class="form-field">
+              <label for="beta-name">Full Name</label>
+              <input
+                type="text"
+                id="beta-name"
+                name="full_name"
+                placeholder="e.g. Ahmad bin Ismail"
+                autocomplete="name"
+                required
+              />
             </div>
+            <div class="form-field">
+              <label for="beta-email">Email</label>
+              <input
+                type="email"
+                id="beta-email"
+                name="email"
+                placeholder="you@agency.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <label for="beta-phone">Phone Number</label>
+              <input
+                type="tel"
+                id="beta-phone"
+                name="phone"
+                placeholder="+60 12-345 6789"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="form-field">
+              <label for="beta-agency">Agency / Firm</label>
+              <input
+                type="text"
+                id="beta-agency"
+                name="agency"
+                placeholder="e.g. Property Hub Realty"
+              />
+            </div>
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="beta-website">Website</label>
+              <input
+                type="text"
+                id="beta-website"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <button type="submit" class="form-submit">Join Early Access</button>
+            <p class="form-status" hidden></p>
+            <p class="form-note">
+              Our team will review your application and reach out shortly to
+              discuss your onboarding.
+            </p>
+          </form>
         </div>
+      </div>
     </section>
 
     <!-- ── Footer ── -->
     <footer>
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <span class="footer-brand-name">Zurely</span>
-                    <p>An intelligent PropTech platform by Double D Sdn. Bhd. 202501060615 (1662021-V). Secured in accordance with the Malaysian Personal Data Protection Act (PDPA) 2010.</p>
-                </div>
-                <div class="footer-columns">
-                    <div class="footer-col">
-                        <h5>Platform</h5>
-                        <ul>
-                            <li>Digital Tenancy Hub</li>
-                            <li>Compliance Intelligence</li>
-                            <li>Secure Identity Verification</li>
-                            <li>Performance Portfolio Hub</li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Company</h5>
-                        <ul>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li><a href="mailto:support@zurely.my">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h5>Legal</h5>
-                        <ul>
-                            <li>Privacy Policy</li>
-                            <li>Terms of Service</li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-name">Zurely</span>
+            <p>
+              An intelligent PropTech platform by Double D Sdn. Bhd.
+              202501060615 (1662021-V).
+            </p>
+            <p>
+              Secured in accordance with the Malaysian Personal Data Protection
+              Act (PDPA) 2010.
+            </p>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h5>Platform</h5>
+              <ul>
+                <li><a href="#features">Digital Tenancy Hub</a></li>
+                <li><a href="#features">Compliance Intelligence</a></li>
+                <li><a href="#features">Secure Identity Verification</a></li>
+                <li><a href="#features">Performance Portfolio Hub</a></li>
+              </ul>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
-                <a href="mailto:support@zurely.my">support@zurely.my</a>
+            <div class="footer-col">
+              <h5>Company</h5>
+              <ul>
+                <li>About</li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="mailto:support@zurely.my">Contact</a></li>
+              </ul>
             </div>
+            <div class="footer-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
+          <a href="mailto:support@zurely.my">support@zurely.my</a>
+        </div>
+      </div>
     </footer>
+    <script>
+      (function () {
+        const form = document.querySelector(".beta-form");
+        if (!form) return;
 
-</body>
+        const submitButton = form.querySelector(".form-submit");
+        const statusMessage = form.querySelector(".form-status");
+        const honeypot = form.querySelector('input[name="_gotcha"]');
+
+        function setStatus(type, message) {
+          statusMessage.textContent = message;
+          statusMessage.className = "form-status " + type;
+          statusMessage.hidden = false;
+        }
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          statusMessage.hidden = true;
+
+          if (honeypot && honeypot.value.trim() !== "") {
+            setStatus("success", "Thank you. Your request has been received.");
+            form.reset();
+            return;
+          }
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const originalButtonText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const response = await fetch(form.action, {
+              method: (form.method || "POST").toUpperCase(),
+              body: new FormData(form),
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (!response.ok) {
+              let errorMessage =
+                "Unable to submit right now. Please try again in a moment.";
+              try {
+                const payload = await response.json();
+                if (
+                  payload &&
+                  Array.isArray(payload.errors) &&
+                  payload.errors[0] &&
+                  payload.errors[0].message
+                ) {
+                  errorMessage = payload.errors[0].message;
+                }
+              } catch (jsonError) {
+                // Keep fallback error message when provider returns non-JSON.
+              }
+              throw new Error(errorMessage);
+            }
+
+            setStatus(
+              "success",
+              "Thank you. Your early access request has been submitted."
+            );
+            form.reset();
+          } catch (error) {
+            setStatus(
+              "error",
+              error.message ||
+                "Submission failed. Please email support@zurely.my."
+            );
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>
