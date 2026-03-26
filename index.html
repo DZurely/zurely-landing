@@ -1,363 +1,567 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zurely | The Future of Tenancy Compliance in Malaysia</title>
-    <meta name="description" content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes." />
+    <meta
+      name="description"
+      content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes."
+    />
     <link rel="icon" type="image/png" href="favicon.ico" />
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="zurely,tenancy,stamping,agency,LHDN,malaysia" />
-    <meta property="og:title" content="Zurely | The Future of Tenancy Compliance in Malaysia" />
-    <meta property="og:description" content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes." />
-    <meta property="og:image" content="https://github.com/DZurely/.github/raw/main/profile/logo.png" />
+    <meta
+      name="keywords"
+      content="zurely,tenancy,stamping,agency,LHDN,malaysia"
+    />
+    <meta
+      property="og:title"
+      content="Zurely | The Future of Tenancy Compliance in Malaysia"
+    />
+    <meta
+      property="og:description"
+      content="Zurely: Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/DZurely/.github/raw/main/profile/logo.png"
+    />
     <meta property="og:url" content="https://zurely.my" />
-    <meta name="google-site-verification" content="KnZhU9oS7JRW6dFBveDSNPJkFyYo-I_Ir42dRd32KKk" />
+    <meta
+      name="google-site-verification"
+      content="KnZhU9oS7JRW6dFBveDSNPJkFyYo-I_Ir42dRd32KKk"
+    />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <style>
-        :root {
-            --primary: #0052CC;
-            --secondary: #00B8D9;
-            --dark-navy: #091E42; /* Deeper footer color */
-            --dark-bg: #071329;    /* Absolute dark for footer */
-            --light-blue: #F0F7FF;
-            --white: #ffffff;
-            --text-main: #42526E;
-            --text-light: #EBECF0;
-            --footer-text: #A5ADBA;
-        }
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <!-- ── Navigation ── -->
+    <nav>
+      <div class="container nav-inner">
+        <a href="index.html#top" aria-label="Zurely Home">
+          <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
+          <li><a href="index.html#why-zurely">Why Zurely</a></li>
+          <li>
+            <a href="index.html#beta" class="nav-cta">Join Early Access</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-toggle"
+          onclick="document.getElementById('navLinks').classList.toggle('open')"
+          aria-label="Menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--white);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- Header --- */
-        header {
-            padding: 25px 0;
-            background: white;
-        }
-
-        .logo {
-            /* font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -1.5px; */
-            height: 128px;
-            margin-bottom: -32px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 120px 0 100px;
-            text-align: center;
-            background: radial-gradient(circle at center, #ffffff 0%, #f4f8ff 100%);
-        }
-
-        h1 {
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            color: var(--dark-navy);
-            line-height: 1.05;
-            margin-bottom: 24px;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: #505F79;
-        }
-
-        .coming-soon-badge {
-            display: inline-block;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            padding: 12px 30px;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            background-color: white;
-            box-shadow: 0 4px 14px rgba(0, 82, 204, 0.15);
-        }
-
-        /* --- REVENUE ENGINES (OUTSTANDING) --- */
-        .services {
-            padding: 100px 0;
-            background-color: var(--light-blue);
-        }
-
-        .section-tag {
-            text-align: center;
-            display: block;
-            color: var(--primary);
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
-            color: var(--dark-navy);
-            font-weight: 800;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            padding: 50px;
-            border-radius: 20px;
-            background: var(--white);
-            border: none;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--primary);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 82, 204, 0.12);
-        }
-
-        .card h3 {
-            color: var(--dark-navy);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .price-tag {
-            display: inline-block;
-            background: #E6EFFC;
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            color: #505F79;
-        }
-
-        /* --- Value Props --- */
-        .value-props {
-            padding: 100px 0;
-            background-color: var(--white);
-        }
-
-        .prop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            text-align: center;
-        }
-
-        .prop-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--dark-navy);
-            font-weight: 700;
-        }
-
-        /* --- Wide & Dark Footer (Updated with specific text) --- */
-        footer {
-            padding: 80px 0;
-            background-color: var(--dark-bg);
-            color: var(--footer-text);
-            width: 100%;
-            border-top: 4px solid var(--primary);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .footer-logo {
-            color: var(--white);
-            font-weight: 800;
-            font-size: 1.5rem;
-            text-decoration: none;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .footer-text-block {
-            max-width: 900px;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .footer-text-block p {
-            margin-bottom: 12px;
-        }
-
-        .footer-contact a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-contact a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright-line {
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #1a2b4a;
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        /* --- Responsive Queries --- */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .card {
-                padding: 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <image class="logo" src="zurely-logo.png"></image>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
+    <!-- ── Hero ── -->
     <section class="hero">
-        <div class="container">
-            <h1>The Future of Tenancy <br>Compliance in Malaysia</h1>
-            <p>The All-in-One Digital Workspace for the Modern Real Estate Professional.</p>
-            <div class="coming-soon-badge">Coming soon...</div>
+      <div class="container">
+        <div class="hero-badge">Coming Soon</div>
+        <h1>Tenancy compliance simplified for Malaysian</h1>
+        <p>
+          The all-in-one digital workspace for real estate professionals.
+          Automate agreement data, streamline documentation, and track
+          compliance — effortlessly.
+        </p>
+        <div class="hero-actions">
+          <a href="#beta" class="btn btn-primary">Join Early Access</a>
+          <a href="#features" class="btn btn-secondary">Learn More</a>
         </div>
+      </div>
     </section>
 
-    <!-- Revenue Engines (Updated with high contrast) -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">The Dual Service Overview</h2>
-            <div class="grid">
-                <!-- Service 1 -->
-                <div class="card">
-                    <span class="price-tag">Compliance & Security</span>
-                    <h3>Digital Compliance Hub</h3>
-                    <p>Streamline your tenancy documentation and regulatory requirements through a centralized digital interface.</p>
-                </div>
-                <!-- Service 2 -->
-                <div class="card">
-                    <span class="price-tag">Quality & Speed</span>
-                    <h3>Smart Tenant Onboarding</h3>
-                    <p>Advanced tools to help you qualify and manage your leads with confidence and speed.</p>
-                </div>
+    <!-- ── Features ── -->
+    <section id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Platform</div>
+          <h2 class="section-heading">Your Tenancy Workflow, Centralized</h2>
+          <p class="section-desc">
+            Purpose-built tools for Malaysian rental professionals to manage
+            compliance with confidence.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"
+                />
+                <path d="M8 6h4M8 10h4M8 14h2" />
+              </svg>
             </div>
-        </div>
-    </section>
-
-    <!-- Value Props -->
-    <section class="value-props">
-        <div class="container">
-            <h2 class="section-title">Why Choose Zurely?</h2>
-            <div class="prop-grid">
-                <div class="prop-item">
-                    <h4>Speed</h4>
-                    <p>Reclaim your time by digitizing manual, repetitive administrative tasks.</p>
-                </div>
-                <div class="prop-item">
-                    <h4>Security</h4>
-                    <p>Your data is protected by enterprise-grade encryption and strict privacy standards.</p>
-                </div>
-                <div class="prop-item">
-                    <h4>Legacy</h4>
-                    <p>Built by industry veterans to modernize the Malaysian property ecosystem.</p>
-                </div>
+            <h3>Digital Tenancy Hub</h3>
+            <p>
+              Digitize and manage professional tenancy agreements in minutes.
+              Experience a seamless, error-free workflow with our AI-driven
+              document automation engine.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="16" height="12" rx="2" />
+                <path d="M2 8h16" />
+                <path d="M6 12h2" />
+              </svg>
             </div>
+            <h3>Compliance Intelligence</h3>
+            <p>
+              Eliminate the guesswork in statutory requirements. Our engine
+              prepares your agreements for seamless compliance and filing.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 17v-1a4 4 0 00-3-3.87M12 3.13a4 4 0 010 7.75" />
+                <circle cx="8" cy="7" r="4" />
+                <path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
+              </svg>
+            </div>
+            <h3>Secure Identity Verification</h3>
+            <p>
+              Ensure every signatory is identity-verified, reducing fraud and
+              secure your transactions with confidence.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="14" height="14" rx="2" />
+                <path d="M3 9h14M9 3v14" />
+              </svg>
+            </div>
+            <h3>Performance Portfolio Hub</h3>
+            <p>
+              Track tenants, property portfolios, and compliance milestones from
+              a single, high-performance interface built for professional
+              agents.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- ── How It Works ── -->
+    <section class="steps-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Process</div>
+          <h2 class="section-heading">Three steps. Done.</h2>
+          <p class="section-desc">
+            A streamlined workflow that transforms complex documentation into a
+            professional, error-free digital record.
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="step-number">01</span>
+            <h3>Smart Document Generation</h3>
+            <p>
+              Transform simple property and party details into a fully compliant
+              tenancy agreement in seconds.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">02</span>
+            <h3>Secure Identity &amp; Signing</h3>
+            <p>
+              All signatories undergo secure identity verification before
+              signing. Finalize your agreement digitally with full legal
+              validity — anytime, anywhere.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">03</span>
+            <h3>Finalize &amp; Comply</h3>
+            <p>
+              Your agreement is automatically prepared for duty assessment. We
+              finalize your digital record, ensuring all documents meet
+              statutory compliance standards in one seamless workflow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why Zurely ── -->
+    <section id="why-zurely">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Advantages</div>
+          <h2 class="section-heading">Built for the Top 1%</h2>
+          <p class="section-desc">
+            While others navigate the friction of fragmented paperwork, Zurely
+            users leverage intelligent automation to manage their portfolios
+            with absolute precision.
+          </p>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="9" />
+                <polyline points="11 7 11 11 14 13" />
+              </svg>
+            </div>
+            <h4>Speed</h4>
+            <p>
+              Automate your manual paperwork and reclaim hours of your time
+              every week.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="9" width="16" height="10" rx="2" />
+                <path d="M7 9V6a4 4 0 018 0v3" />
+              </svg>
+            </div>
+            <h4>Security</h4>
+            <p>
+              Bank-grade protection and PDPA compliance to keep your documents
+              and client data secure.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M11 1l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
+              </svg>
+            </div>
+            <h4>Compliance</h4>
+            <p>
+              Built to meet Malaysian tenancy standards and simplify your path
+              to official compliance.
+            </p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                />
+                <line x1="4" y1="22" x2="4" y2="15" />
+              </svg>
+            </div>
+            <h4>Malaysian-first</h4>
+            <p>
+              Purpose-built for the unique requirements and legal standards of
+              the Malaysian property market.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Beta Access Form ── -->
+    <section class="beta-section" id="beta">
+      <div class="container">
+        <div class="beta-inner">
+          <div class="beta-text">
+            <div class="section-label">Early Access</div>
+            <h2 class="section-heading">Apply for Early Access</h2>
+            <p class="section-desc">
+              We are onboarding a select group of high-performance agencies and
+              agents to define the new standard of Malaysian property
+              transactions. Apply now to secure your spot.
+            </p>
+          </div>
+          <form
+            class="beta-form"
+            action="https://formspree.io/f/xpqoaagn"
+            method="POST"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Early Access Request"
+            />
+            <div class="form-field">
+              <label for="beta-name">Full Name</label>
+              <input
+                type="text"
+                id="beta-name"
+                name="full_name"
+                placeholder="e.g. Ahmad bin Ismail"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <label for="beta-email">Email</label>
+              <input
+                type="email"
+                id="beta-email"
+                name="email"
+                placeholder="you@agency.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="form-field">
+              <label for="beta-phone">Phone Number</label>
+              <input
+                type="tel"
+                id="beta-phone"
+                name="phone"
+                placeholder="+60 12-345 6789"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="form-field">
+              <label for="beta-agency">Agency / Firm</label>
+              <input
+                type="text"
+                id="beta-agency"
+                name="agency"
+                placeholder="e.g. Property Hub Realty"
+              />
+            </div>
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="beta-website">Website</label>
+              <input
+                type="text"
+                id="beta-website"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <button type="submit" class="form-submit">Join Early Access</button>
+            <p class="form-status" hidden></p>
+            <p class="form-note">
+              Our team will review your application and reach out shortly to
+              discuss your onboarding.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ── -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo">ZURELY</a>
-
-                <div class="footer-text-block">
-                    <p>Zurely is a digital PropTech platform owned and operated by <strong>Double D Sdn. Bhd.(202501060615)</strong></p>
-
-                    <p><strong>Service focus:</strong> Digital transformation and compliance automation for the Malaysian property market.</p>
-
-                    <p><strong>Compliance:</strong> This platform is designed in accordance with the Malaysian Personal Data Protection Act (PDPA) 2010.</p>
-
-                    <div class="footer-contact">
-                        <strong>Contact:</strong> <a href="mailto:support@zurely.my">support@zurely.my</a>
-                    </div>
-                </div>
-
-                <div class="copyright-line">
-                    © 2025-2026 Zurely. All Rights Reserved.
-                </div>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-name">Zurely</span>
+            <p>
+              An intelligent PropTech platform by Double D Sdn. Bhd.
+              202501060615 (1662021-V).
+            </p>
+            <p>
+              Secured in accordance with the Malaysian Personal Data Protection
+              Act (PDPA) 2010.
+            </p>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h5>Platform</h5>
+              <ul>
+                <li><a href="index.html#features">Digital Tenancy Hub</a></li>
+                <li>
+                  <a href="index.html#features">Compliance Intelligence</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Secure Identity Verification</a>
+                </li>
+                <li>
+                  <a href="index.html#features">Performance Portfolio Hub</a>
+                </li>
+              </ul>
             </div>
+            <div class="footer-col">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="index.html#top">About</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="mailto:support@zurely.my">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
+          <a href="mailto:support@zurely.my">support@zurely.my</a>
+        </div>
+      </div>
     </footer>
+    <script>
+      (function () {
+        const form = document.querySelector(".beta-form");
+        if (!form) return;
 
-</body>
+        const submitButton = form.querySelector(".form-submit");
+        const statusMessage = form.querySelector(".form-status");
+        const honeypot = form.querySelector('input[name="_gotcha"]');
+
+        function setStatus(type, message) {
+          statusMessage.textContent = message;
+          statusMessage.className = "form-status " + type;
+          statusMessage.hidden = false;
+        }
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          statusMessage.hidden = true;
+
+          if (honeypot && honeypot.value.trim() !== "") {
+            setStatus("success", "Thank you. Your request has been received.");
+            form.reset();
+            return;
+          }
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const originalButtonText = submitButton.textContent;
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+
+          try {
+            const response = await fetch(form.action, {
+              method: (form.method || "POST").toUpperCase(),
+              body: new FormData(form),
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            if (!response.ok) {
+              let errorMessage =
+                "Unable to submit right now. Please try again in a moment.";
+              try {
+                const payload = await response.json();
+                if (
+                  payload &&
+                  Array.isArray(payload.errors) &&
+                  payload.errors[0] &&
+                  payload.errors[0].message
+                ) {
+                  errorMessage = payload.errors[0].message;
+                }
+              } catch (jsonError) {
+                // Keep fallback error message when provider returns non-JSON.
+              }
+              throw new Error(errorMessage);
+            }
+
+            setStatus(
+              "success",
+              "Thank you. Your early access request has been submitted.",
+            );
+            form.reset();
+          } catch (error) {
+            setStatus(
+              "error",
+              error.message ||
+                "Submission failed. Please email support@zurely.my.",
+            );
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>
