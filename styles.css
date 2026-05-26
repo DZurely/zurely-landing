@@ -60,7 +60,7 @@ nav {
 }
 
 .nav-logo {
-  height: 44px;
+  height: 64px;
   display: block;
 }
 
@@ -875,4 +875,10 @@ footer {
   .legal-page main {
     padding: 104px 0 48px;
   }
+}
+
+.email-logo {
+  vertical-align: -4px;
+  margin-right: 2px;
+  width: 18px;
 }
