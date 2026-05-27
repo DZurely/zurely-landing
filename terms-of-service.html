@@ -78,6 +78,7 @@
       <div class="container" style="margin-bottom: 3rem">
         <zero-md
           src="https://raw.githubusercontent.com/DZurely/zurely-docs/refs/heads/main/terms-of-service.md"
+          loading
         >
           <template>
             <style>
@@ -203,7 +204,7 @@
                 <h5>Company</h5>
                 <ul>
                   <li><a href="/#top">About</a></li>
-                  <li><a href="careers.html">Careers</a></li>
+                  <!-- <li><a href="careers.html">Careers</a></li> -->
                   <li><a href="we-are-hiring.html">We are hiring</a></li>
                   <li><a href="mailto:support@zurely.my">
                     <img class="email-logo" src="icons-email-48.png" alt="Contact" />
@@ -229,6 +230,11 @@
           </div>
         </div>
       </footer>
+      <script>
+        window.addEventListener('zero-md-rendered', (e) => {
+          e.target.removeAttribute('loading');
+        });
+      </script>
     </main>
   </body>
 </html>
