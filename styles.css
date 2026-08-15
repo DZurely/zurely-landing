@@ -424,7 +424,21 @@ section {
   color: #475569;
 }
 
-.form-field input:focus {
+.form-field select:invalid {
+  color: #475569;
+}
+
+.form-field select option {
+  color: #fff;
+  background: #1e293b;
+}
+
+.form-field select option[value=""][disabled] {
+  color: #475569;
+}
+
+.form-field input:focus,
+.form-field select:focus {
   border-color: var(--primary);
 }
 
