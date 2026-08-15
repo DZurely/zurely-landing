@@ -8,6 +8,9 @@
   --bg: #ffffff;
   --bg-muted: #f8fafc;
   --radius: 8px;
+  --danger: #d6455b;
+  --danger-text: #b33146;
+  --danger-bg: #fdecef;
 }
 
 * {
@@ -287,7 +290,7 @@ section {
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 48px;
   counter-reset: step;
 }
@@ -404,7 +407,8 @@ section {
   color: #94a3b8;
 }
 
-.form-field input {
+.form-field input,
+.form-field select {
   font-family: inherit;
   font-size: 0.9375rem;
   padding: 10px 14px;
@@ -911,4 +915,9 @@ zero-md[loading]::before {
 
   animation: spin 1s linear infinite;
   z-index: 10;
+}
+
+.form-field label .req {
+  margin-left: 3px;
+  color: var(--danger);
 }

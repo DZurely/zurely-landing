@@ -54,7 +54,6 @@
           <li><a href="/#features">Features</a></li>
           <li><a href="/#how-it-works">How It Works</a></li>
           <li><a href="/#why-zurely">Why Zurely</a></li>
-          <li><a href="/we-are-hiring.html">Careers</a></li>
           <li>
             <a href="/#beta" class="nav-cta">Join Early Access</a>
           </li>
@@ -82,7 +81,7 @@
     <section class="hero">
       <div class="container">
         <div class="hero-badge">Coming Soon</div>
-        <h1>Tenancy compliance simplified for Malaysian</h1>
+        <h1>CLOSE TENANCIES <font color="green">WITHOUT</font> THE PAPER CHASE</h1>
         <p>
           The all-in-one digital workspace for real estate professionals.
           Automate agreement data, streamline documentation, and track
@@ -124,11 +123,9 @@
                 <path d="M8 6h4M8 10h4M8 14h2" />
               </svg>
             </div>
-            <h3>Digital Tenancy Hub</h3>
+            <h3>Create in Minutes</h3>
             <p>
-              Digitize and manage professional tenancy agreements in minutes.
-              Experience a seamless, error-free workflow with our AI-driven
-              document automation engine.
+              Generate accurate tenancy agreements instantly from deal details.
             </p>
           </div>
           <div class="feature-card">
@@ -147,10 +144,9 @@
                 <path d="M6 12h2" />
               </svg>
             </div>
-            <h3>Compliance Intelligence</h3>
+            <h3>Verify with Confidence</h3>
             <p>
-              Eliminate the guesswork in statutory requirements. Our engine
-              prepares your agreements for seamless compliance and filing.
+              Verify landlord & tenant identities with MyKad / Passport verification.
             </p>
           </div>
           <div class="feature-card">
@@ -169,10 +165,9 @@
                 <path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
               </svg>
             </div>
-            <h3>Secure Identity Verification</h3>
+            <h3>Sign Anywhere</h3>
             <p>
-              Ensure every signatory is identity-verified, reducing fraud and
-              secure your transactions with confidence.
+              Both parties sign digitally on any device. No printing, no running around.
             </p>
           </div>
           <div class="feature-card">
@@ -190,11 +185,9 @@
                 <path d="M3 9h14M9 3v14" />
               </svg>
             </div>
-            <h3>Performance Portfolio Hub</h3>
+            <h3>Stay Compliant</h3>
             <p>
-              Track tenants, property portfolios, and compliance milestones from
-              a single, high-performance interface built for professional
-              agents.
+              Built around Malaysian tenancy and statutory requirements.
             </p>
           </div>
         </div>
@@ -206,7 +199,7 @@
       <div class="container">
         <div class="section-header">
           <div class="section-label">Process</div>
-          <h2 class="section-heading">Three steps. Done.</h2>
+          <h2 class="section-heading">One Workflow. Every Tenancy.</h2>
           <p class="section-desc">
             A streamlined workflow that transforms complex documentation into a
             professional, error-free digital record.
@@ -215,28 +208,30 @@
         <div class="steps-grid">
           <div class="step">
             <span class="step-number">01</span>
-            <h3>Smart Document Generation</h3>
+            <h3>Create</h3>
             <p>
-              Transform simple property and party details into a fully compliant
-              tenancy agreement in seconds.
+              Generate the agreement from your detal.
             </p>
           </div>
           <div class="step">
             <span class="step-number">02</span>
-            <h3>Secure Identity &amp; Signing</h3>
+            <h3>Verify</h3>
             <p>
-              All signatories undergo secure identity verification before
-              signing. Finalize your agreement digitally with full legal
-              validity — anytime, anywhere.
+              Verify identities instantly and security.
             </p>
           </div>
           <div class="step">
             <span class="step-number">03</span>
-            <h3>Finalize &amp; Comply</h3>
+            <h3>Sign</h3>
             <p>
-              Your agreement is automatically prepared for duty assessment. We
-              finalize your digital record, ensuring all documents meet
-              statutory compliance standards in one seamless workflow.
+              Both parties sign digitally, anywhere.
+            </p>
+          </div>
+          <div class="step">
+            <span class="step-number">04</span>
+            <h3>Comply</h3>
+            <p>
+              Keep it compliant and ready for record.
             </p>
           </div>
         </div>
@@ -353,9 +348,9 @@
             <div class="section-label">Early Access</div>
             <h2 class="section-heading">Apply for Early Access</h2>
             <p class="section-desc">
-              We are onboarding a select group of high-performance agencies and
-              agents to define the new standard of Malaysian property
-              transactions. Apply now to secure your spot.
+              Join the early access list and be among the first.
+              We are onboarding a limited number of agencies and agents,
+              and beta invites and delivered through the App Store and Google Play.
             </p>
           </div>
           <form
@@ -381,7 +376,9 @@
               />
             </div>
             <div class="form-field">
-              <label for="beta-email">Email</label>
+              <label for="beta-email">Email<span class="req" aria-hidden="true"
+                  >*</span
+                ></label>
               <input
                 type="email"
                 id="beta-email"
@@ -392,13 +389,33 @@
               />
             </div>
             <div class="form-field">
-              <label for="beta-phone">Phone Number</label>
+              <label for="beta-os"
+                >Phone OS<span class="req" aria-hidden="true"
+                  >*</span
+                ></label
+              >
+              <select id="beta-os" name="phone_os" required>
+                <option value="" selected disabled>
+                  Select your device
+                </option>
+                <option value="iOS">iOS (iPhone)</option>
+                <option value="Android">Android</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="beta-phone"
+                >Phone number<span class="req" aria-hidden="true"
+                  >*</span
+                ></label
+              >
               <input
-                type="tel"
                 id="beta-phone"
                 name="phone"
+                type="tel"
                 placeholder="+60 12-345 6789"
                 autocomplete="tel"
+                required
               />
             </div>
             <div class="form-field">
@@ -420,11 +437,10 @@
                 autocomplete="off"
               />
             </div>
-            <button type="submit" class="form-submit">Join Early Access</button>
+            <button type="submit" class="form-submit">Request Early Access</button>
             <p class="form-status" hidden></p>
             <p class="form-note">
-              Our team will review your application and reach out shortly to
-              discuss your onboarding.
+              We will send your beta invite to the store account email about once early access opens.
             </p>
           </form>
         </div>
@@ -466,8 +482,6 @@
               <h5>Company</h5>
               <ul>
                 <li><a href="/#top">About</a></li>
-                <!-- <li><a href="careers.html">Careers</a></li> -->
-                <li><a href="we-are-hiring.html">We are hiring</a></li>
                 <li><a href="mailto:support@zurely.my">
                   <img class="email-logo" src="icons-email-48.png" alt="Contact" />
                   Contact</a>
