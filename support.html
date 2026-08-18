@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Support | Zurely</title>
+    <link rel="canonical" href="https://zurely.my/support.html" />
+    <meta
+      name="description"
+      content="Need assistance? Our support, compliance, and data privacy teams are ready to help."
+    />
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="Zurely support, Zurely contact, delete account, tenancy stamping help, LHDN stamping FAQ, e-KYC Malaysia, Double D Sdn Bhd"
+    />
+    <meta property="og:title" content="Get Support | Zurely" />
+    <meta
+      property="og:description"
+      content="Need assistance? Our support, compliance, and data privacy teams are ready to help."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/DZurely/.github/raw/main/profile/logo.png"
+    />
+    <meta property="og:url" content="https://zurely.my/support.html" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="support-page-body" id="top">
+    <!-- ── Navigation ── -->
+    <nav>
+      <div class="container nav-inner">
+        <a href="/#top" aria-label="Zurely Home">
+          <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how-it-works">How It Works</a></li>
+          <li><a href="/#why-zurely">Why Zurely</a></li>
+          <li><a href="/we-are-hiring.html">Careers</a></li>
+          <li>
+            <a href="/#beta" class="nav-cta">Join Early Access</a>
+          </li>
+        </ul>
+        <button
+          class="mobile-toggle"
+          onclick="document.getElementById('navLinks').classList.toggle('open')"
+          aria-label="Menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── Main Support Content ── -->
+    <main class="support-main-content">
+      <div class="container">
+        <!-- Hero Header -->
+        <div class="support-hero">
+          <h1 class="support-hero-title">Get Support</h1>
+          <p class="support-hero-subtitle">
+            We're here to help you get the most out of Zurely.
+          </p>
+        </div>
+
+        <!-- Support Form Card -->
+        <div class="support-card">
+          <h2 class="support-card-title">Get in Touch</h2>
+
+          <form
+            id="supportContactForm"
+            class="support-form"
+            action="https://formspree.io/f/xpqoaagn"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="New Support Inquiry from Zurely Support Center" />
+
+            <!-- Row 1: Full Name & Email Address (Optional) -->
+            <div class="support-form-row">
+              <div class="support-form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="[Ahmad bin Ismail]"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="support-form-group">
+                <label for="emailAddress">Email Address (Optional)</label>
+                <input
+                  type="email"
+                  id="emailAddress"
+                  name="email"
+                  placeholder="[name@example.com]"
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <!-- Row 2: Mobile Number & Inquiry Topic -->
+            <div class="support-form-row">
+              <div class="support-form-group">
+                <label for="phoneNumber">Mobile Number</label>
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="[+60 12-345 6789]"
+                  autocomplete="tel"
+                  required
+                />
+              </div>
+              <div class="support-form-group">
+                <label for="inquiryTopic">Inquiry Topic</label>
+                <select id="inquiryTopic" name="topic" required>
+                  <option value="General Inquiry" selected>General Inquiry</option>
+                  <option value="Tenancy & Stamping Support">Tenancy &amp; Stamping Support</option>
+                  <option value="App / Technical Issue">App / Technical Issue</option>
+                  <option value="Data Privacy / DPO Inquiry">Data Privacy / DPO Inquiry</option>
+                  <option value="Account & Data Deletion Request">Account &amp; Data Deletion Request</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 3: Message Details -->
+            <div class="support-form-group full-width">
+              <label for="messageDetails">Message Details</label>
+              <textarea
+                id="messageDetails"
+                name="message"
+                rows="4"
+                placeholder="[Please provide details about your request...]"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Anti-spam Honeypot -->
+            <div style="display: none !important;" aria-hidden="true">
+              <label for="supportWebsite">Website</label>
+              <input
+                type="text"
+                id="supportWebsite"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-support-submit" id="supportSubmitBtn">
+              Send Support Message
+            </button>
+
+            <!-- Status Notification -->
+            <div id="supportFormStatus" class="form-status-msg" hidden></div>
+          </form>
+        </div>
+
+        <!-- Statutory & Account Deletion Notice (Middle) -->
+        <ul class="support-statutory-note-middle">
+          <li>
+            To delete your Zurely account immediately, please use the in-app option: <strong>Edit Profile &rarr; Delete Account</strong>, or submit an 'Account &amp; Data Deletion Request' using the form above.
+          </li>
+          <li>
+            Alternatively, you may contact us directly at the email below:
+            <ul>
+              <li>General Support: <a href="mailto:support@zurely.my">support@zurely.my</a></li>
+              <li>Data &amp; Privacy: <a href="mailto:dpo@zurely.my">dpo@zurely.my</a></li>
+            </ul>
+          </li>
+          <li>
+            Account deletion data is retained for the mandatory seven (7) year statutory period.
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer class="footer-dark">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-name">Zurely</span>
+            <p>
+              An intelligent PropTech platform by Double D Sdn. Bhd.
+              202501060615 (1662021-V).
+            </p>
+            <p>
+              Secured in accordance with the Malaysian Personal Data Protection
+              Act (PDPA) 2010.
+            </p>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h5>Platform</h5>
+              <ul>
+                <li><a href="/#features">Digital Tenancy Hub</a></li>
+                <li>
+                  <a href="/#features">Compliance Intelligence</a>
+                </li>
+                <li>
+                  <a href="/#features">Secure Identity Verification</a>
+                </li>
+                <li>
+                  <a href="/#features">Performance Portfolio Hub</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="/#top">About</a></li>
+                <li><a href="we-are-hiring.html">We are hiring</a></li>
+                <li><a href="support.html">Support</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-of-service.html">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <a href="mailto:support@zurely.my">
+              <img class="email-logo" src="icons-email-48.png" alt="Contact" />
+              support@zurely.my
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── Interactive JavaScript ── -->
+    <script>
+      (function () {
+        const form = document.getElementById("supportContactForm");
+        if (!form) return;
+
+        const submitBtn = document.getElementById("supportSubmitBtn");
+        const statusMsg = document.getElementById("supportFormStatus");
+        const honeypot = form.querySelector('input[name="_gotcha"]');
+
+        function setStatus(type, text) {
+          if (!statusMsg) return;
+          statusMsg.textContent = text;
+          statusMsg.className = "form-status-msg " + type;
+          statusMsg.hidden = false;
+        }
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          if (statusMsg) statusMsg.hidden = true;
+
+          if (honeypot && honeypot.value.trim() !== "") {
+            setStatus("success", "Thank you. Your message has been sent.");
+            form.reset();
+            return;
+          }
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          const originalText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" }
+            });
+
+            if (!res.ok) {
+              throw new Error("Unable to submit right now. Please email support@zurely.my directly.");
+            }
+
+            setStatus("success", "Thank you! Your support request has been submitted. We will reply shortly.");
+            form.reset();
+          } catch (err) {
+            setStatus("error", err.message || "Failed to send message. Please email support@zurely.my directly.");
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
