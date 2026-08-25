@@ -37,30 +37,138 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="styles.css" />
+    <script src="nav.js" defer></script>
   </head>
   <body id="top">
+    <!-- ── Icon sprite ── -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <g id="i-link">
+          <path d="M9 14a4 4 0 006 .5l3-3a4 4 0 00-5.7-5.7L10.6 7.5" />
+          <path d="M15 10a4 4 0 00-6-.5l-3 3a4 4 0 005.7 5.7l1.7-1.7" />
+        </g>
+        <g id="i-shield">
+          <path d="M12 3l7 3v5c0 4.4-2.9 8.4-7 10-4.1-1.6-7-5.6-7-10V6z" />
+          <path d="M9 12l2 2 4-4" />
+        </g>
+        <g id="i-pen">
+          <path d="M4 20h4L19 9a2.8 2.8 0 10-4-4L4 16z" />
+          <path d="M14.5 5.5l4 4" />
+        </g>
+        <g id="i-package">
+          <path d="M5 4h11l3 3v13H5z" />
+          <path d="M8.5 12.5l2.5 2.5 4.5-4.5" />
+        </g>
+        <g id="i-doc">
+          <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
+          <path d="M14 3v5h5M9 13h6M9 17h4" />
+        </g>
+        <g id="i-doc-edit">
+          <path d="M13 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          <path d="M8 12h4M8 16h3" />
+          <path d="M16.5 3.5a2.1 2.1 0 013 3L15 11l-3 .8.8-3z" />
+        </g>
+        <g id="i-doc-check">
+          <path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 14l2 2 4-4" />
+        </g>
+        <g id="i-id">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <circle cx="9" cy="11" r="2" />
+          <path d="M6 16c.6-1.6 1.7-2.4 3-2.4s2.4.8 3 2.4M15 10h3M15 13.5h3" />
+        </g>
+        <g id="i-sign">
+          <path d="M3 17c2.5 0 3-2.5 4-6s2.5-5 4-1 2 8 4 8 2.5-2 3.5-3" />
+          <path d="M4 21h16" />
+        </g>
+        <g id="i-stamp">
+          <path d="M9 10a3 3 0 013-6 3 3 0 013 6c-.5 1.6-.2 2.6.6 3.4h-7.2c.8-.8 1.1-1.8.6-3.4z" />
+          <rect x="4" y="15" width="16" height="4" rx="1" />
+        </g>
+        <g id="i-download">
+          <path d="M12 4v10m0 0l-3.5-3.5M12 14l3.5-3.5" />
+          <path d="M5 17v2a1 1 0 001 1h12a1 1 0 001-1v-2" />
+        </g>
+        <g id="i-whatsapp">
+          <path d="M4 20l1.3-4A8 8 0 1112 20a8 8 0 01-4-1.1z" />
+          <path d="M9.2 9.4c.2 1 .8 2 1.6 2.8s1.8 1.4 2.8 1.6l.9-1.1 1.6.8-.4 1.3c-1.8.4-3.9-.6-5.4-2.1S8 9.1 8.4 7.3l1.3-.4.8 1.6z" />
+        </g>
+        <g id="i-briefcase">
+          <rect x="3" y="7" width="18" height="13" rx="2" />
+          <path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7M3 12h18" />
+        </g>
+        <g id="i-inbox">
+          <path d="M4 13l1.8-7A2 2 0 017.7 4.5h8.6A2 2 0 0118.2 6L20 13v5a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+          <path d="M4 13h4l1 2.5h6L16 13h4" />
+        </g>
+        <g id="i-users">
+          <circle cx="9" cy="8" r="3.2" />
+          <path d="M3 19c.6-3.2 3-4.8 6-4.8s5.4 1.6 6 4.8" />
+          <path d="M16 5.5a3.2 3.2 0 010 5.6M17.5 14.6c2 .7 3.3 2.2 3.7 4.4" />
+        </g>
+        <g id="i-chart">
+          <path d="M3 21h18" />
+          <path d="M6.5 21v-4M11 21v-6.5M15.5 21v-9" />
+          <path d="M4 15.5 8.5 11l3 2.5 9-9" />
+          <path d="M16.5 4.5h4v4" />
+        </g>
+        <g id="i-heart">
+          <path d="M12 20s-7-4.4-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.6-7 9-7 9z" />
+        </g>
+        <g id="i-calendar">
+          <rect x="3.5" y="5" width="17" height="15" rx="2" />
+          <path d="M3.5 10h17M8 3.5V6M16 3.5V6" />
+          <path d="M8 14h3" />
+        </g>
+        <g id="i-arrow-down">
+          <path d="M12 4.5v15" />
+          <path d="M5.5 13l6.5 6.5 6.5-6.5" />
+        </g>
+        <g id="i-mail">
+          <rect x="3" y="5.5" width="18" height="13" rx="2" />
+          <path d="M3.5 7l8.5 6 8.5-6" />
+        </g>
+        <g id="i-check">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M8.5 12.2l2.4 2.4 4.6-4.8" />
+        </g>
+        <g id="i-lock">
+          <rect x="4.5" y="10" width="15" height="10" rx="2" />
+          <path d="M8 10V7a4 4 0 018 0v3" />
+        </g>
+      </defs>
+    </svg>
+
     <!-- ── Navigation ── -->
-    <nav>
-      <div class="container nav-inner">
-        <a href="/#top" aria-label="Zurely Home">
-          <img class="nav-logo" src="Zurely.png" alt="Zurely" />
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="/#top" aria-label="Zurely Home">
+          <span class="brand-mark"><img src="zurely-logo.png" alt="" /></span>
+          <span class="brand-name">Zurely</span>
         </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="/#features">Features</a></li>
           <li><a href="/#how-it-works">How It Works</a></li>
           <li><a href="/#why-zurely">Why Zurely</a></li>
-          <li><a href="/we-are-hiring.html">Careers</a></li>
-          <li>
-            <a href="/#beta" class="nav-cta">Join Early Access</a>
+          <li><a href="/#about">About Zurely</a></li>
+          <li class="nav-links-cta">
+            <a class="btn btn-primary" href="/book-a-demo.html">
+              <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+              Book a Demo
+            </a>
           </li>
         </ul>
+        <a class="btn btn-primary nav-cta" href="/book-a-demo.html">
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+          Book a Demo
+        </a>
         <button
-          class="mobile-toggle"
+          class="nav-toggle"
           onclick="document.getElementById('navLinks').classList.toggle('open')"
           aria-label="Menu"
         >
@@ -79,520 +187,543 @@
     </nav>
 
     <!-- ── Hero ── -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-badge">Coming Soon</div>
-        <h1>Tenancy compliance simplified for Malaysian</h1>
-        <p>
-          The all-in-one digital workspace for real estate professionals.
-          Automate agreement data, streamline documentation, and track
-          compliance — effortlessly.
-        </p>
-        <div class="hero-actions">
-          <a href="#beta" class="btn btn-primary">Join Early Access</a>
-          <a href="#features" class="btn btn-secondary">Learn More</a>
+    <header class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="pill">
+            <svg class="pill-flag" viewBox="0 0 28 14" role="img" aria-label="Malaysia">
+              <rect width="28" height="14" fill="#fff" />
+              <g fill="#cc0001">
+                <rect y="0" width="28" height="1" />
+                <rect y="2" width="28" height="1" />
+                <rect y="4" width="28" height="1" />
+                <rect y="6" width="28" height="1" />
+                <rect y="8" width="28" height="1" />
+                <rect y="10" width="28" height="1" />
+                <rect y="12" width="28" height="1" />
+              </g>
+              <rect width="14" height="8" fill="#010066" />
+              <circle cx="5.6" cy="4" r="2.9" fill="#fc0" />
+              <circle cx="6.9" cy="4" r="2.45" fill="#010066" />
+              <path
+                fill="#fc0"
+                transform="translate(10.3 4) scale(1.15) translate(-10.3 -4)"
+                d="M10.3 1.6 10.556 2.879 11.341 1.838 11.017 3.101 12.176 2.504 11.336 3.501 12.64 3.466 11.45 4 12.64 4.534 11.336 4.499 12.176 5.496 11.017 4.899 11.341 6.162 10.556 5.121 10.3 6.4 10.044 5.121 9.259 6.162 9.583 4.899 8.424 5.496 9.264 4.499 7.96 4.534 9.15 4 7.96 3.466 9.264 3.501 8.424 2.504 9.583 3.101 9.259 1.838 10.044 2.879Z"
+              />
+            </svg>
+            Digital tenancy for Malaysian property agents
+          </p>
+          <h1>
+            Prepare.<br />
+            Verify. Sign.<br />
+            <span class="accent">Stamp. Done.</span>
+          </h1>
+          <p class="hero-lede">
+            From preparation to stamping, handle your tenancy agreements
+            digitally with Zurely — so you can focus on the deal.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/#how-it-works">
+              <svg class="ico" viewBox="0 0 24 24"><use href="#i-arrow-down" /></svg>
+              See How It Works
+            </a>
+            <a class="btn btn-ghost" href="/book-a-demo.html">
+              <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+              Book a Demo
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="blob blob-a" aria-hidden="true"></span>
+          <span class="blob blob-b" aria-hidden="true"></span>
+          <img
+            src="zurely-hero-devices-transparent.png"
+            alt="The Zurely guest portal shown on two phones — agreement summary, identity verification and digital signing."
+            width="1800"
+            height="1820"
+          />
         </div>
       </div>
-    </section>
 
-    <!-- ── Features ── -->
-    <section id="features">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Platform</div>
-          <h2 class="section-heading">Your Tenancy Workflow, Centralized</h2>
-          <p class="section-desc">
-            Purpose-built tools for Malaysian rental professionals to manage
-            compliance with confidence.
+      <div class="wrap">
+        <ul class="props">
+          <li class="prop">
+            <svg class="ico prop-ico" viewBox="0 0 24 24">
+              <use href="#i-link" />
+            </svg>
+            <h3>No app required</h3>
+            <p>Secure link via WhatsApp</p>
+          </li>
+          <li class="prop">
+            <svg class="ico prop-ico" viewBox="0 0 24 24">
+              <use href="#i-shield" />
+            </svg>
+            <h3>Verify with confidence</h3>
+            <p>eKYC before signing for both parties</p>
+          </li>
+          <li class="prop">
+            <svg class="ico prop-ico" viewBox="0 0 24 24">
+              <use href="#i-pen" />
+            </svg>
+            <h3>Sign independently</h3>
+            <p>Landlord and tenant sign at their own pace</p>
+          </li>
+          <li class="prop">
+            <svg class="ico prop-ico" viewBox="0 0 24 24">
+              <use href="#i-package" />
+            </svg>
+            <h3>Completed &amp; delivered</h3>
+            <p>Agent, landlord and tenant</p>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- ── How Zurely Works ── -->
+      <section class="panel" id="how-it-works">
+        <p class="eyebrow">How Zurely Works</p>
+        <h2 class="panel-title">
+          From a confirmed rental to a completed tenancy.
+        </h2>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-body">
+              <span class="step-num">01</span>
+              <svg class="ico step-ico" viewBox="0 0 24 24">
+                <use href="#i-doc-edit" />
+              </svg>
+              <h3>Prepare</h3>
+              <p>
+                Enter the tenancy details and review the agreement before
+                generating it.
+              </p>
+            </div>
+            <figure class="shot shot-phone">
+              <p class="mini-title">Review Details</p>
+              <p class="mini-label">Agreement details</p>
+              <p class="mini-label mini-gap">Property</p>
+              <p class="mini-strong">2B, Jalan Melaka,<br />75300 Melaka</p>
+              <span class="mini-btn">Generate Agreement</span>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-body">
+              <span class="step-num">02</span>
+              <svg class="ico step-ico" viewBox="0 0 24 24">
+                <use href="#i-id" />
+              </svg>
+              <h3>Verify</h3>
+              <p>
+                Landlord and tenant receive their own secure link to review the
+                draft and complete eKYC.
+              </p>
+            </div>
+            <figure class="shot shot-verify">
+              <div class="verify-row">
+                <img class="avatar" src="placeholder.jpg" alt="" onerror="this.remove()" />
+                <div>
+                  <p class="verify-role">Landlord</p>
+                  <p class="shot-strong">Verifies identity</p>
+                </div>
+              </div>
+              <span class="verify-link" aria-hidden="true">
+                <svg class="ico" viewBox="0 0 24 24"><use href="#i-link" /></svg>
+              </span>
+              <div class="verify-row">
+                <img class="avatar" src="placeholder.jpg" alt="" onerror="this.remove()" />
+                <div>
+                  <p class="verify-role">Tenant</p>
+                  <p class="shot-strong">Verifies identity</p>
+                </div>
+              </div>
+              <p class="shot-foot">No app required</p>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-body">
+              <span class="step-num">03</span>
+              <svg class="ico step-ico" viewBox="0 0 24 24">
+                <use href="#i-sign" />
+              </svg>
+              <h3>Sign</h3>
+              <p>
+                Each party can sign independently — no waiting for the other
+                party.
+              </p>
+            </div>
+            <figure class="shot shot-sign">
+              <div class="sign-card">
+                <p class="shot-strong">Landlord</p>
+                <svg
+                  class="scribble"
+                  viewBox="0 0 120 34"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <!-- Wide rolling loops trailing into a long flourish -->
+                  <path
+                    d="M4 26C6 12 10 6 13 12C16 18 10 26 14 24C20 21 22 8 27 13C31 18 26 26 30 24C36 21 39 9 44 14C48 19 43 27 48 24C55 20 58 10 64 16C69 21 66 26 71 23C80 18 95 12 114 10"
+                  />
+                </svg>
+                <p class="sign-state">Signed</p>
+              </div>
+              <div class="sign-card">
+                <p class="shot-strong">Tenant</p>
+                <svg
+                  class="scribble"
+                  viewBox="0 0 120 34"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <!-- Tighter, steeper hand, stops short, with a crossed stroke -->
+                  <path
+                    d="M10 28C14 14 18 4 20 14C22 24 18 28 21 21C25 10 31 6 33 16C35 26 31 28 35 22C40 14 46 16 48 23C50 28 55 24 58 18C61 12 67 13 69 19C71 25 76 24 88 18"
+                  />
+                  <path d="M16 21 46 17" />
+                </svg>
+                <p class="sign-state">Signed</p>
+              </div>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-body">
+              <span class="step-num">04</span>
+              <svg class="ico step-ico" viewBox="0 0 24 24">
+                <use href="#i-stamp" />
+              </svg>
+              <h3>Stamp</h3>
+              <p>
+                Once signing is complete, Zurely handles the stamping process and
+                notifies you when stamp duty is ready for payment.
+              </p>
+            </div>
+            <figure class="shot shot-wa">
+              <div class="wa-head">
+                <span class="wa-ico" aria-hidden="true">
+                  <svg class="ico" viewBox="0 0 24 24">
+                    <use href="#i-whatsapp" />
+                  </svg>
+                </span>
+                <span class="shot-strong">Zurely</span>
+                <span class="shot-mute">now</span>
+              </div>
+              <p class="wa-msg">
+                Hi Calvin,<br />Stamp duty is ready for payment.<br />Please log in
+                to Zurely to proceed.
+              </p>
+              <span class="wa-send" aria-hidden="true">
+                <svg class="ico" viewBox="0 0 24 24"><use href="#i-whatsapp" /></svg>
+              </span>
+            </figure>
+          </li>
+          <li class="step">
+            <div class="step-body">
+              <span class="step-num">05</span>
+              <svg class="ico step-ico" viewBox="0 0 24 24">
+                <use href="#i-download" />
+              </svg>
+              <h3>Done</h3>
+              <p>
+                Once payment is completed, the stamped tenancy package is
+                delivered to the relevant parties.
+              </p>
+            </div>
+            <figure class="shot shot-done">
+              <p class="done-head">
+                <svg class="ico" viewBox="0 0 24 24"><use href="#i-check" /></svg>
+                Completed
+              </p>
+              <div class="file-list">
+                <p class="file-row">
+                  <span class="file-tag">PDF</span>
+                  <span>Stamped Tenancy Agreement</span>
+                  <svg class="ico file-dl" viewBox="0 0 24 24">
+                    <use href="#i-download" />
+                  </svg>
+                </p>
+                <p class="file-row">
+                  <span class="file-tag">PDF</span>
+                  <span>Appendix</span>
+                  <svg class="ico file-dl" viewBox="0 0 24 24">
+                    <use href="#i-download" />
+                  </svg>
+                </p>
+                <p class="file-row">
+                  <span class="file-tag">PDF</span>
+                  <span>Receipt (Stamp Duty)</span>
+                  <svg class="ico file-dl" viewBox="0 0 24 24">
+                    <use href="#i-download" />
+                  </svg>
+                </p>
+              </div>
+              <div class="done-notes">
+                <p>Delivered to landlord and tenant</p>
+                <p>Receipt sent to agent</p>
+              </div>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── Why Zurely ── -->
+      <section class="panel" id="why-zurely">
+        <p class="eyebrow">Why Zurely</p>
+        <h2 class="panel-title panel-title-tall">
+          Tenancies already get done.<br />
+          Zurely gives you a better way to get there.
+        </h2>
+
+        <div class="compare">
+          <div class="lane">
+            <p class="lane-title lane-title-old">The usual way</p>
+            <ol class="flow">
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-doc" /></svg>
+                </span>
+                <span class="flow-label">Prepare template</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24">
+                    <use href="#i-whatsapp" />
+                  </svg>
+                </span>
+                <span class="flow-label">WhatsApp PDF</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-pen" /></svg>
+                </span>
+                <span class="flow-label">Chase signatures</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24">
+                    <use href="#i-briefcase" />
+                  </svg>
+                </span>
+                <span class="flow-label">Admin / Lawyer / Runner / MyTax</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-stamp" /></svg>
+                </span>
+                <span class="flow-label">Stamping</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-inbox" /></svg>
+                </span>
+                <span class="flow-label">Collect &amp; redistribute</span>
+              </li>
+            </ol>
+          </div>
+
+          <p class="vs" aria-hidden="true">VS</p>
+
+          <div class="lane lane-new">
+            <p class="lane-title lane-title-new">With Zurely</p>
+            <ol class="flow">
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-doc" /></svg>
+                </span>
+                <span class="flow-label">Prepare</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24">
+                    <use href="#i-doc-check" />
+                  </svg>
+                </span>
+                <span class="flow-label">Verify &amp; Sign (independently)</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-stamp" /></svg>
+                </span>
+                <span class="flow-label">Stamp</span>
+              </li>
+              <li class="flow-arrow" aria-hidden="true"></li>
+              <li>
+                <span class="flow-ico">
+                  <svg class="ico" viewBox="0 0 24 24">
+                    <use href="#i-download" />
+                  </svg>
+                </span>
+                <span class="flow-label">Done</span>
+              </li>
+            </ol>
+            <p class="lane-foot">Faster. Fully digital.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── About Zurely ── -->
+      <section class="panel panel-plain" id="about">
+        <div class="about">
+          <div class="about-copy">
+            <p class="eyebrow">About Zurely</p>
+            <h2 class="about-title">
+              Technology should empower agents, not replace them.
+            </h2>
+            <p>Zurely started from a simple observation.</p>
+            <p>
+              After years working in technology, our founder stepped into
+              Malaysian real estate and experienced the industry from an agent's
+              perspective — where many everyday processes still rely on
+              disconnected tools and manual work.
+            </p>
+            <p>
+              We saw an opportunity to do things differently. Not by removing
+              the agent from the equation, but by giving them better tools to
+              get the job done.
+            </p>
+            <p class="about-kicker">Tenancy is where we're starting.</p>
+          </div>
+
+          <figure class="founder">
+            <!-- Drop founder.jpg beside index.html and it replaces the placeholder. -->
+            <span class="founder-photo">
+              <img src="founder.jpeg" alt="Calvin Seet" onerror="this.remove()" />
+            </span>
+            <figcaption>
+              <p class="founder-name">Calvin Seet</p>
+              <p class="founder-role">Founder, Zurely</p>
+              <p class="founder-bio">
+                Technology &amp; transformation leader turned real-estate
+                entrepreneur.
+              </p>
+              <p class="founder-badge">
+                Returning Expert Programme (REP), Malaysia
+              </p>
+            </figcaption>
+          </figure>
+
+          <ul class="ambitions">
+            <li>
+              <svg class="ico amb-ico" viewBox="0 0 24 24">
+                <use href="#i-users" />
+              </svg>
+              <p>Our ambition is bigger than tenancy.</p>
+            </li>
+            <li>
+              <svg class="ico amb-ico" viewBox="0 0 24 24">
+                <use href="#i-chart" />
+              </svg>
+              <p>
+                We're building Zurely towards a future where technology makes
+                real-estate work simpler, more connected and more effective.
+              </p>
+            </li>
+            <li>
+              <svg class="ico amb-ico" viewBox="0 0 24 24">
+                <use href="#i-heart" />
+              </svg>
+              <p>
+                While keeping property professionals at the centre of the
+                experience.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── Data protection ── -->
+      <section class="panel pdpa">
+        <svg class="ico pdpa-shield" viewBox="0 0 24 24">
+          <use href="#i-shield" />
+        </svg>
+        <div class="pdpa-copy">
+          <h3>Your information is protected.</h3>
+          <p>
+            We follow strict data protection practices aligned with Malaysia's
+            PDPA requirements.
           </p>
         </div>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M14 2H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2z"
-                />
-                <path d="M8 6h4M8 10h4M8 14h2" />
-              </svg>
-            </div>
-            <h3>Digital Tenancy Hub</h3>
-            <p>
-              Digitize and manage professional tenancy agreements in minutes.
-              Experience a seamless, error-free workflow with our AI-driven
-              document automation engine.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="4" width="16" height="12" rx="2" />
-                <path d="M2 8h16" />
-                <path d="M6 12h2" />
-              </svg>
-            </div>
-            <h3>Compliance Intelligence</h3>
-            <p>
-              Eliminate the guesswork in statutory requirements. Our engine
-              prepares your agreements for seamless compliance and filing.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M16 17v-1a4 4 0 00-3-3.87M12 3.13a4 4 0 010 7.75" />
-                <circle cx="8" cy="7" r="4" />
-                <path d="M2 17v-1a4 4 0 014-4h4a4 4 0 014 4v1" />
-              </svg>
-            </div>
-            <h3>Secure Identity Verification</h3>
-            <p>
-              Ensure every signatory is identity-verified, reducing fraud and
-              secure your transactions with confidence.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="3" width="14" height="14" rx="2" />
-                <path d="M3 9h14M9 3v14" />
-              </svg>
-            </div>
-            <h3>Performance Portfolio Hub</h3>
-            <p>
-              Track tenants, property portfolios, and compliance milestones from
-              a single, high-performance interface built for professional
-              agents.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <span class="pdpa-tile" aria-hidden="true">
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-lock" /></svg>
+        </span>
+      </section>
 
-    <!-- ── How It Works ── -->
-    <section class="steps-section" id="how-it-works">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Process</div>
-          <h2 class="section-heading">Three steps. Done.</h2>
-          <p class="section-desc">
-            A streamlined workflow that transforms complex documentation into a
-            professional, error-free digital record.
+      <!-- ── Closing CTA ── -->
+      <section class="panel cta">
+        <span class="cta-ico" aria-hidden="true">
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+        </span>
+        <div class="cta-copy">
+          <h2>Ready to simplify your tenancy workflow?</h2>
+          <p>
+            Book a demo and see how Zurely can help you save time and deliver a
+            better experience for your clients.
           </p>
         </div>
-        <div class="steps-grid">
-          <div class="step">
-            <span class="step-number">01</span>
-            <h3>Smart Document Generation</h3>
-            <p>
-              Transform simple property and party details into a fully compliant
-              tenancy agreement in seconds.
-            </p>
-          </div>
-          <div class="step">
-            <span class="step-number">02</span>
-            <h3>Secure Identity &amp; Signing</h3>
-            <p>
-              All signatories undergo secure identity verification before
-              signing. Finalize your agreement digitally with full legal
-              validity — anytime, anywhere.
-            </p>
-          </div>
-          <div class="step">
-            <span class="step-number">03</span>
-            <h3>Finalize &amp; Comply</h3>
-            <p>
-              Your agreement is automatically prepared for duty assessment. We
-              finalize your digital record, ensuring all documents meet
-              statutory compliance standards in one seamless workflow.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Why Zurely ── -->
-    <section id="why-zurely">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Advantages</div>
-          <h2 class="section-heading">Built for the Top 1%</h2>
-          <p class="section-desc">
-            While others navigate the friction of fragmented paperwork, Zurely
-            users leverage intelligent automation to manage their portfolios
-            with absolute precision.
-          </p>
-        </div>
-        <div class="trust-grid">
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="9" />
-                <polyline points="11 7 11 11 14 13" />
-              </svg>
-            </div>
-            <h4>Speed</h4>
-            <p>
-              Automate your manual paperwork and reclaim hours of your time
-              every week.
-            </p>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="9" width="16" height="10" rx="2" />
-                <path d="M7 9V6a4 4 0 018 0v3" />
-              </svg>
-            </div>
-            <h4>Security</h4>
-            <p>
-              Bank-grade protection and PDPA compliance to keep your documents
-              and client data secure.
-            </p>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M11 1l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />
-              </svg>
-            </div>
-            <h4>Compliance</h4>
-            <p>
-              Built to meet Malaysian tenancy standards and simplify your path
-              to official compliance.
-            </p>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
-                />
-                <line x1="4" y1="22" x2="4" y2="15" />
-              </svg>
-            </div>
-            <h4>Malaysian-first</h4>
-            <p>
-              Purpose-built for the unique requirements and legal standards of
-              the Malaysian property market.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Beta Access Form ── -->
-    <section class="beta-section" id="beta">
-      <div class="container">
-        <div class="beta-inner">
-          <div class="beta-text">
-            <div class="section-label">Early Access</div>
-            <h2 class="section-heading">Apply for Early Access</h2>
-            <p class="section-desc">
-              We are onboarding a select group of high-performance agencies and
-              agents to define the new standard of Malaysian property
-              transactions. Apply now to secure your spot.
-            </p>
-          </div>
-          <form
-            class="beta-form"
-            action="https://formspree.io/f/xpqoaagn"
-            method="POST"
-            novalidate
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Early Access Request"
-            />
-            <div class="form-field">
-              <label for="beta-name">Full Name</label>
-              <input
-                type="text"
-                id="beta-name"
-                name="full_name"
-                placeholder="e.g. Ahmad bin Ismail"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="form-field">
-              <label for="beta-email">Email<span class="req" aria-hidden="true"
-                  >*</span
-                ></label>
-              <input
-                type="email"
-                id="beta-email"
-                name="email"
-                placeholder="you@agency.com"
-                autocomplete="email"
-                required
-              />
-            </div>
-            <div class="form-field">
-              <label for="beta-os"
-                >Phone OS<span class="req" aria-hidden="true"
-                  >*</span
-                ></label
-              >
-              <select id="beta-os" name="phone_os" required>
-                <option value="" selected disabled>
-                  Select your device
-                </option>
-                <option value="iOS">iOS (iPhone)</option>
-                <option value="Android">Android</option>
-                <option value="Both">Both</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="beta-phone"
-                >Phone number<span class="req" aria-hidden="true"
-                  >*</span
-                ></label
-              >
-              <input
-                type="tel"
-                id="beta-phone"
-                name="phone"
-                placeholder="+60 12-345 6789"
-                autocomplete="tel"
-              />
-            </div>
-            <div class="form-field">
-              <label for="beta-agency">Agency / Firm</label>
-              <input
-                type="text"
-                id="beta-agency"
-                name="agency"
-                placeholder="e.g. Property Hub Realty"
-              />
-            </div>
-            <div class="form-honeypot" aria-hidden="true">
-              <label for="beta-website">Website</label>
-              <input
-                type="text"
-                id="beta-website"
-                name="_gotcha"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-            <button type="submit" class="form-submit">Join Early Access</button>
-            <p class="form-status" hidden></p>
-            <p class="form-note">
-              Our team will review your application and reach out shortly to
-              discuss your onboarding.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
+        <a class="btn btn-white" href="/book-a-demo.html">
+          <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+          Book a Demo
+        </a>
+      </section>
+    </main>
 
     <!-- ── Footer ── -->
-    <footer>
-      <div class="container">
-        <div class="footer-top">
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-cols">
           <div class="footer-brand">
-            <span class="footer-brand-name">Zurely</span>
-            <p>
-              An intelligent PropTech platform by Double D Sdn. Bhd.
-              202501060615 (1662021-V).
-            </p>
-            <p>
-              Secured in accordance with the Malaysian Personal Data Protection
-              Act (PDPA) 2010.
-            </p>
+            <a class="brand" href="/#top" aria-label="Zurely Home">
+              <span class="brand-name">Zurely</span>
+            </a>
+            <p>Digital tenancy for<br />Malaysian property agents.</p>
           </div>
-          <div class="footer-columns">
-            <div class="footer-col">
-              <h5>Platform</h5>
-              <ul>
-                <li><a href="/#features">Digital Tenancy Hub</a></li>
-                <li>
-                  <a href="/#features">Compliance Intelligence</a>
-                </li>
-                <li>
-                  <a href="/#features">Secure Identity Verification</a>
-                </li>
-                <li>
-                  <a href="/#features">Performance Portfolio Hub</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h5>Company</h5>
-              <ul>
-                <li><a href="/#top">About</a></li>
-                <!-- <li><a href="careers.html">Careers</a></li> -->
-                <li><a href="we-are-hiring.html">We are hiring</a></li>
-                <li><a href="support.html">Support</a></li>
-                <li><a href="mailto:support@zurely.my">
-                  <img class="email-logo" src="icons-email-48.png" alt="Contact" />
-                  Contact</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-col">
-              <h5>Legal</h5>
-              <ul>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms-of-service.html">Terms of Service</a></li>
-              </ul>
-            </div>
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a href="/#how-it-works">How It Works</a></li>
+              <li><a href="/#why-zurely">Why Zurely</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="/#about">About Zurely</a></li>
+              <li><a href="support.html">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-contact">
+            <p class="footer-entity">
+              A product by Double D Sdn. Bhd.<br />202501060615 (1662021-V)
+            </p>
+            <ul>
+              <li>
+                <a href="mailto:support@zurely.my">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-mail" /></svg>
+                  support@zurely.my
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="footer-bottom">
-          <span>&copy; 2025–2026 Zurely. All rights reserved.</span>
-          <a href="mailto:support@zurely.my">
-            <img class="email-logo" src="icons-email-48.png" alt="Contact" />
-            support@zurely.my
-          </a>
-        </div>
+
+        <p class="footer-bottom">&copy; 2026 Zurely. All rights reserved.</p>
       </div>
     </footer>
-    <script>
-      (function () {
-        const form = document.querySelector(".beta-form");
-        if (!form) return;
-
-        const submitButton = form.querySelector(".form-submit");
-        const statusMessage = form.querySelector(".form-status");
-        const honeypot = form.querySelector('input[name="_gotcha"]');
-
-        function setStatus(type, message) {
-          statusMessage.textContent = message;
-          statusMessage.className = "form-status " + type;
-          statusMessage.hidden = false;
-        }
-
-        form.addEventListener("submit", async function (event) {
-          event.preventDefault();
-          statusMessage.hidden = true;
-
-          if (honeypot && honeypot.value.trim() !== "") {
-            setStatus("success", "Thank you. Your request has been received.");
-            form.reset();
-            return;
-          }
-
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-
-          const originalButtonText = submitButton.textContent;
-          submitButton.disabled = true;
-          submitButton.textContent = "Submitting...";
-
-          try {
-            const response = await fetch(form.action, {
-              method: (form.method || "POST").toUpperCase(),
-              body: new FormData(form),
-              headers: {
-                Accept: "application/json",
-              },
-            });
-
-            if (!response.ok) {
-              let errorMessage =
-                "Unable to submit right now. Please try again in a moment.";
-              try {
-                const payload = await response.json();
-                if (
-                  payload &&
-                  Array.isArray(payload.errors) &&
-                  payload.errors[0] &&
-                  payload.errors[0].message
-                ) {
-                  errorMessage = payload.errors[0].message;
-                }
-              } catch (jsonError) {
-                // Keep fallback error message when provider returns non-JSON.
-              }
-              throw new Error(errorMessage);
-            }
-
-            setStatus(
-              "success",
-              "Thank you. Your early access request has been submitted.",
-            );
-            form.reset();
-          } catch (error) {
-            setStatus(
-              "error",
-              error.message ||
-                "Submission failed. Please email support@zurely.my.",
-            );
-          } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-          }
-        });
-      })();
-    </script>
   </body>
 </html>
