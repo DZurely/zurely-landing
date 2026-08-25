@@ -417,10 +417,50 @@ h5 {
 /* ── Steps ── */
 .steps {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto;
   gap: 34px 22px;
   list-style: none;
+}
+
+/* Verify & Sign: a column per party, each running verify -> signature -> signed.
+   The parallel columns carry the "independently, no waiting" idea on their own. */
+.party-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.party {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  text-align: center;
+}
+
+.party .scribble {
+  width: 100%;
+}
+
+.party-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.53125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.party-state .ico {
+  width: 13px;
+  height: 13px;
+  color: var(--green);
+}
+
+.party-signed {
+  color: var(--green-dark);
 }
 
 .step {
@@ -477,9 +517,10 @@ h5 {
   color: var(--ink);
 }
 
+/* Four columns instead of five */
 .step-ico {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   stroke-width: 1.6;
   color: var(--green);
 }
@@ -569,18 +610,7 @@ h5 {
   font-weight: 700;
 }
 
-/* 02 — identity verification */
-.shot-verify {
-  gap: 8px;
-  justify-content: center;
-}
-
-.verify-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
+/* 02 — Verify & Sign parties */
 .avatar {
   width: 38px;
   height: 38px;
@@ -601,38 +631,7 @@ h5 {
   color: var(--green);
 }
 
-/* Links the two parties — the same secure link reaches both. */
-.verify-link {
-  align-self: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: 0 2px 6px rgba(16, 54, 92, 0.08);
-  color: var(--green);
-}
-
-.verify-link .ico {
-  width: 14px;
-  height: 14px;
-}
-
 /* 03 — signatures */
-.shot-sign {
-  justify-content: center;
-}
-
-.sign-card {
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 9px;
-  text-align: center;
-}
-
 .scribble {
   width: 100%;
   height: 26px;
@@ -646,12 +645,6 @@ h5 {
 
 .scribble path {
   vector-effect: non-scaling-stroke;
-}
-
-.sign-state {
-  font-size: 0.46875rem;
-  font-weight: 700;
-  color: var(--green-dark);
 }
 
 /* 04 — WhatsApp notice */
@@ -1528,9 +1521,10 @@ zero-md[loading]::before {
     max-width: none;
   }
 
-  /* Below the 5-across layout each step just stacks its own card, so drop the subgrid. */
+  /* Below the 4-across layout each step just stacks its own card, so drop the subgrid.
+     Two columns keeps the four steps as a clean 2x2 with no orphan. */
   .steps {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
     gap: 40px 22px;
   }
@@ -1683,6 +1677,7 @@ zero-md[loading]::before {
     margin-inline: auto;
   }
 
+
   .ambitions {
     flex-direction: column;
   }
@@ -1755,6 +1750,7 @@ zero-md[loading]::before {
   /* Card text is sized for the 1200px artboard; lift it to readable sizes here. */
   .shot-strong,
   .verify-role,
+  .party-state,
   .mini-title,
   .done-head {
     font-size: 0.8125rem;
@@ -1765,21 +1761,10 @@ zero-md[loading]::before {
     height: 46px;
   }
 
-  .verify-link {
-    width: 32px;
-    height: 32px;
-  }
-
-  .verify-link .ico {
-    width: 17px;
-    height: 17px;
-  }
-
   .shot-mute,
   .shot-foot,
   .mini-label,
   .file-row,
-  .sign-state,
   .done-notes p {
     font-size: 0.75rem;
   }
