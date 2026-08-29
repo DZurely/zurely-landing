@@ -1,6 +1,6 @@
 :root {
   --green-dark: #0b6b3a;
-  --green: #17994f;
+  --green: #2dcc70;
   --green-tint: #eaf4ee;
   --green-arrow: #8fcba8;
   --ink: #10365c;
@@ -18,8 +18,8 @@
   --panel-2: #f6f8f7;
   --red: #d14343;
   --red-arrow: #e6a9a9;
-  --navy: #0c2340;
-  --blue: #0b4c8a;
+  --navy: #274379;
+  --blue: #1548aa;
   --radius: 20px;
   --radius-card: 16px;
   --radius-sm: 14px;
@@ -111,13 +111,13 @@ h5 {
 }
 
 .btn-primary {
-  background: var(--green-dark);
-  color: #fff;
+  background: var(--green);
+  color: var(--ink);
 }
 
 .btn-primary:hover {
-  background: #095630;
-  color: #fff;
+  background: #28b463;
+  color: var(--ink);
 }
 
 .btn-ghost {
@@ -194,7 +194,7 @@ h5 {
   font-size: 1.375rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  color: var(--blue);
 }
 
 .nav-links {
@@ -407,6 +407,8 @@ h5 {
   text-align: center;
   font-size: 1.875rem;
   font-weight: 800;
+  /* Centred headings wrap lopsidedly once they run past one line. */
+  text-wrap: balance;
 }
 
 .panel-title-tall {
@@ -483,7 +485,7 @@ h5 {
 .step:not(:last-child) .step-body::after {
   content: "";
   position: absolute;
-  top: 37px;
+  top: 22px;
   border-color: #9ccbb0;
 }
 
@@ -503,32 +505,31 @@ h5 {
   transform: translateY(-50%) rotate(45deg);
 }
 
-/* "Step" reads as a sequence; a bare number reads as a bullet point. */
 .step-badge {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-}
-
-.step-word {
-  font-size: 0.625rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--green);
-}
-
-.step-num {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  gap: 1px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1.5px solid var(--green);
   background: var(--panel);
+}
+
+.step-word {
+  font-size: 0.5625rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.step-num {
   font-size: 0.75rem;
+  line-height: 1;
   font-weight: 700;
   color: var(--ink);
 }
@@ -822,10 +823,13 @@ h5 {
   padding: 22px 8px 26px;
 }
 
-/* Column, not card. Flex so the payoff line can sink to the foot. */
+/* Column, not card. Flex so the payoff line can sink to the foot. min-width: 0 because
+   a grid item defaults to min-content, which would let a long label widen the column
+   past its 1fr share instead of wrapping. */
 .lane {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   padding: 0 20px;
 }
 
@@ -1119,7 +1123,7 @@ h5 {
 
 /* ── Closing CTA ── */
 .cta {
-  background: var(--green-dark);
+  background: var(--green);
   display: flex;
   align-items: center;
   gap: 22px;
@@ -1150,13 +1154,13 @@ h5 {
 .cta h2 {
   font-size: 1.3125rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink);
 }
 
 .cta p {
   font-size: 0.8125rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(16, 54, 92, 0.92);
   margin-top: 6px;
   max-width: 40rem; /* 13px text would otherwise run a 1000px+ line on a wide screen */
 }
@@ -1183,7 +1187,7 @@ h5 {
   font-size: 0.78125rem;
   font-weight: 600;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .footer .brand-name {
@@ -1194,7 +1198,7 @@ h5 {
 .footer-brand p {
   font-size: 0.78125rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   margin-top: 10px;
 }
 
@@ -1220,7 +1224,7 @@ h5 {
   align-items: center;
   gap: 7px;
   font-size: 0.78125rem;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.85);
   transition: color 0.18s;
 }
 
@@ -1235,11 +1239,11 @@ h5 {
 
 .footer-bottom {
   margin-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 14px;
   text-align: center;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 /* ── Sub-pages (support, privacy policy, terms of service) ── */
@@ -1363,7 +1367,7 @@ form > * + * {
 .field textarea:focus {
   outline: none;
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(23, 153, 79, 0.14);
+  box-shadow: 0 0 0 3px rgba(45, 204, 112, 0.14);
 }
 
 .form-submit {
@@ -1728,21 +1732,104 @@ zero-md[loading]::before {
     flex-direction: column;
   }
 
-  /* Columns stack here rather than at 1080px — a vertical flow is narrow enough to stay
-     side by side through tablet widths, which is where the comparison reads best. */
+  /* The columns stay side by side at every width — stacked, the two lanes stop being a
+     comparison and become two lists. Paid for with tighter insets on this panel alone
+     and smaller rows, which buys each column about 147px at 390px wide. */
+  .panel-compare {
+    margin-inline: 8px;
+    padding-inline: 10px;
+  }
+
   .compare {
-    grid-template-columns: 1fr;
-    padding: 22px 8px;
+    padding: 16px 2px 20px;
+  }
+
+  .lane {
+    padding: 0 6px;
+  }
+
+  .lane-title {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
   }
 
   .vs {
-    margin: 8px auto;
+    width: 30px;
+    height: 30px;
+    margin-top: -8px;
+    font-size: 0.5625rem;
   }
 
-  /* Nothing left below it to leave clean, so it goes back under "Done". */
+  .flow {
+    gap: 26px;
+  }
+
+  .flow > li {
+    gap: 7px;
+  }
+
+  /* Icon column centre: 9px number + 7px gap + half of a 24px disc. */
+  .flow::before {
+    left: 28px;
+  }
+
+  .step-n {
+    width: 9px;
+    font-size: 0.5625rem;
+  }
+
+  .flow-ico {
+    width: 24px;
+    height: 24px;
+  }
+
+  .flow-ico .ico {
+    width: 13px;
+    height: 13px;
+  }
+
+  .flow-label {
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    /* Last resort at the narrowest widths — nothing may escape the card. */
+    overflow-wrap: break-word;
+  }
+
   .lane-foot {
-    margin-top: 14px;
-    padding-top: 0;
+    font-size: 0.6875rem;
+  }
+}
+
+/* Small phones: buy back about 30px of column width so the longest labels still wrap on
+   whole words rather than breaking mid-word. */
+@media (max-width: 380px) {
+  .lane {
+    padding: 0 3px;
+  }
+
+  .vs {
+    width: 26px;
+    height: 26px;
+    margin-top: -6px;
+  }
+
+  .flow > li {
+    gap: 5px;
+  }
+
+  .flow::before {
+    left: 24px;
+  }
+
+  .flow-ico {
+    width: 21px;
+    height: 21px;
+  }
+
+  .flow-ico .ico {
+    width: 12px;
+    height: 12px;
   }
 
   .panel-title {
