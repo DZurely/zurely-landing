@@ -115,7 +115,6 @@
           >
             <template>
               <style>
-                /* Shadow DOM — inherits the page font, but colours must be set here. */
                 :host {
                   display: block;
                 }
@@ -124,7 +123,7 @@
                 h2,
                 h3,
                 h4 {
-                  color: #10365c;
+                  color: var(--ink);
                   line-height: 1.25;
                   letter-spacing: -0.02em;
                   margin: 1.2em 0 0.55em;
@@ -139,13 +138,13 @@
                 h2 {
                   font-size: 1.22rem;
                   font-weight: 700;
-                  border-top: 1px solid #edf1ef;
+                  border-top: 1px solid var(--line-2);
                   padding-top: 0.95rem;
                 }
 
                 p,
                 li {
-                  color: #55677a;
+                  color: var(--body);
                   line-height: 1.75;
                 }
 
@@ -156,11 +155,11 @@
                 }
 
                 li::marker {
-                  color: #17994f;
+                  color: var(--green);
                 }
 
                 a {
-                  color: #0b6b3a;
+                  color: var(--green-dark);
                   text-decoration: none;
                 }
 
@@ -169,27 +168,27 @@
                 }
 
                 strong {
-                  color: #10365c;
+                  color: var(--ink);
                 }
 
                 blockquote {
-                  border-left: 3px solid #cfe5d8;
+                  border-left: 3px solid var(--green-arrow);
                   padding-left: 12px;
                   margin: 1rem 0;
-                  color: #7b8a96;
+                  color: var(--muted-2);
                 }
 
                 code {
-                  background: #f6f8f7;
-                  border: 1px solid #edf1ef;
+                  background: var(--panel-2);
+                  border: 1px solid var(--line-2);
                   border-radius: 6px;
                   padding: 0.1em 0.35em;
                   font-size: 0.9em;
                 }
 
                 pre {
-                  background: #0c2340;
-                  color: #e2e8f0;
+                  background: var(--navy);
+                  color: #fff;
                   border-radius: 10px;
                   padding: 14px;
                   overflow: auto;
@@ -204,7 +203,7 @@
 
                 hr {
                   border: 0;
-                  border-top: 1px solid #edf1ef;
+                  border-top: 1px solid var(--line-2);
                   margin: 1.5rem 0;
                 }
 
@@ -217,15 +216,15 @@
 
                 th,
                 td {
-                  border: 1px solid #edf1ef;
+                  border: 1px solid var(--line-2);
                   padding: 8px 10px;
                   text-align: left;
-                  color: #55677a;
+                  color: var(--body);
                 }
 
                 th {
-                  background: #f6f8f7;
-                  color: #10365c;
+                  background: var(--panel-2);
+                  color: var(--ink);
                 }
               </style>
             </template>
