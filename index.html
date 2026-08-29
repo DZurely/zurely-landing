@@ -134,6 +134,14 @@
           <rect x="3" y="5.5" width="18" height="13" rx="2" />
           <path d="M3.5 7l8.5 6 8.5-6" />
         </g>
+        <g id="i-facebook">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+        </g>
+        <g id="i-instagram">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+          <circle cx="12" cy="12" r="3.8" />
+          <path d="M16.9 7.1h.01" />
+        </g>
         <g id="i-check">
           <circle cx="12" cy="12" r="8.5" />
           <path d="M8.5 12.2l2.4 2.4 4.6-4.8" />
@@ -291,7 +299,10 @@
         <ol class="steps">
           <li class="step">
             <div class="step-body">
-              <span class="step-num">01</span>
+              <span class="step-badge">
+                <span class="step-word">Step</span>
+                <span class="step-num">01</span>
+              </span>
               <svg class="ico step-ico" viewBox="0 0 24 24">
                 <use href="#i-doc-edit" />
               </svg>
@@ -311,7 +322,10 @@
           </li>
           <li class="step">
             <div class="step-body">
-              <span class="step-num">02</span>
+              <span class="step-badge">
+                <span class="step-word">Step</span>
+                <span class="step-num">02</span>
+              </span>
               <svg class="ico step-ico" viewBox="0 0 24 24">
                 <use href="#i-id" />
               </svg>
@@ -344,7 +358,7 @@
                   </p>
                 </div>
                 <div class="party">
-                  <img class="avatar" src="placeholder.jpg" alt="" onerror="this.remove()" />
+                  <img class="avatar" src="tenant.jpg" alt="" onerror="this.remove()" />
                   <p class="verify-role">Tenant</p>
                   <p class="party-state">
                     <svg class="ico" viewBox="0 0 24 24"><use href="#i-check" /></svg>
@@ -369,7 +383,10 @@
           </li>
           <li class="step">
             <div class="step-body">
-              <span class="step-num">03</span>
+              <span class="step-badge">
+                <span class="step-word">Step</span>
+                <span class="step-num">03</span>
+              </span>
               <svg class="ico step-ico" viewBox="0 0 24 24">
                 <use href="#i-stamp" />
               </svg>
@@ -400,7 +417,10 @@
           </li>
           <li class="step">
             <div class="step-body">
-              <span class="step-num">04</span>
+              <span class="step-badge">
+                <span class="step-word">Step</span>
+                <span class="step-num">04</span>
+              </span>
               <svg class="ico step-ico" viewBox="0 0 24 24">
                 <use href="#i-download" />
               </svg>
@@ -460,13 +480,14 @@
             <p class="lane-title lane-title-old">The usual way</p>
             <ol class="flow">
               <li>
+                <span class="step-n">1</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-doc" /></svg>
                 </span>
                 <span class="flow-label">Prepare template</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">2</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24">
                     <use href="#i-whatsapp" />
@@ -474,15 +495,15 @@
                 </span>
                 <span class="flow-label">WhatsApp PDF</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">3</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-pen" /></svg>
                 </span>
                 <span class="flow-label">Chase signatures</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">4</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24">
                     <use href="#i-briefcase" />
@@ -490,15 +511,15 @@
                 </span>
                 <span class="flow-label">Admin / Lawyer / Runner / MyTax</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">5</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-stamp" /></svg>
                 </span>
                 <span class="flow-label">Stamping</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">6</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-inbox" /></svg>
                 </span>
@@ -513,13 +534,14 @@
             <p class="lane-title lane-title-new">With Zurely</p>
             <ol class="flow">
               <li>
+                <span class="step-n">1</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-doc" /></svg>
                 </span>
                 <span class="flow-label">Prepare</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">2</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24">
                     <use href="#i-doc-check" />
@@ -527,15 +549,15 @@
                 </span>
                 <span class="flow-label">Verify &amp; Sign (independently)</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">3</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-stamp" /></svg>
                 </span>
                 <span class="flow-label">Stamp</span>
               </li>
-              <li class="flow-arrow" aria-hidden="true"></li>
               <li>
+                <span class="step-n">4</span>
                 <span class="flow-ico">
                   <svg class="ico" viewBox="0 0 24 24">
                     <use href="#i-download" />
@@ -695,6 +717,18 @@
                 <a href="mailto:support@zurely.my">
                   <svg class="ico" viewBox="0 0 24 24"><use href="#i-mail" /></svg>
                   support@zurely.my
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/zurely.my">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-facebook" /></svg>
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/zurely.my/">
+                  <svg class="ico" viewBox="0 0 24 24"><use href="#i-instagram" /></svg>
+                  Instagram
                 </a>
               </li>
             </ul>

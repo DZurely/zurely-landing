@@ -366,12 +366,12 @@ h5 {
 }
 
 .prop h3 {
-  font-size: 0.71875rem;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
 .prop p {
-  font-size: 0.65625rem;
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--muted-2);
 }
@@ -448,14 +448,14 @@ h5 {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.53125rem;
+  font-size: 0.625rem;
   font-weight: 700;
   color: var(--ink);
 }
 
 .party-state .ico {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   color: var(--green);
 }
 
@@ -483,7 +483,7 @@ h5 {
 .step:not(:last-child) .step-body::after {
   content: "";
   position: absolute;
-  top: 17px;
+  top: 37px;
   border-color: #9ccbb0;
 }
 
@@ -501,6 +501,22 @@ h5 {
   border-top: 1.5px solid #9ccbb0;
   border-right: 1.5px solid #9ccbb0;
   transform: translateY(-50%) rotate(45deg);
+}
+
+/* "Step" reads as a sequence; a bare number reads as a bullet point. */
+.step-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-word {
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
 }
 
 .step-num {
@@ -533,8 +549,8 @@ h5 {
   color: var(--green-dark);
 }
 
-.step p {
-  font-size: 0.71875rem;
+.step-body p {
+  font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--muted);
 }
@@ -553,18 +569,18 @@ h5 {
 }
 
 .shot-strong {
-  font-size: 0.53125rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--ink);
 }
 
 .shot-mute {
-  font-size: 0.46875rem;
+  font-size: 0.625rem;
   color: var(--muted-3);
 }
 
 .shot-foot {
-  font-size: 0.46875rem;
+  font-size: 0.625rem;
   color: var(--muted-3);
   text-align: center;
   margin-top: auto;
@@ -576,13 +592,13 @@ h5 {
 }
 
 .mini-title {
-  font-size: 0.53125rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--ink);
 }
 
 .mini-label {
-  font-size: 0.5rem;
+  font-size: 0.625rem;
   color: var(--muted-3);
   margin-top: 10px;
 }
@@ -592,7 +608,7 @@ h5 {
 }
 
 .mini-strong {
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.4;
@@ -606,7 +622,7 @@ h5 {
   border-radius: 6px;
   padding: 7px;
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.6875rem;
   font-weight: 700;
 }
 
@@ -626,7 +642,7 @@ h5 {
 }
 
 .verify-role {
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--green);
 }
@@ -682,7 +698,7 @@ h5 {
 }
 
 .wa-msg {
-  font-size: 0.53125rem;
+  font-size: 0.6875rem;
   line-height: 1.6;
   color: var(--nav-link);
   margin-top: 10px;
@@ -715,14 +731,14 @@ h5 {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.53125rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: var(--green-dark);
 }
 
 .done-head .ico {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   color: var(--green);
 }
 
@@ -737,7 +753,7 @@ h5 {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.46875rem;
+  font-size: 0.625rem;
   font-weight: 600;
   color: var(--ink);
   line-height: 1.35;
@@ -748,7 +764,7 @@ h5 {
 }
 
 .file-tag {
-  font-size: 0.375rem;
+  font-size: 0.5625rem;
   font-weight: 700;
   color: var(--red);
   background: #fcecec;
@@ -758,8 +774,8 @@ h5 {
 }
 
 .file-dl {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
   color: var(--blue);
   flex: none;
 }
@@ -774,7 +790,7 @@ h5 {
 }
 
 .done-notes p {
-  font-size: 0.46875rem;
+  font-size: 0.625rem;
   color: var(--body);
   padding-left: 10px;
   position: relative;
@@ -792,23 +808,30 @@ h5 {
 }
 
 /* ── Why Zurely comparison ── */
+/* One card, not two. Both columns hang off the same top edge, so where each one stops is
+   read against a shared baseline — the empty space under the Zurely column is the
+   argument the section is making. */
 .compare {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 20px;
-  align-items: center;
-}
-
-.lane {
+  gap: 0;
+  align-items: stretch;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
-  padding: 20px 18px;
+  padding: 22px 8px 26px;
+}
+
+/* Column, not card. Flex so the payoff line can sink to the foot. */
+.lane {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
 }
 
 .lane-title {
   text-align: center;
-  font-size: 0.71875rem;
+  font-size: 0.78125rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -823,24 +846,63 @@ h5 {
   color: var(--green-dark);
 }
 
+/* Vertical spine: a dashed rule down the icon column, same language as the connector in
+   "How Zurely Works". Each icon sits on a white disc that breaks the rule, so the column
+   reads as a sequence of nodes rather than a list. Shrink-wrapped and centred. */
 .flow {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  gap: 2px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 34px;
   list-style: none;
+  width: fit-content;
+  margin-inline: auto;
 }
 
-.flow > li:not(.flow-arrow) {
-  flex: 1;
+.flow::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  top: 14px;
+  bottom: 14px;
+  border-left: 1.5px dashed var(--red-arrow);
+}
+
+.lane-new .flow::before {
+  border-left-color: var(--green-arrow);
+}
+
+.flow > li {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   min-width: 0;
-  text-align: center;
+  text-align: left;
+}
+
+/* Counting without measuring — quiet, because the column lengths already argue. */
+.step-n {
+  flex: none;
+  width: 14px;
+  text-align: right;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--muted-3);
 }
 
 .flow-ico {
-  height: 26px;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: #fff;
   color: var(--red);
 }
 
@@ -849,42 +911,27 @@ h5 {
 }
 
 .flow-ico .ico {
-  width: 21px;
-  height: 21px;
+  width: 16px;
+  height: 16px;
 }
 
 .flow-label {
   display: block;
-  font-size: 0.5625rem;
+  font-size: 0.8125rem;
   line-height: 1.4;
   color: var(--muted);
-  margin-top: 4px;
 }
 
-.flow-arrow {
-  flex: none;
-  width: 12px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flow-arrow::before {
-  content: "→";
-  font-size: 0.8125rem;
-  color: var(--red-arrow);
-}
-
-.lane-new .flow-arrow::before {
-  color: var(--green-arrow);
-}
-
+/* Centred on the lane titles, so it reads as the hinge between the two halves. Both the
+   badge and the titles start at the grid's content top, so the offset is half the
+   difference between the 20px title line box and the 46px badge. */
 .vs {
+  align-self: start;
+  margin-top: -13px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--panel);
   border: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -894,10 +941,13 @@ h5 {
   color: var(--muted-4);
 }
 
+/* Sinks to the foot of its column so it lands level with the usual way's last chore,
+   leaving the gap above it clean. */
 .lane-foot {
   text-align: center;
-  margin-top: 14px;
-  font-size: 0.71875rem;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.78125rem;
   font-weight: 700;
   color: var(--green);
 }
@@ -969,7 +1019,7 @@ h5 {
 }
 
 .founder-role {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--green);
   margin-top: 2px;
@@ -977,7 +1027,7 @@ h5 {
 
 .founder-bio,
 .founder-badge {
-  font-size: 0.65625rem;
+  font-size: 0.75rem;
   line-height: 1.6;
   margin-top: 10px;
 }
@@ -1130,7 +1180,7 @@ h5 {
 
 /* No column heading here — the entity line leads instead. */
 .footer-entity {
-  font-size: 0.71875rem;
+  font-size: 0.78125rem;
   font-weight: 600;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.78);
@@ -1142,14 +1192,14 @@ h5 {
 }
 
 .footer-brand p {
-  font-size: 0.71875rem;
+  font-size: 0.78125rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 10px;
 }
 
 .footer-col h5 {
-  font-size: 0.65625rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1169,7 +1219,7 @@ h5 {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.71875rem;
+  font-size: 0.78125rem;
   color: rgba(255, 255, 255, 0.78);
   transition: color 0.18s;
 }
@@ -1188,7 +1238,7 @@ h5 {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 14px;
   text-align: center;
-  font-size: 0.65625rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -1542,14 +1592,6 @@ zero-md[loading]::before {
     display: none;
   }
 
-  .compare {
-    grid-template-columns: 1fr;
-  }
-
-  .vs {
-    margin: 0 auto;
-  }
-
   .about {
     grid-template-columns: 1fr 1fr;
   }
@@ -1686,40 +1728,21 @@ zero-md[loading]::before {
     flex-direction: column;
   }
 
-  /* Vertical stepper: icon and label side by side, with the arrow occupying the same
-     28px icon column so icons and arrows form one continuous spine. */
-  .flow {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    padding-left: 4px;
+  /* Columns stack here rather than at 1080px — a vertical flow is narrow enough to stay
+     side by side through tablet widths, which is where the comparison reads best. */
+  .compare {
+    grid-template-columns: 1fr;
+    padding: 22px 8px;
   }
 
-  .flow > li:not(.flow-arrow) {
-    flex: none;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    text-align: left;
+  .vs {
+    margin: 8px auto;
   }
 
-  .flow-ico,
-  .flow-arrow {
-    flex: none;
-    width: 28px;
-  }
-
-  .flow-arrow {
-    height: 14px;
-  }
-
-  .flow-arrow::before {
-    content: "↓";
-  }
-
-  .flow-label {
-    margin-top: 0;
-    font-size: 0.8125rem;
+  /* Nothing left below it to leave clean, so it goes back under "Done". */
+  .lane-foot {
+    margin-top: 14px;
+    padding-top: 0;
   }
 
   .panel-title {
