@@ -227,6 +227,18 @@ h5 {
   font-size: 0.9375rem;
 }
 
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  flex: none;
+}
+
+/* Same 1.5px border as the ghost button beside it, so the pair matches in height. */
+.nav-actions .btn-primary,
+.nav-links-cta .btn-primary {
+  border: 1.5px solid transparent;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -1533,6 +1545,20 @@ zero-md[loading]::before {
 
 /* ── Responsive ── */
 @media (max-width: 1080px) {
+  /* Tighter nav spacing from here down keeps Agent Login beside Book a Demo. */
+  .nav-inner {
+    padding: 16px 24px;
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 22px;
+  }
+
+  .nav-cta {
+    padding: 11px 18px;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1607,18 +1633,48 @@ zero-md[loading]::before {
 }
 
 @media (max-width: 900px) {
-  /* The full nav still fits at tablet widths — it collapses to the hamburger at 700px. */
-  .nav-inner {
-    padding: 16px 24px;
-    gap: 20px;
-  }
-
+  /* ── Nav collapses to the hamburger here — below this Agent Login no longer fits ── */
   .nav-links {
-    gap: 22px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 24px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
   }
 
-  .nav-cta {
-    padding: 11px 18px;
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 12px 0;
+  }
+
+  .nav-links-cta {
+    display: block;
+    padding-top: 16px;
+  }
+
+  .nav-links-cta .btn {
+    width: 100%;
+  }
+
+  .nav-links-cta + .nav-links-cta {
+    padding-top: 0;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
   }
 
   .hero-inner,
@@ -1671,46 +1727,6 @@ zero-md[loading]::before {
 }
 
 @media (max-width: 700px) {
-  /* ── Nav collapses to the hamburger here, not at tablet ── */
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px 24px 20px;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links li {
-    padding: 12px 0;
-  }
-
-  .nav-links-cta {
-    display: block;
-    padding-top: 16px;
-  }
-
-  .nav-links-cta .btn {
-    width: 100%;
-  }
-
-  .nav-cta {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
   .about,
   .steps {
     grid-template-columns: 1fr;
