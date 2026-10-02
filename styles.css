@@ -261,11 +261,13 @@ h5 {
   padding: 12px 40px 0;
 }
 
+/* Equal margins keep the copy centred beside a taller image, and off the nav when it's taller. */
 .hero-copy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+  margin-block: 24px;
 }
 
 .pill {
@@ -310,6 +312,36 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.hero-app {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-app-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Store rules: App Store badge first, equal heights, gap at least a quarter of the height. */
+.store-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.store-badge {
+  flex: none;
+}
+
+/* No max-width, so a tight column can never squash a badge out of proportion. */
+.store-badge img {
+  width: auto;
+  max-width: none;
+  height: 48px;
 }
 
 .hero-visual {
@@ -1214,6 +1246,17 @@ h5 {
   margin-top: 10px;
 }
 
+.footer-brand .store-badges {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.footer-brand .store-badge img {
+  height: 40px;
+}
+
 .footer-col h5 {
   font-size: 0.75rem;
   font-weight: 700;
@@ -1564,6 +1607,10 @@ zero-md[loading]::before {
     gap: 32px;
   }
 
+  .hero-copy {
+    margin-block: 0;
+  }
+
   /* Stacked, so cap the measure rather than letting the line run the full width. */
   .hero-lede {
     max-width: 34rem;
@@ -1910,7 +1957,22 @@ zero-md[loading]::before {
     gap: 24px 16px;
   }
 
+  .hero-app .store-badges {
+    gap: 10px;
+  }
+
+  .hero-app .store-badge img {
+    height: 40px;
+  }
+
   .footer-cols {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Below 360px a two-column footer cell is narrower than the 135px Google Play badge. */
+@media (max-width: 359px) {
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 }
