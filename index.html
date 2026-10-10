@@ -126,6 +126,10 @@
           <path d="M3.5 10h17M8 3.5V6M16 3.5V6" />
           <path d="M8 14h3" />
         </g>
+        <g id="i-login">
+          <path d="M14 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4" />
+          <path d="M10 8l4 4-4 4M14 12H4" />
+        </g>
         <g id="i-arrow-down">
           <path d="M12 4.5v15" />
           <path d="M5.5 13l6.5 6.5 6.5-6.5" />
@@ -170,11 +174,23 @@
               Book a Demo
             </a>
           </li>
+          <li class="nav-links-cta">
+            <a class="btn btn-ghost" href="https://web.zurely.my">
+              <svg class="ico" viewBox="0 0 24 24"><use href="#i-login" /></svg>
+              Agent Login
+            </a>
+          </li>
         </ul>
-        <a class="btn btn-primary nav-cta" href="/book-a-demo.html">
-          <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
-          Book a Demo
-        </a>
+        <div class="nav-actions">
+          <a class="btn btn-primary nav-cta" href="/book-a-demo.html">
+            <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
+            Book a Demo
+          </a>
+          <a class="btn btn-ghost nav-cta" href="https://web.zurely.my">
+            <svg class="ico" viewBox="0 0 24 24"><use href="#i-login" /></svg>
+            Agent Login
+          </a>
+        </div>
         <button
           class="nav-toggle"
           onclick="document.getElementById('navLinks').classList.toggle('open')"
@@ -239,6 +255,33 @@
               <svg class="ico" viewBox="0 0 24 24"><use href="#i-calendar" /></svg>
               Book a Demo
             </a>
+          </div>
+          <div class="hero-app">
+            <p class="hero-app-label">Get the Zurely app</p>
+            <div class="store-badges">
+              <!-- TODO: App Store link once the app's Apple ID is confirmed. -->
+              <!--
+              <a class="store-badge" href="#">
+                <img
+                  src="app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width="144"
+                  height="48"
+                />
+              </a>
+              -->
+              <a
+                class="store-badge"
+                href="https://play.google.com/store/apps/details?id=my.doubled.zurely"
+              >
+                <img
+                  src="google-play-badge.svg"
+                  alt="Get it on Google Play"
+                  width="162"
+                  height="48"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -687,6 +730,30 @@
               <span class="brand-name">Zurely</span>
             </a>
             <p>Digital tenancy for<br />Malaysian property agents.</p>
+            <div class="store-badges">
+              <!-- TODO: App Store link once the app's Apple ID is confirmed. -->
+              <!--
+              <a class="store-badge" href="#">
+                <img
+                  src="app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width="120"
+                  height="40"
+                />
+              </a>
+              -->
+              <a
+                class="store-badge"
+                href="https://play.google.com/store/apps/details?id=my.doubled.zurely"
+              >
+                <img
+                  src="google-play-badge.svg"
+                  alt="Get it on Google Play"
+                  width="135"
+                  height="40"
+                />
+              </a>
+            </div>
           </div>
           <div class="footer-col">
             <h5>Product</h5>
