@@ -1,5 +1,5 @@
 # Zurely
 
-A Malaysia's premier digital gateway for tenancy agreement stamping and verified tenant passes.
+Zurely helps Malaysian property agents prepare tenancy agreements, verify identities, collect digital signatures and manage stamping in one place.
 
 Please visit https://zurely.my
