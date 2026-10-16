@@ -6,27 +6,27 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://zurely.my/</loc>
-        <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+        <lastmod>2026-10-15T00:00:00+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://zurely.my/book-a-demo.html</loc>
-        <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+        <lastmod>2026-10-15T00:00:00+00:00</lastmod>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://zurely.my/support.html</loc>
-        <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+        <lastmod>2026-10-15T00:00:00+00:00</lastmod>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://zurely.my/privacy-policy.html</loc>
-        <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+        <lastmod>2026-10-15T00:00:00+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://zurely.my/terms-of-service.html</loc>
-        <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+        <lastmod>2026-10-15T00:00:00+00:00</lastmod>
         <priority>0.80</priority>
     </url>
 </urlset>
